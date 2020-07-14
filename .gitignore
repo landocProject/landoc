@@ -1,5 +1,12 @@
+# STS
+pom.properties
+MANIFEST.MF
+
 /.metadata/
+
+# Compiled class file
 *.class
+
 # Package Files #
 *.jar
 *.war
