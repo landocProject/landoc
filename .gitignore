@@ -1,4 +1,11 @@
 /.metadata/
-*.properties
-.classpath
-MANIFEST.MF
+*.class
+# Package Files #
+*.jar
+*.war
+*.ear
+/target/
+/.classpath
+/*.project
+.settings/
+/*.springBeans
