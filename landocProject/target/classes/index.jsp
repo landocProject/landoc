@@ -135,16 +135,16 @@
    <!-- Premium section end -->
    <section class="premium-section spad" style="padding-bottom: 150px;">
       <div class="container">
-         <div class="row">
-            <!-- <div class="col-lg-6">
+         <!-- <div class="row">
+            <div class="col-lg-6">
                <div class="section-title">
                   <h2>Why go Premium</h2>
                </div>
             </div>
             <div class="col-lg-6">
                <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div> -->
-         </div>
+            </div> 
+         </div>-->
          <div class="row">
             <div class="col-lg-2 col-sm-6 ">
                <div class="premium-item">

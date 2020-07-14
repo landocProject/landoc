@@ -10,3 +10,4 @@
 .settings/
 /*.springBeans
 MANIFEST.MF
+pom.properties
