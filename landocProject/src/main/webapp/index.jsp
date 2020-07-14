@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
    <title>SolMusic | HTML Template</title>
    <meta charset="UTF-8">
@@ -13,7 +11,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!-- Favicon -->
-   <link href="<%=request.getContextPath()%>/webapp/resources/img/favicon.ico" rel="shortcut icon" />
+   <link href="<%=request.getContextPath()%>/resources/img/favicon.ico" rel="shortcut icon" />
 
    <!-- Google font -->
    <link
@@ -135,16 +133,16 @@
    <!-- Premium section end -->
    <section class="premium-section spad" style="padding-bottom: 150px;">
       <div class="container">
-         <div class="row">
-            <!-- <div class="col-lg-6">
+         <!-- <div class="row">
+            <div class="col-lg-6">
                <div class="section-title">
                   <h2>Why go Premium</h2>
                </div>
             </div>
             <div class="col-lg-6">
                <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div> -->
-         </div>
+            </div> 
+         </div>-->
          <div class="row">
             <div class="col-lg-2 col-sm-6 ">
                <div class="premium-item">
