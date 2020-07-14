@@ -1,3 +1,4 @@
 /.metadata/
 *.properties
 .classpath
+MANIFEST.MF
