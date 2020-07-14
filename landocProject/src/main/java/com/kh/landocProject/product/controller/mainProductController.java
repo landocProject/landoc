@@ -11,4 +11,13 @@ public class mainProductController {
 		return "product/productIndex";
 	}
 	
+	@RequestMapping(value="productSearch.do", method=RequestMethod.GET)
+	public String productSearch() {
+		return "product/productSearch";
+	}
+	
+	@RequestMapping(value="productDetail.do", method=RequestMethod.GET)
+	public String productDetail() {
+		return "product/productDetail";
+	}
 }

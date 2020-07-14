@@ -7,7 +7,7 @@
 		</a>
 		
 		<ul class="main-menu">
-			<li><a href="index.html">병원찾기</a></li>
+			<li><a href="#">병원찾기</a></li>
 			<li><a href="#">리뷰쓰기</a></li>
 			<li><a href="askDr.do">의사에게 물어봐</a></li>
 			<li><a href="productIndex.do">의사추천 영양제</a></li>
@@ -16,7 +16,7 @@
 				<div class="user-panel">
 					<li>
 						<!--로그인 성공시 닉네임으로 변경, ul 태그 화면뿌리기 -->
-						<a href="contact.html">로그인</a>
+						<a href="#">로그인</a>
 						<ul class="sub-menu" style="left: 0px;">
 							<li><a href="mypageWork.html">나의활동</a></li>
 							<li><a href="mypagePoint.html">나의 포인트</a></li>
