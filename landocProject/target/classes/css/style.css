@@ -597,6 +597,7 @@ Premium section
 Responsive
  -------------------*/
 
+ 
 .footer-section {
 	background:  #45668e;
 	padding: 100px 0 85px;
@@ -716,7 +717,7 @@ Playlist page
 	border-radius: 80px;
 	color: #fff;
 	font-size: 15px;
-	background: #fc0254;
+	background: rgb(69, 102, 142);
 }
 
 /* ----------------
@@ -1101,7 +1102,7 @@ Artest Page
 }
 
 .player-box {
-	padding: 77px 121px 100px 81px;
+	/* padding: 77px 121px 100px 81px; */
 	border-radius: 24px;
 	background: #fff;
 }
@@ -1113,9 +1114,13 @@ Artest Page
 }
 
 .wave-player-warp {
-	padding-top: 40px;
+	padding-top: 25px;
 	position: relative;
 	width: calc(100% - 382px);
+}
+
+.wave-player-warp > * {
+	margin: 5px;
 }
 
 .tarck-thumb-warp {
@@ -1814,4 +1819,250 @@ Responsive
 		position: relative;
 		margin-top: 20px;
 	}
+}
+/* askDrBoard.html */
+#searchForm select{
+	margin-left: 100px;
+}
+
+/* askDrDetail.html */
+td > img{
+	width: 40px;
+	height: 40px;
+}
+label > a{
+	font-size: 25px;
+	color: black;
+}
+.container > *{
+	margin: 25px;
+}
+textarea{
+	width : 100%;
+}
+.comment{
+	margin-left: 75px;
+}
+/* askDrInsert */
+div >  .btn-default{
+	background-color: #0071ce;
+	color: white;
+	width: 40%;
+}
+
+/* askDrSearch.html */
+.searchDrImage{
+	width: 150px;
+	height: 150px;
+}
+.media-body > *{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.media-object > span{
+	font-size: 20px;
+	font-weight: bold;
+}
+.count-no{
+	float: right;
+	margin-right: 20px;
+}
+
+/* profileDr.html */
+#profileImage{
+	width: 350px;
+	height: 350px;
+}
+
+/* productIndex.html */
+.product-search{
+	text-align: center;
+}
+
+.product-menu {
+	width: 100%;
+	float: left;
+	margin: 0 0 1em 0;
+	padding: 0;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc; 
+	background-color: white;
+	border: none;
+}
+.product-menu ul {
+	list-style: none;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0; 
+}
+.product-menu li {
+	float: left; 
+	width: 14.28%;
+}
+.product-menu li a {
+	text-align: center;
+	display: block;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	color: #0071ce;
+	border-right: 1px solid #ccc; 
+}
+.product-menu li:first-child a {
+	border-left: 1px solid #ccc; 
+}
+.product-menu li a:hover {
+	color: #c00;
+	background-color: #fff; 
+}
+
+h4 > a{
+	color: black;
+}
+p > a{
+	font-size: 13px;
+	color: black;
+}
+h5 > a {
+	color: #45668e;
+}
+.product-image{
+	width: 200px;
+	height: 200px;
+}
+.page-link{
+	color: black;
+}
+.page-link > span{
+	color: black;
+}
+.list-group-item{
+	padding: 10px;
+}
+#searchProduct{
+	display: inline-block; 
+	margin:0 auto;
+	border: 3px solid #45668e;
+	border-radius: 7px;
+	width: 70%;
+	height: 45px;
+}
+.list-group .list-group-horizontal-sm{
+	width: 100%;
+}
+/* cart.html */
+#allProduct{
+	width: 20px;
+	height: 20px;
+}
+label.allProduct{
+	font-size: 20px;
+}
+.product-checkbox{
+	width: 20px;
+	height: 20px;
+}
+.products{
+	border: 1px solid black;
+}
+.list-group > li {
+	display: inline-block;
+}
+td{
+	vertical-align: middle !important;
+}
+td > img{
+	width: 120px;
+	height: 120px;
+}
+td > h5{
+	margin-bottom: 25px;
+	font-size: 25px;
+}
+.amountArea{
+	border: 3px solid #c2c2c2;
+	padding: 15px;
+}
+ul > li > span{
+	font-size: 18px;
+	font-weight: 600;
+}
+.text-center > button{
+	background-color: #0071ce; 
+	color: white;
+}
+
+/* productDetail.html */
+.product-infor{
+	color: #0071ce;
+}
+.discount{
+	color: #c2c2c2;
+}
+.goCart{
+	width: 48%;
+	background-color: white;
+	color: #c2c2c2;
+}
+.goPurchase{
+	width: 48%;
+	background-color: #0071ce;
+}
+.goCart > h5{
+	color: #968d8d;
+}
+.goPurchase > h5{
+	color: white;
+}
+#product-tabs {
+	width: 100%;
+	float: left;
+	margin: 0 0 1em 0;
+	padding: 0;
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc; 
+	background-color: white;
+	border: none;
+}
+#product-tabs ul {
+	list-style: none;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0; 
+}
+#product-tabs li {
+	float: left; 
+	width: 25%;
+}
+#product-tabs li a {
+	text-align: center;
+	display: block;
+	text-decoration: none;
+	font-weight: bold;
+	color: #45668e;
+	border-right: 1px solid #ccc; 
+}
+#product-tabs li:first-child a {
+	border-left: 1px solid #ccc; 
+}
+#product-tabs li a:hover {
+	color: #c00;
+	background-color: #fff; 
+}
+
+.goProductQnA{
+	color: white;
+	background-color: #45668e;
+}
+.modal-content{
+	border-radius: 10px;
+	border: 0;
+}
+.form-group > label{
+	font-size: 18px;
+	font-weight: 600;
+}
+.modal-footer > button{
+	color: white;
+	background-color: #0071ce;
 }

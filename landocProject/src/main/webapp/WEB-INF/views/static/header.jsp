@@ -9,8 +9,8 @@
 		<ul class="main-menu">
 			<li><a href="index.html">병원찾기</a></li>
 			<li><a href="#">리뷰쓰기</a></li>
-			<li><a href="#">의사에게 물어봐</a></li>
-			<li><a href="#">의사추천 영양제</a></li>
+			<li><a href="askDr.do">의사에게 물어봐</a></li>
+			<li><a href="productIndex.do">의사추천 영양제</a></li>
 
 			<div class="header-right" style="padding-top: 0%; padding-bottom: 0%;">
 				<div class="user-panel">
