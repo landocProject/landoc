@@ -1,4 +1,9 @@
+# STS
+pom.properties
+MANIFEST.MF
+
 /.metadata/
+<<<<<<< HEAD
 /landocProject/
 # STS
 pom.properties
@@ -18,3 +23,20 @@ MANIFEST.MF
 /*.project
 .settings/
 /*.springBeans
+=======
+
+# Compiled class file
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/target/
+/.classpath
+/*.project
+.settings/
+/*.springBeans
+MANIFEST.MF
+pom.properties
+>>>>>>> refs/remotes/origin/master
