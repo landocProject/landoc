@@ -10,4 +10,25 @@ public class SearchController {
 	public String searchId() {
 		return "member/search/searchId";
 	}
+
+	@RequestMapping(value="searchPwd.do", method=RequestMethod.GET)
+	public String searchPwd() {
+		return "member/search/searchPwd";
+	}
+
+	@RequestMapping(value="searchPwd2.do", method=RequestMethod.GET)
+	public String searchPwd2() {
+		return "member/search/searchPwd2";
+	}
+
+	@RequestMapping(value="searchPwd3.do", method=RequestMethod.GET)
+	public String searchPwd3() {
+		return "member/search/searchPwd3";
+	}
+
+	@RequestMapping(value="searchPwd4.do", method=RequestMethod.GET)
+	public String searchPwd4() {
+		return "member/search/searchPwd4";
+	}
+	
 }

@@ -92,7 +92,7 @@
 						<a class="txt2" href="searchId.do">
 							아이디
 						</a><span class="txt2"> / </span>
-						<a class="txt2" href="searchPwd1.do">
+						<a class="txt2" href="searchPwd.do">
 							비밀번호
 						</a><span class="txt2">찾기</span>
 					</div>

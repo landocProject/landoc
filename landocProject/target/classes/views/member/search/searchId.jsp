@@ -77,7 +77,7 @@
 							비밀번호를 잊으셨다구요?
 						</span>
 
-						<a class="txt2" href="#">
+						<a class="txt2" href="searchPwd.do">
 							비밀번호 찾기
 						</a>
 					</div>
@@ -87,7 +87,7 @@
 							아직 회원이 아니라구요?
 						</span>
 
-						<a class="txt2" href="#">
+						<a class="txt2" href="join.do">
 							회원가입
 						</a>
 					</div>
