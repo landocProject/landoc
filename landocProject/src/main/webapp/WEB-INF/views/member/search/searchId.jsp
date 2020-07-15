@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<title>로그인</title>
+	<title>아이디 찾기</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<%=request.getContextPath()%>/resources/login_images/icons/favicon.ico"/>
+<link rel="icon" type="image/png" href="<%=request.getContextPath()%>/resources/login_images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/login_vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -32,9 +32,8 @@
 <style>
 	.logoDiv{background-color: #007ee5; width: 100px; height: 100px; margin: auto; border-radius: 7px;}
 	.logoDiv .logo{width: 100px; height: 100px;}
-	.idForm{margin-bottom: 35px;}
-	#idinput{margin-bottom: 0px;}
 	#ask{padding-top: 30px;}
+	#ask1{padding-top: 5px;}
 </style>
 </head>
 <body>
@@ -49,52 +48,48 @@
 						</div>
 					</span>
 					<span class="login100-form-title p-b-26">
-						로그인
+						아이디 찾기
 					</span>
-					<div class="idForm">
-						<div class="wrap-input100 validate-input" data-validate = "영소문,숫자 4~20글자로 입력가능합니다." id="idinput">
-							<input class="input100" type="text" name="userId" id="userId">
-							<span class="focus-input100" data-placeholder="아이디"></span>
-						</div>
-						<div style="float: right;">
-							<label><input type="checkbox" id="saveId">아이디 저장</label>
-						</div>
+					<div class="wrap-input100 validate-input" data-validate = "한글로 2~4글자로 입력해주세요.">
+						<input class="input100" type="text" name="userName" id="userName">
+						<span class="focus-input100" data-placeholder="이름"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="영소문,숫자 4~20글자로 입력가능합니다.">
+					<div class="wrap-input100 validate-input" data-validate="이메일 양식으로 입력해주세요.">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="userPwd" id="userPwd">
-						<span class="focus-input100" data-placeholder="비밀번호"></span>
+						<input class="input100" type="email" name="email" id="email">
+						<span class="focus-input100" data-placeholder="이메일"></span>
 					</div>
 
 					<div class="container-login100-form-btn" style="padding-top: 50px;">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn">
-								로그인
+								아이디 찾기
 							</button>
 						</div>
 					</div>
 					
 					<div class="text-center p-t-115" id="ask">
 						<span class="txt1">
+							비밀번호를 잊으셨다구요?
+						</span>
+
+						<a class="txt2" href="#">
+							비밀번호 찾기
+						</a>
+					</div>
+
+					<div class="text-center p-t-115" id="ask1">
+						<span class="txt1">
 							아직 회원이 아니라구요?
 						</span>
-						<a class="txt2" href="join.do">
+
+						<a class="txt2" href="#">
 							회원가입
 						</a>
-						<br>
-						<span class="txt1">
-							아이디 및 비밀번호를 잊으셨나요?
-						</span>
-						<a class="txt2" href="searchId.do">
-							아이디
-						</a><span class="txt2"> / </span>
-						<a class="txt2" href="searchPwd1.do">
-							비밀번호
-						</a><span class="txt2">찾기</span>
 					</div>
 				</form>
 			</div>
@@ -120,8 +115,17 @@
 	<script src="<%=request.getContextPath()%>/resources/login_vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="<%=request.getContextPath()%>/resources/login_js/main.js"></script>
+	
+	<script>
+		$(function(){
+			$("#checkAll").click(function(){
+				var bool = $("#checkAll").prop("checked");
+				$(".infoBox").prop("checked",bool);
+			})
+			
+		})
+		
+
+	</script>
 </body>
 </html>
-
-
-

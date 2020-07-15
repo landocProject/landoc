@@ -82,10 +82,19 @@
 						<span class="txt1">
 							아직 회원이 아니라구요?
 						</span>
-
 						<a class="txt2" href="join.do">
 							회원가입
 						</a>
+						<br>
+						<span class="txt1">
+							아이디 및 비밀번호를 잊으셨나요?
+						</span>
+						<a class="txt2" href="searchId.do">
+							아이디
+						</a><span class="txt2"> / </span>
+						<a class="txt2" href="searchPwd1.do">
+							비밀번호
+						</a><span class="txt2">찾기</span>
 					</div>
 				</form>
 			</div>
