@@ -83,7 +83,7 @@
 							아직 회원이 아니라구요?
 						</span>
 
-						<a class="txt2" href="#">
+						<a class="txt2" href="join.do">
 							회원가입
 						</a>
 					</div>
