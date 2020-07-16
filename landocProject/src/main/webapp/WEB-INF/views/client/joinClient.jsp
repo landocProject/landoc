@@ -53,6 +53,7 @@
 	<div class="limiter" id="login">
 		<div class="container-login100">
 			<div class="wrap-login100">
+			<form class="login100-form validate-form" action="joinClient.do" method="post">
 				<span class="login100-form-title p-b-48">
 					<div class="logoDiv"> 
 						<img class="logo" src="<%=request.getContextPath()%>/resources/login_image/KakaoTalk_20200702_150917241.png">
@@ -65,7 +66,6 @@
 				</div>
 					<!-- 의사 회원 start -->
 				
-					<form class="login100-form validate-form">
 						
 						<div class="wrap-input100 validate-input" data-validate="영소문,숫자 4~20글자로 입력가능합니다." >
 							<input class="input100" type="text" name="userId" id="userId">
@@ -113,19 +113,19 @@
 							<span class="focus-input100" data-placeholder="생년월일 ex)970325"></span>
 						</div>
 						<div class="wrap-input1001 validate-input" data-validate="우편번호를 검색해주세요.">
-							<input class="input100" type="text" name="post" value="" id="post"> 
+							<input class="input100 postcodify_postcode5" type="text" name="post" value="" id="post"> 
 							<span class="focus-input100" data-placeholder="우편번호"></span>
 						</div>
 						<div class="searchDiv">
-							<button type="button" class="searchBtn">검색</button>
+							<button type="button" class="searchBtn" id="postcodify_search_button">검색</button>
 						</div>
 						
 						<div class="wrap-input100 validate-input" data-validate="도로명 주소를 입력해주세요." >
-							<input class="input100" type="text" name="address1" value="" id="address1">
+							<input class="input100 postcodify_address" type="text" name="address1" value="" id="address1">
 							<span class="focus-input100" data-placeholder="도로명 주소"></span>
 						</div>
 						<div class="wrap-input100 validate-input" data-validate="상세 주소를 입력해주세요." >
-							<input class="input100" type="text" name="address2" value="" id="address2">
+							<input class="input100 postcodify_extra_info" type="text" name="address2" value="" id="address2">
 							<span class="focus-input100" data-placeholder="상세주소"></span>
 						</div>
 						
@@ -156,7 +156,7 @@
 								로그인
 							</a>
 						</div>
-					</div>
+					
 				</form>
 					<!-- 의사 회원 end -->
 			</div>
@@ -183,6 +183,15 @@
 <!--===============================================================================================-->
 	<script src="<%=request.getContextPath()%>/resources/login_js/main.js"></script>
 
-	
+<!-- 주소 api -->
+	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+	 <script>
+	 	// 검색 단추를 누르면 팝업 레이어가 열리도록 설정한다.
+	 	$(function(){
+	 		$("#postcodify_search_button").postcodifyPopUp();
+	 		
+	 	});
+	 	
+	 </script>
 </body>
 </html>

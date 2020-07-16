@@ -6,10 +6,10 @@
    </settings>
    
    <typeAliases>
-      
+      <typeAlias type="com.kh.landocProject.member.model.vo.Client" alias="Client"/>
    </typeAliases>
 
    <mappers>
-   
+  	 <mapper resource="/mappers/member-mapper.xml"/>
    </mappers>
 </configuration>

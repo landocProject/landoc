@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+  
+  <!-- 일반회원_진교 -->
+  <resultMap type="Client" id="ClientResultSet">
+		<id property="cNo" column="C_NO"/>
+		<result property="userName" column="C_NAME"/>
+		<result property="nickName" column="C_NICKNAME"/>
+		<result property="userId" column="C_ID"/>
+		<result property="userPwd" column="C_PWD"/>
+		<result property="email" column="C_EMAIL"/>
+		<result property="phone" column="C_PHONE"/>
+		<result property="birth" column="C_BIRTH"/>
+		<result property="status" column="C_STATUS"/>
+		<result property="enrollDate" column="C_ENROLL_DATE"/>
+		<result property="profile" column="C_PROFILE"/>
+		<result property="marketing" column="C_MARKETING"/>
+		<result property="point" column="C_POINT"/>
+		<result property="post" column="C_POSTCODE"/>
+		<result property="address" column="C_ADDRESS"/>
+	</resultMap>
+	
+	<!-- 일반 회원가입_진교 -->
+	<insert id="joinClient" parameterType="Client">
+		INSERT INTO CLIENT
+		VALUES('M'||SEQ_C.NEXTVAL, #{userName}, #{nickName}, #{userId}, #{userPwd}, #{email}, #{phone}, #{birth}, 'Y', SYSDATE, 'N', 'Y', 0, #{post}, #{address})
+	</insert>
+	
+	
+</mapper>
