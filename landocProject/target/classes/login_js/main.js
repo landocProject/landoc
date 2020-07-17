@@ -67,7 +67,7 @@
             }
         }
         else if($(input).attr('name') == 'userId'){
-            if($(input).val().trim().match(/^[a-z0-9]{4,20}$/) == null){
+            if($(input).val().trim().match(/^[a-zA-Z0-9]{4,20}$/) == null){
                 return false;
             }
         }

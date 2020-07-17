@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.landocProject.member.model.vo.Client;
+import com.kh.landocProject.member.model.vo.DrClient;
 
 @Repository("mDao")
 public class MainMemberDao {
@@ -16,6 +17,16 @@ public class MainMemberDao {
 	public int joinClient(Client c) {
 		System.out.println(c);
 		return sqlSessionTemplate.insert("memberMapper.joinClient", c);
+	}
+
+	public Client loginClient(Client c) {
+	
+		return sqlSessionTemplate.selectOne("memberMapper.loginClient", c);
+	}
+
+	public DrClient loginDoctor(DrClient d) {
+	
+		return sqlSessionTemplate.selectOne("memberMapper.loginDrClient", d);
 	}
 
 	

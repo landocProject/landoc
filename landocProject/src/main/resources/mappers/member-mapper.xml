@@ -21,11 +21,47 @@
 		<result property="address" column="C_ADDRESS"/>
 	</resultMap>
 	
+	<!-- 의사회원_진교 -->
+	<resultMap type="DrClient" id="DoctorResultSet">
+		<id property="drNo" column="DR_NO"/>
+		<result property="hpNo" column="HP_NO"/>
+		<result property="hpCateCode" column="HPCATE_CODE"/>
+		<result property="userName" column="DR_NAME"/>
+		<result property="userId" column="DR_ID"/>
+		<result property="userPwd" column="DR_PWD"/>
+		<result property="email" column="DR_EMAIL"/>
+		<result property="phone" column="DR_PHONE"/>
+		<result property="birth" column="DR_BIRTH"/>
+		<result property="point" column="DR_POINT"/>
+		<result property="status" column="DR_STATUS"/>
+		<result property="approval" column="DR_APPROVAL"/>
+		<result property="enrollDate" column="DR_ENROLL_DATE"/>
+		<result property="profile" column="DR_PROFILE"/>
+		<result property="attachment" column="DR_ATTACHMENT"/>
+		<result property="marketing" column="DR_MARKETING"/>
+		<result property="post" column="DR_POSTCODE"/>
+		<result property="address" column="DR_ADDRESS"/>
+		<result property="like" column="DR_LIKE"/>
+		<result property="disLike" column="DR_DISLIKE"/>
+	</resultMap> 
+	
 	<!-- 일반 회원가입_진교 -->
 	<insert id="joinClient" parameterType="Client">
 		INSERT INTO CLIENT
-		VALUES('M'||SEQ_C.NEXTVAL, #{userName}, #{nickName}, #{userId}, #{userPwd}, #{email}, #{phone}, #{birth}, 'Y', SYSDATE, 'N', 'Y', 0, #{post}, #{address})
+		VALUES('C'||SEQ_C.NEXTVAL, #{userName}, #{nickName}, #{userId}, #{userPwd}, #{email}, #{phone}, #{birth}, 'Y', SYSDATE, 'N', 'Y', 0, #{post}, #{address})
 	</insert>
+	
+	<select id="loginClient" parameterType="Client" resultMap="ClientResultSet">
+		SELECT * 
+		FROM CLIENT
+		WHERE C_ID=#{userId}
+	</select>
+	
+	<select id="loginDrClient" parameterType="DrClient" resultMap="DoctorResultSet">
+		SELECT * 
+		FROM DRCLIENT
+		WHERE DR_ID=#{userId}
+	</select> 
 	
 	
 </mapper>
