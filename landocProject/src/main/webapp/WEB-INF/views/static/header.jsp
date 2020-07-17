@@ -18,7 +18,7 @@
 						<!--로그인 성공시 닉네임으로 변경, ul 태그 화면뿌리기 -->
 						<a href="login.do">로그인</a>
 						<ul class="sub-menu" style="left: 0px;">
-							<li><a href="mypageWork.html">나의활동</a></li>
+							<li><a href="clientMypage.do">나의활동</a></li>
 							<li><a href="mypagePoint.html">나의 포인트</a></li>
 							<li><a href="#">계정설정</a></li>
 							<li><a href="#">로그아웃</a></li>
