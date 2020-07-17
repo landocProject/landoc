@@ -27,7 +27,9 @@
 					</li>
 					<!--로그인 성공시 화면 X-->
 					<span>|</span>
-					<li><a href="#" style="color: #a82400;">회원가입</a></li>		<!-- 일반회원가입인지, 의사인지 굉장히 애매래스 -->
+					<li><a href="joinDrView.do" style="color: #a82400;">의사 회원가입</a></li>		<!-- 일반회원가입인지, 의사인지 굉장히 애매래스 -->
+					<span>|</span>
+					<li><a href="joinClientView.do" style="color: #a82400;">일반 회원가입</a></li>
 					<!--//-->
 				</div>
 			</div>
