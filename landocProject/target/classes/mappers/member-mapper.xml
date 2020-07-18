@@ -51,17 +51,33 @@
 		VALUES('C'||SEQ_C.NEXTVAL, #{userName}, #{nickName}, #{userId}, #{userPwd}, #{email}, #{phone}, #{birth}, 'Y', SYSDATE, 'N', 'Y', 0, #{post}, #{address})
 	</insert>
 	
+	<!-- 일반회원 로그인_진교 -->
 	<select id="loginClient" parameterType="Client" resultMap="ClientResultSet">
 		SELECT * 
 		FROM CLIENT
 		WHERE C_ID=#{userId}
 	</select>
-	
+	<!-- 의사회원 로그인_진교 -->
 	<select id="loginDrClient" parameterType="DrClient" resultMap="DoctorResultSet">
 		SELECT * 
 		FROM DRCLIENT
 		WHERE DR_ID=#{userId}
 	</select> 
 	
+	<!-- 일반회원 아이디 찾기_진교 -->
+	<select id="searchIdClient" parameterType="Client" resultMap="ClientResultSet">
+		SELECT *
+		FROM Client
+		WHERE C_NAME=#{userName}
+		AND C_EMAIL=#{email}
+	</select>
+	
+	<!-- 의사회원 아이디 찾기_진교 -->
+	<select id="searchIdDrClient" parameterType="DrClient" resultMap="DoctorResultSet">
+		SELECT *
+		FROM DrClient
+		WHERE DR_NAME=#{userName}
+		AND DR_EMAIL=#{email}
+	</select>
 	
 </mapper>
