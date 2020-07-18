@@ -15,6 +15,8 @@ public interface MainMemberService {
 
 	DrClient searchIdDoctor(DrClient d);
 
+	int joinDrClient(DrClient d);
+
 	
 
 }

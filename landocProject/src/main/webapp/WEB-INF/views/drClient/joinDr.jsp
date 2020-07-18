@@ -53,7 +53,7 @@
 	<div class="limiter" id="login">
 		<div class="container-login100">
 			<div class="wrap-login100">
-			<form class="login100-form validate-form" action="#" method="post">
+				<form class="login100-form validate-form" action="joinDrClient.do" method="post">
 				<span class="login100-form-title p-b-48">
 					<div class="logoDiv"> 
 						<img class="logo" src="<%=request.getContextPath()%>/resources/login_image/KakaoTalk_20200702_150917241.png">
@@ -70,22 +70,24 @@
 							<div class="nextBox1">
 								<label class="label1">정보 입력</label>
 							</div>
-							<img class="img"src="<%=request.getContextPath()%>/resources/login_image/icon.png">
+							<img class="img"src="login_image/icon.png">
 							<div class="nextBox">
 								<label class="label2">이메일 인증</label>
 							</div>
-							<img class="img" src="<%=request.getContextPath()%>/resources/login_image/icon.png">
+							<img class="img" src="login_image/icon.png">
 							<div class="nextBox">
 								<label class="label1">서류 제출</label>
 							</div>
-							<img class="img" src="<%=request.getContextPath()%>/resources/login_image/icon.png">
+							<img class="img" src="login_image/icon.png">
 							<div class="nextBox">
 								<label class="label1">승인 대기</label>
 							</div>
 						</div>
 						<div class="wrap-input100 validate-input" data-validate="병원을 선택해 주세요" >
 							<span class="focus-input100" data-placeholder="병원"></span>
-							<select class="input100" name="hospital" id="hospital" style="border: none;" >
+							<select class="input100" name="hpNo" id="hpNo" style="border: none;" >
+								
+							<!-- <datalist id="hospitalList" class="focus-input100" data-placeholder="병원 검색"> -->
 								<option value="1">소화병원(의료법인 소화병원)</option>
 								<option value="2">연세슬기병원</option>
 								<option value="3">연세바로척병원</option>
@@ -197,7 +199,7 @@
  
 						<div class="wrap-input100 validate-input" data-validate="정해진 진료과목을 선택 및 입력해주세요." >
 							<span class="focus-input100" data-placeholder="주분야"></span>
-							<select class="input100" name="mainField" id="mainField" style="border: none;">
+							<select class="input100" name="hpCateCode" id="hpCateCode" style="border: none;">
 								<option value="400">치과</option>
 								<option value="114">피부과</option>
 								<option value="108">성형외과</option>
@@ -290,7 +292,7 @@
 						<div class="container-login100-form-btn">
 							<div class="wrap-login100-form-btn">
 								<div class="login100-form-bgbtn"></div>
-								<button type="button" class="login100-form-btn" onclick="location.href='joinDr2.do'">
+								<button class="login100-form-btn">
 									회원가입
 								</button>
 							</div>
@@ -301,11 +303,10 @@
 								회원이라구요?
 							</span>
 	
-							<a class="txt2" href="login.do">
+							<a class="txt2" href="login.html">
 								로그인
 							</a>
 						</div>
-				
 				</form>
 					<!-- 의사 회원 end -->
 			</div>

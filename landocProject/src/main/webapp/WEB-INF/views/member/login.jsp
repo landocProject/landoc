@@ -189,9 +189,12 @@
                 return unescape(cookieValue);
             }
             // 아이디 저장 코드 end
-    
-            
-        </script>
+      		var result = '${ClientSearchId}';
+      		if(result != null){
+      			alert($(ClientSearchId.userId));
+      		}
+           }
+   </script>
 </body>
 </html>
 

@@ -34,7 +34,7 @@
 							<li><a href="clientMypage.do">나의활동</a></li>
 							<li><a href="mypagePoint.html">나의 포인트</a></li>
 							<li><a href="#">계정설정</a></li>
-							<li><a href="#">로그아웃</a></li>
+							<li><a href="logout.do">로그아웃</a></li>
 						</ul>
 						<!--//-->
 					</li>
@@ -49,7 +49,7 @@
 							<li><a href="clientMypage.do">나의활동</a></li>
 							<li><a href="mypagePoint.html">나의 포인트</a></li>
 							<li><a href="#">계정설정</a></li>
-							<li><a href="#">로그아웃</a></li>
+							<li><a href="logout.do">로그아웃</a></li>
 						</ul>
 						<!--//-->
 					</li>	
