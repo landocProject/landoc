@@ -53,7 +53,8 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-2 col-sm-6 ">
+				<%@ include file="../static/askDrCategory.jsp"%>
+				<%-- <div class="col-lg-2 col-sm-6 ">
 					<div class="premium-item">
 						<a href="#"> <img
 							src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/가정의학과.png"
@@ -223,8 +224,7 @@
 						</a>
 						<h4>한의원</h4>
 					</div>
-				</div>
-
+				</div> --%>
 			</div>
 			<br>
 			<br>
