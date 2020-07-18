@@ -56,12 +56,12 @@ public class MainMemberController {
 		return "drClient/joinDr4";
 	}
 	
-	@RequestMapping(value="searchId.do", method=RequestMethod.GET)
+	@RequestMapping(value="searchIdView.do", method=RequestMethod.GET)
 	public String searchId() {
 		return "member/searchId";
 	}
 
-	@RequestMapping(value="searchPwd.do", method=RequestMethod.GET)
+	@RequestMapping(value="searchPwdView.do", method=RequestMethod.GET)
 	public String searchPwd() {
 		return "member/searchPwd";
 	}
@@ -120,18 +120,18 @@ public class MainMemberController {
 				System.out.println("암호화 처리 된 DB일반회원 : " + loginClient);
 				
 				if(bcryptPasswordEncoder.matches(c.getUserPwd(), loginClient.getUserPwd())) {
-					model.addAttribute("loginUser",loginClient);
+					model.addAttribute("loginClient",loginClient);
 					return "home";
 				}else {
 					throw new MainMemberException("일반 회원 로그인 실패!");
 				}
 			}else if(check.equals("drClient")) {
-				DrClient loginDoctor = mService.loginDoctor(d);
+				DrClient loginDrClient = mService.loginDoctor(d);
 				
-				System.out.println("암호화 처리 된 DB의사회원 : " + loginDoctor);
+				System.out.println("암호화 처리 된 DB의사회원 : " + loginDrClient);
 				
-				if(bcryptPasswordEncoder.matches(d.getUserPwd(), loginDoctor.getUserPwd())) {
-					model.addAttribute("loginUser",loginDoctor);
+				if(bcryptPasswordEncoder.matches(d.getUserPwd(), loginDrClient.getUserPwd())) {
+					model.addAttribute("loginDrClient",loginDrClient);
 					return "home";
 				}else {
 					throw new MainMemberException("의사 회원 로그인 실패!");
@@ -141,5 +141,38 @@ public class MainMemberController {
 			return "home";
 		}
 		
+		@RequestMapping(value="searchId.do")
+		public String searchId(Client c, DrClient d, Model model, @RequestParam("check") String check) {
+			
+			System.out.println(check);
+			
+			if(check.equals("client")) {
+				Client ClientsearchId = mService.searchIdClient(c);
+				
+				System.out.println(ClientsearchId);
+				
+				if(ClientsearchId != null) {
+					model.addAttribute("ClientsearchId", ClientsearchId);
+					return "member/login";
+				}else {
+					model.addAttribute("msg", "일반회원 아이디 찾기 실패");
+					return "common/errorPage";
+				}
+			}else if(check.equals("drClient")) {
+				DrClient DrClientsearchId = mService.searchIdDoctor(d);
+				
+				System.out.println(DrClientsearchId);
+				
+				if(DrClientsearchId != null) {
+					model.addAttribute("DrClientsearchId", DrClientsearchId);
+					return "member/login";
+				}else {
+					model.addAttribute("msg", "의사회원 아이디 찾기 실패");
+					return "common/errorPage";
+				}
+			}
+			return "member/login";
+		
+		}
 	
 }

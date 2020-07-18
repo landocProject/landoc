@@ -34,6 +34,8 @@
 	.logoDiv .logo{width: 100px; height: 100px;}
 	#ask{padding-top: 30px;}
 	#ask1{padding-top: 5px;}
+	.radiobtn{padding-left: 150px; height: 50px;}
+	.doc{margin-left: 30px;}
 </style>
 </head>
 <body>
@@ -41,7 +43,7 @@
 	<div class="limiter" id="login">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="searchId.do" method="post">
 					<span class="login100-form-title p-b-48" >
 						<div class="logoDiv"> 
 							<img class="logo" src="<%=request.getContextPath()%>/resources/login_image/KakaoTalk_20200702_150917241.png">
@@ -50,15 +52,16 @@
 					<span class="login100-form-title p-b-26">
 						아이디 찾기
 					</span>
+					<div class="radiobtn">
+						<label><input type="radio" id="member" name="check" value="client" checked>일반회원</label>
+						<label><input type="radio" id="doctor" name="check" value="drClient" class="doc">의사회원</label>
+					</div>
 					<div class="wrap-input100 validate-input" data-validate = "한글로 2~4글자로 입력해주세요.">
 						<input class="input100" type="text" name="userName" id="userName">
 						<span class="focus-input100" data-placeholder="이름"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="이메일 양식으로 입력해주세요.">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
 						<input class="input100" type="email" name="email" id="email">
 						<span class="focus-input100" data-placeholder="이메일"></span>
 					</div>
