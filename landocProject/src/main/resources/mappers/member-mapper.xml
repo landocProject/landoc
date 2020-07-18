@@ -80,4 +80,10 @@
 		AND DR_EMAIL=#{email}
 	</select>
 	
+	<!-- 의사 회원가입1_진교 -->
+	<insert id="joinDrClient" parameterType="DrClient">
+		INSERT INTO DRCLIENT
+		VALUES('D'||SEQ_DR.NEXTVAL, #{hpNo}, #{hpCateCode}, #{userName}, #{userId}, #{userPwd}, #{email}, #{phone}, #{birth}, 0, 'Y', 'N', SYSDATE, NULL, 'N', 'Y', #{post}, #{address}, 0, 0)
+	</insert>
+	
 </mapper>

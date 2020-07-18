@@ -43,5 +43,11 @@ public class MainMemberServiceImpl implements MainMemberService{
 		return mDao.searchDoctor(d);
 	}
 
+	@Override
+	public int joinDrClient(DrClient d) {
+		
+		return mDao.joinDrClient(d);
+	}
+
 	
 }
