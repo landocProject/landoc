@@ -5,7 +5,6 @@
 		<a href="index.html" class="site-logo">
 			<img src="<%=request.getContextPath()%>/resources/img/mainlogo.png" alt="" style="width: 100px; height: 100px;">
 		</a>
-		
 		<ul class="main-menu">
 			<li><a href="#">병원찾기</a></li>
 			<li><a href="#">리뷰쓰기</a></li>
