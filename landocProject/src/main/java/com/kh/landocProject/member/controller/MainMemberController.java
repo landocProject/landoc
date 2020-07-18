@@ -1,8 +1,5 @@
 package com.kh.landocProject.member.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -11,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.landocProject.member.model.Exception.MainMemberException;
 import com.kh.landocProject.member.model.service.MainMemberService;
 import com.kh.landocProject.member.model.vo.Client;
+import com.kh.landocProject.member.model.vo.DrClient;
 
 @SessionAttributes("loginUser")
 @Controller
@@ -27,7 +24,7 @@ public class MainMemberController {
 	@Autowired
 	private BCryptPasswordEncoder bcryptPasswordEncoder;
 	
-	@RequestMapping(value="login.do", method=RequestMethod.GET)
+	@RequestMapping(value="loginView.do", method=RequestMethod.GET)
 	public String login() {
 		return "member/login";
 	}
@@ -110,7 +107,39 @@ public class MainMemberController {
 				throw new MainMemberException("회원 가입 실패!");
 			}
 		}
-		
+	
+		// 암호화 처리 로그인_진교
+		@RequestMapping(value="memberLogin.do", method=RequestMethod.POST)
+		public String memberLogin(Client c, DrClient d, Model model, @RequestParam("check") String check) {
+			
+//			System.out.println(check);
+			
+			if(check.equals("client")) {
+				Client loginClient = mService.loginClient(c);
+				
+				System.out.println("암호화 처리 된 DB일반회원 : " + loginClient);
+				
+				if(bcryptPasswordEncoder.matches(c.getUserPwd(), loginClient.getUserPwd())) {
+					model.addAttribute("loginUser",loginClient);
+					return "home";
+				}else {
+					throw new MainMemberException("일반 회원 로그인 실패!");
+				}
+			}else if(check.equals("drClient")) {
+				DrClient loginDoctor = mService.loginDoctor(d);
+				
+				System.out.println("암호화 처리 된 DB의사회원 : " + loginDoctor);
+				
+				if(bcryptPasswordEncoder.matches(d.getUserPwd(), loginDoctor.getUserPwd())) {
+					model.addAttribute("loginUser",loginDoctor);
+					return "home";
+				}else {
+					throw new MainMemberException("의사 회원 로그인 실패!");
+					
+				}
+			}
+			return "home";
+		}
 		
 	
 }

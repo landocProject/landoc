@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.landocProject.member.model.dao.MainMemberDao;
 import com.kh.landocProject.member.model.vo.Client;
+import com.kh.landocProject.member.model.vo.DrClient;
 
 @Service("mService")
 public class MainMemberServiceImpl implements MainMemberService{
@@ -16,6 +17,18 @@ public class MainMemberServiceImpl implements MainMemberService{
 	public int joinClient(Client c) {
 		
 		return mDao.joinClient(c);
+	}
+
+	@Override
+	public Client loginClient(Client c) {
+
+		return mDao.loginClient(c);
+	}
+
+	@Override
+	public DrClient loginDoctor(DrClient d) {
+
+		return mDao.loginDoctor(d);
 	}
 
 	
