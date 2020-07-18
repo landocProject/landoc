@@ -189,9 +189,13 @@
                 return unescape(cookieValue);
             }
             // 아이디 저장 코드 end
-    
-            
-        </script>
+          <%--   $(function(){
+            	<%if(ClientSearchId != null){%>
+            		
+            	<%}%>
+            }) --%>
+           
+   </script>
 </body>
 </html>
 
