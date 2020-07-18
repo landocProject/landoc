@@ -11,6 +11,10 @@ public interface MainMemberService {
 
 	DrClient loginDoctor(DrClient d);
 
+	Client searchIdClient(Client c);
+
+	DrClient searchIdDoctor(DrClient d);
+
 	
 
 }
