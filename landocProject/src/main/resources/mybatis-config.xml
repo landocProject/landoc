@@ -8,9 +8,11 @@
    <typeAliases>
       <typeAlias type="com.kh.landocProject.member.model.vo.Client" alias="Client"/>
       <typeAlias type="com.kh.landocProject.member.model.vo.DrClient" alias="DrClient"/>
+      <typeAlias type="com.kh.landocProject.askDr.model.vo.AskDrBoard" alias="AskDrBoard"/>
    </typeAliases>
 
    <mappers>
   	 <mapper resource="/mappers/member-mapper.xml"/>
+  	 <mapper resource="/mappers/askDr-mapper.xml"/>
    </mappers>
 </configuration>

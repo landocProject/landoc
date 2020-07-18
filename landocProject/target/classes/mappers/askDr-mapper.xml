@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="askDr">
+
+	<resultMap type="AskDrBoard" id="AskDrBoardList">
+		<id property="bNo" column="ROWNUM"/>
+		<result property="bTitle" column="AD_TITLE" />
+		<result property="nickname" column="C_NICKNAME" />
+		<result property="submitDate" column="AD_SUBMITDATE" />
+	</resultMap>
+
+<!-- resultMap, Query 경계 -->
+
+
+	<select id="selectAskDrBoard" parameterType="int" resultMap="AskDrBoardList">
+		<![CDATA[
+			SELECT ROWNUM, AD_TITLE, C_NICKNAME, AD_SUBMITDATE
+			FROM 
+			(SELECT 
+			    AD.AD_TITLE,
+			    C.C_NICKNAME,
+			    AD.AD_SUBMITDATE
+			FROM ASKDR AD
+			    JOIN CLIENT C ON (AD.C_NO = C.C_NO)
+			WHERE HP_CATE_CODE = #{categoryNo}
+			ORDER BY 3 DESC)
+		]]>
+	</select>
+
+</mapper>

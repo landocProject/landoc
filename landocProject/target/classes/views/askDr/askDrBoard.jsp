@@ -110,7 +110,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <!-- <tr>
                                 <td>1</td>
                                 <td>배아파요!</td>
                                 <td>급똥범석</td>
@@ -193,7 +193,23 @@
                                 <td>두범석</td>
                                 <td>2020-07-03</td>
                                 <td>채택대기</td>
-                            </tr>
+                            </tr> -->
+						<c:forEach items="${askDrBoardList}" var="item" >
+							<c:if test="${empty item}">
+							<tr>
+							    <td colspan='4'>게시글이 없습니다.</td>
+							</tr>								
+							</c:if>
+							<c:if test="${!empty item}">
+							<tr>
+							    <td>${item.bNo }</td>
+							    <td>${item.bTitle }</td>
+							    <td>${item.nickname }</td>
+							    <td>${item.submitDate }</td>
+							    <td>채택대기</td>
+							</tr>
+							</c:if>
+						</c:forEach>
                         </tbody>
                     </table>
                 </div>
