@@ -16,9 +16,7 @@
 			<c:if test="${empty loginClient && empty loginDrClient }">
 				<div class="user-panel">
 					<li>
-						<!--로그인 성공시 닉네임으로 변경, ul 태그 화면뿌리기 -->
 						<a href="loginView.do">로그인</a>
-						<!--//-->
 					</li>
 					<!--로그인 성공시 화면 X-->
 					<span>|</span>
