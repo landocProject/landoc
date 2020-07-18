@@ -29,6 +29,16 @@ public class MainMemberDao {
 		return sqlSessionTemplate.selectOne("memberMapper.loginDrClient", d);
 	}
 
+	public Client searchClient(Client c) {
+
+		return sqlSessionTemplate.selectOne("memberMapper.searchIdClient", c);
+	}
+
+	public DrClient searchDoctor(DrClient d) {
+
+		return sqlSessionTemplate.selectOne("memberMapper.searchIdDrClient", d);
+	}
+
 	
 
 }
