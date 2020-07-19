@@ -49,10 +49,6 @@ public class MainAskDrController {
 		mv.addObject("subject", subject);
 		mv.addObject("page", page);
 		mv.addObject("categoryNo", categoryNo);
-
-//		조원분들께 예시를 들어줄것.
-		System.out.println("***MainAskDrController Test line 53***");
-		System.out.println("page = " + page);
 		return mv;
 	}
 	

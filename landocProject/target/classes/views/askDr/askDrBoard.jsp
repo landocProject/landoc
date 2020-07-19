@@ -96,7 +96,7 @@
 				<div class="col-lg-2 col-sm-2">
 					<button type="button" class="btn btn-block btn-sm btn-primary"
 						style="background-color: #0071ce;"
-						onclick="location.href='askDr.html'">목록으로</button>
+						onclick="location.href='askDr.do'">목록으로</button>
 				</div>
 				<div class="col-lg-1 col-sm-1"></div>
 			</div>
@@ -114,22 +114,41 @@
 							</tr>
 						</thead>
 						<tbody>
+						<c:if test="${empty askDrBoardList}" >
+							<tr>
+								<td colspan='5' style="text-align: center;">게시글이 없습니다.</td>
+							</tr>
+						</c:if>
+						<c:if test="${!empty askDrBoardList}" >
 							<c:forEach items="${askDrBoardList}" var="item">
-								<c:if test="${empty item}">
-									<tr>
-										<td colspan='4'>게시글이 없습니다.</td>
-									</tr>
-								</c:if>
-								<c:if test="${!empty item}">
-									<tr>
-										<td>${item.bNo }</td>
-										<td>${item.bTitle }</td>
-										<td>${item.nickname }</td>
-										<td>${item.submitDate }</td>
-										<td>채택대기</td>
-									</tr>
-								</c:if>
+							<tr>
+								<td>${item.bNo }</td>
+								<td>${item.bTitle }</td>
+								<td>${item.nickname }</td>
+								<td>${item.submitDate }</td>
+								<td>채택대기</td>
+							</tr>
 							</c:forEach>
+						</c:if>
+						
+						<!-- 
+						<c:forEach items="${askDrBoardList}" var="item">
+							<c:if test="${empty item}">
+								<tr>
+									<td colspan='4'>게시글이 없습니다.</td>
+								</tr>
+							</c:if>
+							<c:if test="${!empty item}">
+								<tr>
+									<td>${item.bNo }</td>
+									<td>${item.bTitle }</td>
+									<td>${item.nickname }</td>
+									<td>${item.submitDate }</td>
+									<td>채택대기</td>
+								</tr>
+							</c:if>
+						</c:forEach>
+						-->
 						</tbody>
 					</table>
 				</div>
