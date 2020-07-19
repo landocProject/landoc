@@ -9,5 +9,7 @@ import com.kh.landocProject.askDr.model.vo.AskDrBoard;
 public interface AskDrService {
 
 	List<AskDrBoard> selectAskDrBoard(int categoryNo) throws Exception;
+
+	int selectAskDrBoardCount(int categoryNo);
 	
 }

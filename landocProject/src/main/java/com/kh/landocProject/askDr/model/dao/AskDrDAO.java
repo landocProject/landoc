@@ -18,5 +18,9 @@ public class AskDrDAO {
 	public List<AskDrBoard> selectAskDrBoard(int categoryNo) {
 		return sqlSessionTemplate.selectList("askDr.selectAskDrBoard", categoryNo);
 	}
+
+	public int selectAskDrBoardCount(int categoryNo) {
+		return sqlSessionTemplate.selectOne("askDr.selectAskDrBoardCount", categoryNo);
+	}
 	
 }
