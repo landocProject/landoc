@@ -12,12 +12,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.landocProject.askDr.model.service.AskDrService;
 import com.kh.landocProject.askDr.model.vo.AskDrBoard;
+import com.kh.landocProject.askDr.model.vo.AskDrBoardPagination;
+import com.kh.landocProject.askDr.model.vo.AskDrCategoryMap;
 
 @Controller
 public class MainAskDrController {
 	
 	@Resource
 	private AskDrService askDrServiceImpl;
+	@Resource
+	private AskDrCategoryMap askDrCategoryMap;
 	
 	@RequestMapping(value="askDr.do", method=RequestMethod.GET)
 	public String askDr() {
@@ -26,11 +30,24 @@ public class MainAskDrController {
 	
 //	카테고리별 의사에게 물어봐 list 뽑아오기 -범석
 	@RequestMapping(value="askDrBoard.do", method=RequestMethod.GET)
-	public ModelAndView selectAskDrBoard(@RequestParam String category) throws Exception{
+	public ModelAndView selectAskDrBoard(@RequestParam String category,
+																@RequestParam int currentPage) throws Exception{
 		ModelAndView mv = new ModelAndView("askDr/askDrBoard");
+		
 		int categoryNo = Integer.valueOf(category);
+		
+		askDrCategoryMap.setCategoryMap();
+		String subject = askDrCategoryMap.getCategoryMap().get(categoryNo);
+		
 		ArrayList<AskDrBoard> list = (ArrayList<AskDrBoard>)askDrServiceImpl.selectAskDrBoard(categoryNo);
+		
+		
+		int listCount = askDrServiceImpl.selectAskDrBoardCount(categoryNo);
+//		AskDrBoardPagination pagenation = new AskDrBoardPagination(listCount, currentPage);		에러 해결해주기
+		
+		
 		mv.addObject("askDrBoardList", list);
+		mv.addObject("subject", subject);
 		return mv;
 	}
 	
