@@ -19,5 +19,10 @@ public class AskDrServiceImpl implements AskDrService {
 	public List<AskDrBoard> selectAskDrBoard(int categoryNo) throws Exception {
 		return askDrDAO.selectAskDrBoard(categoryNo);
 	}
+
+	@Override
+	public int selectAskDrBoardCount(int categoryNo) {
+		return askDrDAO.selectAskDrBoardCount(categoryNo);
+	}
 	
 }

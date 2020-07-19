@@ -12,7 +12,7 @@
 <!-- resultMap, Query 경계 -->
 
 
-	<select id="selectAskDrBoard" parameterType="int" resultMap="AskDrBoardList">
+	<select id="selectAskDrBoard" parameterType="_int" resultMap="AskDrBoardList">
 		<![CDATA[
 			SELECT ROWNUM, AD_TITLE, C_NICKNAME, AD_SUBMITDATE
 			FROM 
@@ -25,6 +25,15 @@
 			WHERE HP_CATE_CODE = #{categoryNo}
 			ORDER BY 3 DESC)
 		]]>
-	</select>
+	</select>	<!-- 분명 페이징처리에 맞게끔 불러와야될거야 -->
 
+	<select id="selectAskDrBoardCount" parameterType="_int" resultType="_int">
+		<![CDATA[
+			SELECT COUNT(*) 
+			FROM ASKDR
+			WHERE HP_CATE_CODE = #{categoryNo}
+		]]>
+	</select>
+	
+	
 </mapper>
