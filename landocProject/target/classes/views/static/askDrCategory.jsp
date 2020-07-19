@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=122"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/가정의학과.png"
 			alt="">
 		</a>
@@ -11,7 +11,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=101"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/내과.png"
 			alt="">
 		</a>
@@ -20,7 +20,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=116"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/마취통증의학과.png"
 			alt="">
 		</a>
@@ -29,7 +29,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=115"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/비뇨기과.png"
 			alt="">
 		</a>
@@ -38,7 +38,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=110"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/산부인과.png"
 			alt="">
 		</a>
@@ -47,7 +47,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=108"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/성형외과.png"
 			alt="">
 		</a>
@@ -56,7 +56,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=111"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/소아과.png"
 			alt="">
 		</a>
@@ -65,7 +65,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=102"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/신경과.png"
 			alt="">
 		</a>
@@ -74,7 +74,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=106"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/신경외과.png"
 			alt="">
 		</a>
@@ -83,7 +83,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=112"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/안과.png"
 			alt="">
 		</a>
@@ -92,7 +92,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=109"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/영상의학과.png"
 			alt="">
 		</a>
@@ -101,7 +101,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=104"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/외과.png"
 			alt="">
 		</a>
@@ -110,7 +110,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=113"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/이비인후과.png"
 			alt="">
 		</a>
@@ -119,7 +119,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=120"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/재활의학과.png"
 			alt="">
 		</a>
@@ -128,7 +128,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=103"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/정신건강의학과.png"
 			alt="">
 		</a>
@@ -137,7 +137,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=105"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/정형외과.png"
 			alt="">
 		</a>
@@ -146,7 +146,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=400"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/치과.png"
 			alt="">
 		</a>
@@ -155,7 +155,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=114"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/피부과.png"
 			alt="">
 		</a>
@@ -164,7 +164,7 @@
 </div>
 <div class="col-lg-2 col-sm-6 ">
 	<div class="premium-item">
-		<a href="#"> <img
+		<a href="askDrBoard.do?category=300"> <img
 			src="<%=request.getContextPath()%>/resources/img/hospitalicon/icon/한의원.png"
 			alt="">
 		</a>
