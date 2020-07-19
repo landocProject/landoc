@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%-- <%@ page session="false" %> --%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -47,7 +47,7 @@
         <div style="width: 960px; display: inline-block">
     
         <div class="row doctor-list-box">
-    
+ 
             <!-- doctor list -->
             <div class="col-6 mt-3">
     
@@ -61,6 +61,7 @@
                 <!-- doctors card list -->
                 <div class="doctor-list-section mt-2 ">
                     
+                   <c:forEach var="h" items="${likeHplist}">
                    <div class="doctor-total-box border-bottom">
 
                         <a href="#" style="color: inherit;text-decoration: none;">
@@ -84,7 +85,7 @@
     
                                         
                                         <div style="font-size: 1.313rem; font-weight:bold" class="d-flex justify-content-start align-items-start">
-                               		             소현이 병원
+                               		             ${h.hpName}
                                         </div>
                                         
     
@@ -98,7 +99,7 @@
                                                 
                                            <div class="review-count-box ml-1" style="font-size: 12px;">
                                                 9.5
-                                                (107)
+                                                (${h.hpReview})
                                             </div>
                                         </div>
     
@@ -116,297 +117,18 @@
                                 <div class="row px-3 pb-0" style="font-size: 14px;">
                                     <div class="col-4 offset-1 text-left border-right pl-2 pr-1" style="letter-spacing: -0.8px;">
                                         
-                                            진료휴무
+                                           ${h.hpTime }
                                         
                                     </div>
                                     <div class="col-7 text-left color9b pl-1" style="letter-spacing: -0.8px;">
                                         <img src="https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/location_inactive.svg" style="width: 12px;height: 16.5px;" alt="Responsive image">
-                                        신논현역 5번출구 150m
+                                        ${h.hpAddress }
                                         </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    
-                    
-                    
-                     <div class="doctor-total-box border-bottom">
-
-                        <a href="#" style="color: inherit;text-decoration: none;">
-
-                            <div class="doctor-box p-2 pt-3" data-id="35982" data-slug="">
-                                <div class="row px-3">
-
-                                   
-
-                                    <div class="col-3 profile-doctor-image-box p-0">
-
-                                    
-                                        <img src="img/mainlogo.png" class="img-circle profile-doctor-image border" style="width:97px; height:97px;">
-                                    
-                                    </div>
-
-                                    <div class="col-8 profile-doctor-box  text-left">
-    
-                                        <div style="font-size:14px;font-weight: 300;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                                        	치과
-                                        </div>
-    
-                                        
-                                        <div style="font-size: 1.313rem; font-weight:bold" class="d-flex justify-content-start align-items-start">
-                               		             소현이 병원
-                                        </div>
-                                        
-    
-                                        <div class="review-star-box d-flex align-items-start mt-1">
-                                           
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                                
-                                           <div class="review-count-box ml-1" style="font-size: 12px;">
-                                                9.5
-                                                (107)
-                                            </div>
-                                        </div>
-    
-                                     
-    
-                                    </div>
-                                </div>
-
-                                
-                                <div class="row pl-4 pt-3 pb-1">
-                                    <div class="col-11 offset-1 p-0" style="border-bottom:solid 1px #f8f8f8"></div>
-                                </div>
-                                
-
-                                <div class="row px-3 pb-0" style="font-size: 14px;">
-                                    <div class="col-4 offset-1 text-left border-right pl-2 pr-1" style="letter-spacing: -0.8px;">
-                                        
-                                            진료휴무
-                                        
-                                    </div>
-                                    <div class="col-7 text-left color9b pl-1" style="letter-spacing: -0.8px;">
-                                        <img src="https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/location_inactive.svg" style="width: 12px;height: 16.5px;" alt="Responsive image">
-                                        신논현역 5번출구 150m
-                                        </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    
-                    
-                     <div class="doctor-total-box border-bottom">
-
-                        <a href="#" style="color: inherit;text-decoration: none;">
-
-                            <div class="doctor-box p-2 pt-3" data-id="35982" data-slug="">
-                                <div class="row px-3">
-
-                                    
-
-                                    <div class="col-3 profile-doctor-image-box p-0">
-
-                                    
-                                        <img src="img/mainlogo.png" class="img-circle profile-doctor-image border" style="width:97px; height:97px;">
-                                    
-                                    </div>
-
-                                    <div class="col-8 profile-doctor-box  text-left">
-    
-                                        <div style="font-size:14px;font-weight: 300;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                                        	치과
-                                        </div>
-    
-                                        
-                                        <div style="font-size: 1.313rem; font-weight:bold" class="d-flex justify-content-start align-items-start">
-                               		             소현이 병원
-                                        </div>
-                                        
-    
-                                        <div class="review-star-box d-flex align-items-start mt-1">
-                                           
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                                
-                                           <div class="review-count-box ml-1" style="font-size: 12px;">
-                                                9.5
-                                                (107)
-                                            </div>
-                                        </div>
-    
-                                     
-    
-                                    </div>
-                                </div>
-
-                                
-                                <div class="row pl-4 pt-3 pb-1">
-                                    <div class="col-11 offset-1 p-0" style="border-bottom:solid 1px #f8f8f8"></div>
-                                </div>
-                                
-
-                                <div class="row px-3 pb-0" style="font-size: 14px;">
-                                    <div class="col-4 offset-1 text-left border-right pl-2 pr-1" style="letter-spacing: -0.8px;">
-                                        
-                                            진료휴무
-                                        
-                                    </div>
-                                    <div class="col-7 text-left color9b pl-1" style="letter-spacing: -0.8px;">
-                                        <img src="https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/location_inactive.svg" style="width: 12px;height: 16.5px;" alt="Responsive image">
-                                        신논현역 5번출구 150m
-                                        </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    
-                    
-                     <div class="doctor-total-box border-bottom">
-
-                        <a href="#" style="color: inherit;text-decoration: none;">
-
-                            <div class="doctor-box p-2 pt-3" data-id="35982" data-slug="">
-                                <div class="row px-3">
-
-                     
-
-                                    <div class="col-3 profile-doctor-image-box p-0">
-
-                                    
-                                        <img src="img/mainlogo.png" class="img-circle profile-doctor-image border" style="width:97px; height:97px;">
-                                    
-                                    </div>
-
-                                    <div class="col-8 profile-doctor-box  text-left">
-    
-                                        <div style="font-size:14px;font-weight: 300;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                                        	치과
-                                        </div>
-    
-                                        
-                                        <div style="font-size: 1.313rem; font-weight:bold" class="d-flex justify-content-start align-items-start">
-                               		             소현이 병원
-                                        </div>
-                                        
-    
-                                        <div class="review-star-box d-flex align-items-start mt-1">
-                                           
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                                
-                                           <div class="review-count-box ml-1" style="font-size: 12px;">
-                                                9.5
-                                                (107)
-                                            </div>
-                                        </div>
-    
-                                     
-    
-                                    </div>
-                                </div>
-
-                                
-                                <div class="row pl-4 pt-3 pb-1">
-                                    <div class="col-11 offset-1 p-0" style="border-bottom:solid 1px #f8f8f8"></div>
-                                </div>
-                                
-
-                                <div class="row px-3 pb-0" style="font-size: 14px;">
-                                    <div class="col-4 offset-1 text-left border-right pl-2 pr-1" style="letter-spacing: -0.8px;">
-                                        
-                                            진료휴무
-                                        
-                                    </div>
-                                    <div class="col-7 text-left color9b pl-1" style="letter-spacing: -0.8px;">
-                                        <img src="https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/location_inactive.svg" style="width: 12px;height: 16.5px;" alt="Responsive image">
-                                        신논현역 5번출구 150m
-                                        </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    
-                    
-                     <div class="doctor-total-box border-bottom">
-
-                        <a href="#" style="color: inherit;text-decoration: none;">
-
-                            <div class="doctor-box p-2 pt-3" data-id="35982" data-slug="">
-                                <div class="row px-3">
-
-                                    
-
-                                    <div class="col-3 profile-doctor-image-box p-0">
-
-                                    
-                                        <img src="img/mainlogo.png" class="img-circle profile-doctor-image border" style="width:97px; height:97px;">
-                                    
-                                    </div>
-
-                                    <div class="col-8 profile-doctor-box  text-left">
-    
-                                        <div style="font-size:14px;font-weight: 300;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                                        	치과
-                                        </div>
-    
-                                        
-                                        <div style="font-size: 1.313rem; font-weight:bold" class="d-flex justify-content-start align-items-start">
-                               		             소현이 병원
-                                        </div>
-                                        
-    
-                                        <div class="review-star-box d-flex align-items-start mt-1">
-                                           
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                                
-                                           <div class="review-count-box ml-1" style="font-size: 12px;">
-                                                9.5
-                                                (107)
-                                            </div>
-                                        </div>
-    
-                                     
-    
-                                    </div>
-                                </div>
-
-                                
-                                <div class="row pl-4 pt-3 pb-1">
-                                    <div class="col-11 offset-1 p-0" style="border-bottom:solid 1px #f8f8f8"></div>
-                                </div>
-                                
-
-                                <div class="row px-3 pb-0" style="font-size: 14px;">
-                                    <div class="col-4 offset-1 text-left border-right pl-2 pr-1" style="letter-spacing: -0.8px;">
-                                        
-                                            진료휴무
-                                        
-                                    </div>
-                                    <div class="col-7 text-left color9b pl-1" style="letter-spacing: -0.8px;">
-                                        <img src="https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/location_inactive.svg" style="width: 12px;height: 16.5px;" alt="Responsive image">
-                                        신논현역 5번출구 150m
-                                        </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    </c:forEach>
 
     			 </div>
 
@@ -442,11 +164,11 @@
 	   
 	   var positions = [
 		    {
-		        content: '<div><a href="#">치과1</a></div>', 
+		        content: '<div><a href="#"><img src="<%=request.getContextPath()%>/resources/img/doctor.png" width="80px" height="80px">치과1</a></div>', 
 		        latlng: new kakao.maps.LatLng(37.554279, 127.088226)
 		    },
 		    {
-		        content: '<div>치과2</div>', 
+		        content: '<div><a href="#"><img src="<%=request.getContextPath()%>/resources/img/doctor.png" width="80px" height="80px">치과2</a></div>', 
 		        latlng: new kakao.maps.LatLng(37.554487, 127.088834)
 		    },
 		    {
@@ -474,8 +196,8 @@
 		    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
 		    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
 		    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-		    kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow));
-		    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+		    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+		 	kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
 		}
 
 		// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
