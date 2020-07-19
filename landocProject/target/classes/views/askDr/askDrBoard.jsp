@@ -44,7 +44,9 @@
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="mb-5" style="font-size: 50px; text-align:center;">가정의학과</h1>
+                    <h1 class="mb-5" style="font-size: 50px; text-align:center;">
+						${subject }
+					</h1>
                 </div>
             </div>
             <div class="row">
@@ -79,16 +81,6 @@
                 <div class="col-lg-1 col-sm-1"></div>
                 <div class="col-lg-8 col-sm-8">
                     <input id="choose" type="checkbox"> 채택완료된 글만 보기
-                    <script>
-                        $(function () {
-                            if ($("#choose").is(":checked") == true) {
-                                //채택완료된 답변만 보게 설정
-                            }
-                            else {
-                                //기본설정
-                            }
-                        });
-                    </script>
                 </div>
                 <div class="col-lg-2 col-sm-2">
                     <button type="button" class="btn btn-block btn-sm btn-primary" style="background-color:  #0071ce;"
@@ -109,91 +101,23 @@
                                 <th style="width:15%">채택여부</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>배아파요!</td>
-                                <td>급똥범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>코아파요!</td>
-                                <td>환절기고범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>머리아파요!</td>
-                                <td>두범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>배아파요!</td>
-                                <td>급똥범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>코아파요!</td>
-                                <td>환절기고범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>머리아파요!</td>
-                                <td>두범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>배아파요!</td>
-                                <td>급똥범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>코아파요!</td>
-                                <td>환절기고범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>머리아파요!</td>
-                                <td>두범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>배아파요!</td>
-                                <td>급똥범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>코아파요!</td>
-                                <td>환절기고범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>머리아파요!</td>
-                                <td>두범석</td>
-                                <td>2020-07-03</td>
-                                <td>채택대기</td>
-                            </tr>
+                        <tbody>						
+                        <c:forEach items="${askDrBoardList}" var="item" >
+							<c:if test="${empty item}">
+							<tr>
+							    <td colspan='4'>게시글이 없습니다.</td>
+							</tr>								
+							</c:if>
+							<c:if test="${!empty item}">
+							<tr>
+							    <td>${item.bNo }</td>
+							    <td>${item.bTitle }</td>
+							    <td>${item.nickname }</td>
+							    <td>${item.submitDate }</td>
+							    <td>채택대기</td>
+							</tr>
+							</c:if>
+						</c:forEach>
                         </tbody>
                     </table>
                 </div>

@@ -39,7 +39,7 @@
                 alert("필수 약관에 동의 하셔야 합니다.");
                 agr=false;
         }
-        if(lo == true && arg == true){
+        if(lo == true && agr == true){
             check=true;
         }else{
             check=false;
@@ -67,7 +67,7 @@
             }
         }
         else if($(input).attr('name') == 'userId'){
-            if($(input).val().trim().match(/^[a-z0-9]{4,20}$/) == null){
+            if($(input).val().trim().match(/^[a-zA-Z0-9]{4,20}$/) == null){
                 return false;
             }
         }
@@ -103,18 +103,6 @@
                 return false;
             }
         }
-        else if($(input).attr('name') == 'mainField'){
-            if($(input).val() != '치과' && $(input).val() != '피부과' && $(input).val() != '성형외과' && $(input).val() != '안과' && $(input).val() != '산부인과' && $(input).val() != '비뇨기과'
-            && $(input).val() != '정신건강의학과' && $(input).val() != '정형외과' && $(input).val() != '마취통증의학과' && $(input).val() != '신경외과' && $(input).val() != '재활의학과'
-            && $(input).val() != '영상의학과' && $(input).val() != '외과' && $(input).val() != '신경과' && $(input).val() != '소아과' && $(input).val() != '내과' && $(input).val() != '이비인후과'
-            && $(input).val() != '가정의학과' && $(input).val() != '한의원'){
-                return false;
-            }
-        }
-        // else if($("#check1").prop('checked') == false || $("#check2").prop("checked") == false){
-        //         alert("필수 약관에 동의 하셔야 합니다.");
-        //         return false;
-        // }
         else {
             if($(input).val().trim() == ''){
                 return false;
