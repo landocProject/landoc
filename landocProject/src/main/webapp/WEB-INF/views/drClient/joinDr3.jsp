@@ -42,8 +42,9 @@
 	.label2{padding-top: 40px; padding-left: 7px;}
 	.file1{padding-bottom: 10px;}
 	.file2{padding-top: 20px; padding-bottom: 10px;}
-	.fileBtn{background-color: #007ee5; border-radius: 5px; width: 50px; color: white;}
-	.fileBox{width: 100%; height: 300px; border: 1px solid black; border-radius: 7px;}
+	.fileBtn{float: right; width: 250px;}
+	.fileBox{width: 100%; height: 700px; border: 1px solid black; border-radius: 7px;}
+	.fileImg{border-radius: 5px; width :100%; height: 700px;  border: 1px solid black;}
 </style>
 </head>
 <body>
@@ -83,28 +84,28 @@
 
 					<div>
 						<label class="file1">재직 증명서 또는 사업자 등록증</label>
-						<button class="fileBtn" type="button">제출</button>
+						<input class="fileBtn" type="file" id="input_img1" name="uploadFile1">
 						<div class="fileBox">
-
+							<img class="fileImg" id="img1"/>
 						</div>
 
 						<label class="file2">신분증</label>
-						<button class="fileBtn" type="button">제출</button>
+						<input type="file" id="input_img2" name="uploadFile2">
 						<div class="fileBox">
-
+							<img class="fileImg" id="img2"/>
 						</div>
 
 						<label class="file2">의사 면허증</label>
-						<button class="fileBtn" type="button">제출</button>
+						<input type="file" id="input_img3" name="uploadFile3">
 						<div class="fileBox">
-
+							<img class="fileImg" id="img3"/>
 						</div>
 					</div>
 
 					<div class="container-login100-form-btn" style="padding-top: 50px;">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button type="button" class="login100-form-btn" onclick="location.href='joinDr4.do'">
+							<button type="button" class="login100-form-btn">
 								서류 제출
 							</button>
 						</div>
@@ -144,4 +145,57 @@
 <!--===============================================================================================-->
 	<script src="<%=request.getContextPath()%>/resources/login_js/main.js"></script>
 </body>
+
+<script>
+		// 이미지 미리 보여주기 start
+		$(function() {
+            $("#input_img1").on('change', function(){
+                readURL1(this);
+			});
+			$("#input_img2").on('change', function(){
+                readURL2(this);
+			});
+			$("#input_img3").on('change', function(){
+                readURL3(this);
+			});
+			
+        });
+
+        function readURL1(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+					$('#img1').attr('src', e.target.result);
+                }
+
+              reader.readAsDataURL(input.files[0]);
+            }
+		}
+		function readURL2(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+					$('#img2').attr('src', e.target.result);
+                }
+
+              reader.readAsDataURL(input.files[0]);
+            }
+		}
+		function readURL3(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+					$('#img3').attr('src', e.target.result);
+                }
+
+              reader.readAsDataURL(input.files[0]);
+            }
+        }
+		// 이미지 미리보여주기 end
+		
+		
+	</script>
 </html>
