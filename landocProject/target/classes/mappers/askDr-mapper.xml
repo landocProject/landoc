@@ -3,7 +3,7 @@
 <mapper namespace="askDr">
 
 	<resultMap type="AskDrBoard" id="AskDrBoardList">
-		<id property="bNo" column="ROWNUM"/>
+		<id property="bNo" column="RN"/>
 		<result property="bTitle" column="AD_TITLE" />
 		<result property="nickname" column="C_NICKNAME" />
 		<result property="submitDate" column="AD_SUBMITDATE" />
@@ -12,9 +12,10 @@
 <!-- resultMap, Query 경계 -->
 
 
-	<select id="selectAskDrBoard" parameterType="_int" resultMap="AskDrBoardList">
+	<select id="selectAskDrBoard" parameterType="hashMap" resultMap="AskDrBoardList">
 		<![CDATA[
-			SELECT ROWNUM, AD_TITLE, C_NICKNAME, AD_SUBMITDATE
+			SELECT * FROM
+			(SELECT ROWNUM AS RN, AD_TITLE, C_NICKNAME, AD_SUBMITDATE
 			FROM 
 			(SELECT 
 			    AD.AD_TITLE,
@@ -23,9 +24,9 @@
 			FROM ASKDR AD
 			    JOIN CLIENT C ON (AD.C_NO = C.C_NO)
 			WHERE HP_CATE_CODE = #{categoryNo}
-			ORDER BY 3 DESC)
+			ORDER BY 3 DESC))
 		]]>
-	</select>	<!-- 분명 페이징처리에 맞게끔 불러와야될거야 -->
+	</select>
 
 	<select id="selectAskDrBoardCount" parameterType="_int" resultType="_int">
 		<![CDATA[
