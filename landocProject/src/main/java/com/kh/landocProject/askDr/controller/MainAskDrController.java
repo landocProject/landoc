@@ -38,7 +38,6 @@ public class MainAskDrController {
 		int currentPage = pageNo;
 		int categoryNo = Integer.valueOf(category);
 		
-		askDrCategoryMap.setCategoryMap();
 		String subject = askDrCategoryMap.getCategoryMap().get(categoryNo);
 		
 		int listCount = askDrServiceImpl.selectAskDrBoardCount(categoryNo);
@@ -55,9 +54,27 @@ public class MainAskDrController {
 //	의사에게 물어봐 게시글 상세보기 -범석
 	@RequestMapping(value="askDrDetail.do", method=RequestMethod.GET)
 	public ModelAndView askDrDetail(ModelAndView mv,
+										@RequestParam int category,		
+										//위에는 파라미터를 String으로 받았다면 여기는 int로 받아보자
+										//된다면 바로 int로 고쳐주기!
 										@RequestParam int bNo) throws Exception {
-		mv.setViewName("askdr/askDrDetail");
+		mv.setViewName("askDr/askDrDetail");
 		
+		String subject = askDrCategoryMap.getCategoryMap().get(category);
+		AskDrBoard askDrBoardDetail = askDrServiceImpl.selectAskDrBoardDeatil(category, bNo);
+		if(askDrBoardDetail.getGender().equals("M")) {
+			askDrBoardDetail.setGender("남");
+		}
+		else {
+			askDrBoardDetail.setGender("여");
+		}
+		
+//		댓글도 가져와야함
+		
+		mv.addObject("askDrBoardDetail", askDrBoardDetail);
+//		mv.addObject();		이게 댓글가져올거
+		mv.addObject("subject", subject);
+		mv.addObject("categoryNo", category);
 		return mv;
 	}
 
@@ -71,3 +88,16 @@ public class MainAskDrController {
 		return "askDr/askDrSearch";
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,7 +15,7 @@ public class AskDrCategoryMap implements Serializable{
 	private static HashMap<Integer, String> categoryMap = new HashMap<Integer, String>();
 
 	public AskDrCategoryMap() {
-	
+		this.setCategoryMap();
 	}
 	
 	public AskDrCategoryMap(HashMap<Integer, String> categoryMap) {

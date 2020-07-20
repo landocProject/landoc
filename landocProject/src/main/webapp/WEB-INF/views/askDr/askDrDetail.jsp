@@ -51,47 +51,41 @@
 			</div>
 
 			<br>
-
 			<div class="form-group form-inline">
 				<label class="col-lg-3 col-sm-3 control-label">제목</label>
-				<div class="col-lg-9 col-sm-9 control-label">배가 넘모 아파요ㅠㅠ</div>
+				<div class="col-lg-9 col-sm-9 control-label">${askDrBoardDetail.bTitle }</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-lg-3 col-sm-3 control-label">작성자</label>
-				<div class="col-lg-9 col-sm-9 control-label">kobe********</div>
-				<!--아이디-->
+				<div class="col-lg-9 col-sm-9 control-label">${askDrBoardDetail.nickname }</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-lg-3 col-sm-3 control-label">신체정보</label>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-lg-3 col-sm-3 control-label">키</label>
-				<div class="col-lg-9 col-sm-9 control-label">*** cm</div>
+				<div class="col-lg-9 col-sm-9 control-label">${askDrBoardDetail.height }</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-lg-3 col-sm-3 control-label">몸무게</label>
-				<div class="col-lg-9 col-sm-9 control-label">** kg</div>
+				<div class="col-lg-9 col-sm-9 control-label">${askDrBoardDetail.weight }</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-lg-3 col-sm-3 control-label">나이</label>
-				<div class="col-lg-9 col-sm-9 control-label">** 세</div>
+				<div class="col-lg-9 col-sm-9 control-label">${askDrBoardDetail.age } 세</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-lg-3 col-sm-3 control-label">성별</label>
-				<div class="col-lg-9 col-sm-9 control-label">남</div>
+				<div class="col-lg-9 col-sm-9 control-label">${askDrBoardDetail.gender }</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-lg-3 col-sm-3 control-label">복용중인 약 및 주의사항</label>
-				<div class="col-lg-9 col-sm-9 control-label">코딩할때 상당히 예민해요</div>
+				<div class="col-lg-9 col-sm-9 control-label">${askDrBoardDetail.caution }</div>
 			</div>
 			<div class="form-group form-inline">
 				<label class="col-lg-3 col-sm-3 control-label">구체적인 증상</label>
 				<div class="col-lg-9 col-sm-9 control-label">
-					순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ
-					순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ
-					순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ
-					순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ
-					순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ순식간에 고도비만이 되었습니다ㅠㅠㅠ
+					${askDrBoardDetail.symptoms }
 				</div>
 			</div>
 			<div class="form-group form-inline">
@@ -103,8 +97,8 @@
 					&nbsp;
 					<button class="btn btn-sm" style="background-color: #0071ce; color:white;">채택하기</button>
 				</div>
-			</div>
-
+			</div>	
+			
 			<div class="form-group form-inline">
 				<label class="col-lg-4" style="font-size: 25px; color:black;">선생님들의 의견 (??)</label>
 				<!--?? = 댓글수-->

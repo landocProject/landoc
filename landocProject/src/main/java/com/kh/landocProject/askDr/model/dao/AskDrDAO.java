@@ -1,6 +1,7 @@
 package com.kh.landocProject.askDr.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -26,4 +27,23 @@ public class AskDrDAO {
 		RowBounds rowBounds = new RowBounds(offset, page.getBoardLimit());
 		return (ArrayList)sqlSessionTemplate.selectList("askDr.selectAskDrBoard", categoryNo, rowBounds);
 	}
+
+	public AskDrBoard selectAskDrBoardDetail(int category, int bNo) {
+		HashMap<String, Integer> parameterMap = new HashMap<String, Integer>();
+		parameterMap.put("category", category);
+		parameterMap.put("bNo", bNo);
+		return sqlSessionTemplate.selectOne("askDr.selectAskDrBoardDetail", parameterMap);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

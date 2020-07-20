@@ -216,7 +216,7 @@
 		$(function(){
 			$(".goAskDrDetail").on("click", function(){
 				var bNo = $(this).children("input[type=hidden]").val();
-				location.href="askDrDetail.do?bNo=" + bNo;
+				location.href="askDrDetail.do?category=" + ${categoryNo } + "&bNo=" + bNo;
 			});
 		});
 	</script>
