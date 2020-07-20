@@ -32,7 +32,7 @@ import com.kh.landocProject.member.model.vo.Client;
 import com.kh.landocProject.member.model.vo.DrClient;
 import com.kh.landocProject.member.model.vo.DrhpPhoto;
 
-@SessionAttributes("loginUser")
+@SessionAttributes({"loginClient", "loginDrClient"})
 @Controller
 public class MainMemberController {
 	

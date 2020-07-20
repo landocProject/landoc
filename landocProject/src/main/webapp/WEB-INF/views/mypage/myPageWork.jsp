@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-   <title>SolMusic | HTML Template</title>
+   <title>나의 활동</title>
    <meta charset="UTF-8">
    <meta name="description" content="SolMusic HTML Template">
    <meta name="keywords" content="music, html">
@@ -84,7 +84,7 @@
 			<div class="row mt-3" id="myReviewSub" style="display: none;" >
                 <div class="btn w-100 py-3 pl-5 text-left" id="" style="border: 2px solid #9b9b9b; font-size: 21px;">
 					<a href="#">병원리뷰</a><br>
-					<a href="#">상품리뷰</a><br>
+					<a href="pdReview.do">상품리뷰</a><br>
 			    </div>
 			</div>
     
@@ -135,7 +135,7 @@
 			</div>
 
             <div class="row mt-3">
-                <button onclick="href='likeHp.do'" class="btn w-100 py-3 pl-5 text-left" id="bookmark_list" style="border: 2px solid #9b9b9b; font-size: 21px;">
+                <button onclick="likehp();" class="btn w-100 py-3 pl-5 text-left" id="bookmark_list" style="border: 2px solid #9b9b9b; font-size: 21px;">
                     찜한 병원 <b class="px-3" style="color: #0071ce;">3</b>
                 </button>
             </div>
@@ -180,6 +180,10 @@
 
 		})
 
+		
+		function likehp(){
+			location.href="likeHp.do";
+		}
 	</script>
    
 
