@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.landocProject.cmypage.model.vo.LikeHp;
+import com.kh.landocProject.cmypage.model.vo.PdReview;
 
 @Repository("cmDao")
 public class cMypageDao {
@@ -16,7 +17,18 @@ public class cMypageDao {
 	
 	public ArrayList<LikeHp> selectList(String cNo) {
 		
-		return (ArrayList)sqlSessionTemplate.selectList("likeHp.likeHpList",cNo);
+		return (ArrayList)sqlSessionTemplate.selectList("cMypage.likeHpList",cNo);
 	}
+
+	public int selectCount(String cNo) {
+		
+		return sqlSessionTemplate.selectOne("cMypage.listCount",cNo);
+	}
+
+	public ArrayList<PdReview> selectPdReviewList(String cNo) {
+		
+		return (ArrayList)sqlSessionTemplate.selectList("cMypage.pdReviewList",cNo);
+	}
+
 
 }
