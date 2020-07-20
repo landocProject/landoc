@@ -135,7 +135,7 @@
 			</div>
 
             <div class="row mt-3">
-                <button onclick="href='likeHp.do'" class="btn w-100 py-3 pl-5 text-left" id="bookmark_list" style="border: 2px solid #9b9b9b; font-size: 21px;">
+                <button onclick="likehp();" class="btn w-100 py-3 pl-5 text-left" id="bookmark_list" style="border: 2px solid #9b9b9b; font-size: 21px;">
                     찜한 병원 <b class="px-3" style="color: #0071ce;">3</b>
                 </button>
             </div>
@@ -180,6 +180,10 @@
 
 		})
 
+		
+		function likehp(){
+			location.href="likeHp.do";
+		}
 	</script>
    
 
