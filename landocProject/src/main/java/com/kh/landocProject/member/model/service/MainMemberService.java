@@ -2,6 +2,7 @@ package com.kh.landocProject.member.model.service;
 
 import com.kh.landocProject.member.model.vo.Client;
 import com.kh.landocProject.member.model.vo.DrClient;
+import com.kh.landocProject.member.model.vo.DrhpPhoto;
 
 public interface MainMemberService {
 
@@ -16,6 +17,9 @@ public interface MainMemberService {
 	DrClient searchIdDoctor(DrClient d);
 
 	int joinDrClient(DrClient d);
+
+
+
 
 	
 

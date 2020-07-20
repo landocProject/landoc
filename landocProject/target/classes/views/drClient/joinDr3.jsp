@@ -52,7 +52,7 @@
 	<div class="limiter" id="login">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="joinDrClient3.do?drNo=${joinDrClient.drNo }" method="post">
 					<span class="login100-form-title p-b-48" >
 						<div class="logoDiv"> 
 							<img src="<%=request.getContextPath()%>/resources/login_image/KakaoTalk_20200702_150917241.png" class="logo">
@@ -84,19 +84,19 @@
 
 					<div>
 						<label class="file1">재직 증명서 또는 사업자 등록증</label>
-						<input class="fileBtn" type="file" id="input_img1" name="uploadFile1">
+						<input class="fileBtn" type="file" id="input_img1" name="uploadFile">
 						<div class="fileBox">
 							<img class="fileImg" id="img1"/>
 						</div>
 
 						<label class="file2">신분증</label>
-						<input type="file" id="input_img2" name="uploadFile2">
+						<input type="file" id="input_img2" name="uploadFile">
 						<div class="fileBox">
 							<img class="fileImg" id="img2"/>
 						</div>
 
 						<label class="file2">의사 면허증</label>
-						<input type="file" id="input_img3" name="uploadFile3">
+						<input type="file" id="input_img3" name="uploadFile">
 						<div class="fileBox">
 							<img class="fileImg" id="img3"/>
 						</div>

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.landocProject.member.model.vo.Client;
 import com.kh.landocProject.member.model.vo.DrClient;
+import com.kh.landocProject.member.model.vo.DrhpPhoto;
 
 @Repository("mDao")
 public class MainMemberDao {
@@ -15,7 +16,7 @@ public class MainMemberDao {
 	
 	// 일반 회원가입_진교
 	public int joinClient(Client c) {
-		System.out.println(c);
+//		System.out.println(c);
 		return sqlSessionTemplate.insert("memberMapper.joinClient", c);
 	}
 
@@ -43,6 +44,9 @@ public class MainMemberDao {
 		
 		return sqlSessionTemplate.insert("memberMapper.joinDrClient", d);
 	}
+
+
+	
 
 	
 

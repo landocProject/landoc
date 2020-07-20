@@ -1,7 +1,9 @@
 package com.kh.landocProject.member.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
@@ -21,12 +23,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.landocProject.member.model.Exception.MainMemberException;
 import com.kh.landocProject.member.model.service.MainMemberService;
 import com.kh.landocProject.member.model.vo.Client;
 import com.kh.landocProject.member.model.vo.DrClient;
+import com.kh.landocProject.member.model.vo.DrhpPhoto;
 
 @SessionAttributes("loginUser")
 @Controller
@@ -106,13 +110,13 @@ public class MainMemberController {
 		public String memberInsert(Client c, Model model,
 									@RequestParam("address1") String address1,
 									@RequestParam("address2") String address2) {
-			System.out.println(c);
+//			System.out.println(c);
 			
 			
 			// 비밀번호 암호화
 			String encPwd = bcryptPasswordEncoder.encode(c.getUserPwd());
 			
-			System.out.println(encPwd);
+//			System.out.println(encPwd);
 		
 			c.setUserPwd(encPwd);
 			
@@ -136,7 +140,7 @@ public class MainMemberController {
 			if(check.equals("client")) {
 				Client loginClient = mService.loginClient(c);
 				
-				System.out.println("암호화 처리 된 DB일반회원 : " + loginClient);
+//				System.out.println("암호화 처리 된 DB일반회원 : " + loginClient);
 				
 				if(bcryptPasswordEncoder.matches(c.getUserPwd(), loginClient.getUserPwd())) {
 					model.addAttribute("loginClient",loginClient);
@@ -147,7 +151,7 @@ public class MainMemberController {
 			}else if(check.equals("drClient")) {
 				DrClient loginDrClient = mService.loginDoctor(d);
 				
-				System.out.println("암호화 처리 된 DB의사회원 : " + loginDrClient);
+//				System.out.println("암호화 처리 된 DB의사회원 : " + loginDrClient);
 				
 				if(bcryptPasswordEncoder.matches(d.getUserPwd(), loginDrClient.getUserPwd())) {
 					model.addAttribute("loginDrClient",loginDrClient);
@@ -166,12 +170,12 @@ public class MainMemberController {
 								@RequestParam("check") String check,
 								HttpServletResponse response_equals) throws IOException{
 			
-			System.out.println(check);
+//			System.out.println(check);
 			
 			if(check.equals("client")) {
 				Client ClientSearchId = mService.searchIdClient(c);
 				
-				System.out.println(ClientSearchId);
+//				System.out.println(ClientSearchId);
 				
 				if(ClientSearchId != null) {
 					model.addAttribute("ClientSearchId", ClientSearchId);
@@ -189,7 +193,7 @@ public class MainMemberController {
 			}else if(check.equals("drClient")) {
 				DrClient DrClientsearchId = mService.searchIdDoctor(d);
 				
-				System.out.println(DrClientsearchId);
+//				System.out.println(DrClientsearchId);
 				
 				if(DrClientsearchId != null) {
 					model.addAttribute("DrClientsearchId", DrClientsearchId);
@@ -220,13 +224,13 @@ public class MainMemberController {
 										@RequestParam("address1") String address1,
 										@RequestParam("address2") String address2) throws IOException {
 			System.out.println("mainMemberController.java test line 222");
-			System.out.println("(회원가입)입력받은 의사회원정보 : " + d);
+//			System.out.println("(회원가입)입력받은 의사회원정보 : " + d);
 			
 			
 			// 비밀번호 암호화
 			String encPwd = bcryptPasswordEncoder.encode(d.getUserPwd());
 			
-			System.out.println(encPwd);
+//			System.out.println(encPwd);
 		
 			d.setUserPwd(encPwd);
 			
@@ -298,6 +302,7 @@ public class MainMemberController {
 				ModelAndView mv = new ModelAndView();		//ModelAndView로 보낼 페이지를 지정하고, 보낼 값을 지정한다.
 				mv.setViewName("/drClient/joinDr2");     //뷰의이름
 	            mv.addObject("dice", dice);
+	            mv.addObject("joinDrClient", result);
 	            
 	            response_email.setContentType("text/html; charset=UTF-8");
 	            PrintWriter out_equals = response_email.getWriter();
@@ -315,8 +320,8 @@ public class MainMemberController {
 		public ModelAndView loginDrClient2(String message, @RequestParam String dice,
 											HttpServletResponse response_equals) throws IOException{
 			System.out.println("mainMemberController.java test line 317");
-			System.out.println("마지막 : message : " + message);
-			System.out.println("마지막 : dice : " + dice);
+//			System.out.println("마지막 : message : " + message);
+//			System.out.println("마지막 : dice : " + dice);
 			
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("drClient/joinDr3");
@@ -347,4 +352,6 @@ public class MainMemberController {
 			
 			return mv;
 		}
+		
+		
 }

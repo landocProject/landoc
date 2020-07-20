@@ -8,6 +8,7 @@
    <typeAliases>
       <typeAlias type="com.kh.landocProject.member.model.vo.Client" alias="Client"/>
       <typeAlias type="com.kh.landocProject.member.model.vo.DrClient" alias="DrClient"/>
+      <typeAlias type="com.kh.landocProject.member.model.vo.DrhpPhoto" alias="DrhpPhoto"/>
       <typeAlias type="com.kh.landocProject.askDr.model.vo.AskDrBoard" alias="AskDrBoard"/>
    </typeAliases>
 
