@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-   <title>SolMusic | HTML Template</title>
+   <title>찜한병원</title>
    <meta charset="UTF-8">
    <meta name="description" content="SolMusic HTML Template">
    <meta name="keywords" content="music, html">
@@ -33,9 +33,16 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
    <![endif]-->
+   
+   <style>
+    .checked{color: orange;}
+	
+   </style>
+   <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
+   <link rel="stylesheet" type="text/css" href="https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/customer_web/style.css">
    <!-- Page Preloder -->
    <div id="preloder">
       <div class="loader"></div>
@@ -54,7 +61,7 @@
                 <div class="doctors-title-box pb-2 text-left" style="border-bottom: solid darkgray 1px;">
                     <div style="font-size: 20px;">
           				    찜한 병원 
-                        <b class="ml-3" style="color:#0071ce">3</b>
+                        <b class="ml-3" style="color:#0071ce">${likeHpCount}</b>
                     </div>
                 </div>
     
@@ -80,7 +87,7 @@
                                     <div class="col-8 profile-doctor-box  text-left">
     
                                         <div style="font-size:14px;font-weight: 300;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                                        	치과
+                                        
                                         </div>
     
                                         
@@ -91,14 +98,52 @@
     
                                         <div class="review-star-box d-flex align-items-start mt-1">
                                            
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
+                                           <c:if test="${h.hpAvgRate eq 0}">
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+                                           </c:if>
+                                            <c:if test="${h.hpAvgRate ge 1 && h.hpAvgRate le 3}">
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+                                            </c:if>
+                                            <c:if test="${h.hpAvgRate ge 4 && h.hpAvgRate le 5}">
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+                                            </c:if>
+                                            <c:if test="${h.hpAvgRate ge 6 && h.hpAvgRate le 7}">
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star"></span>
+	                                            <span class="fa fa-star"></span>
+                                            </c:if>
+                                            <c:if test="${h.hpAvgRate ge 8 && h.hpAvgRate le 9}">
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star"></span>
+                                            </c:if>
+                                            <c:if test="${h.hpAvgRate ge 10}">
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+	                                            <span class="fa fa-star checked"></span>
+                                            </c:if>
+                                            
                                                 
                                            <div class="review-count-box ml-1" style="font-size: 12px;">
-                                                9.5
+                                                ${h.hpAvgRate}
                                                 (${h.hpReview})
                                             </div>
                                         </div>
