@@ -7,165 +7,100 @@ public class AskDrBoardPagination implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8371134248582142094L;
-	/** 한 페이지당 게시글 수 **/
-    private int pageSize = 20;
-    
-    /** 한 블럭(range)당 페이지 수 **/
-    private int rangeSize = 5;
-    
-    /** 현재 페이지 **/
-    private int curPage = 1;
-    
-    /** 현재 블럭(range) **/
-    private int curRange = 1;
-    
-    /** 총 게시글 수 **/
-    private int listCnt;
-    
-    /** 총 페이지 수 **/
-    private int pageCnt;
-    
-    /** 총 블럭(range) 수 **/
-    private int rangeCnt;
-    
-    /** 시작 페이지 **/
-    private int startPage = 1;
-    
-    /** 끝 페이지 **/
-    private int endPage = 1;
-    
-    /** 시작 index **/
-    private int startIndex = 0;
-    
-    /** 이전 페이지 **/
-    private int prevPage;
-    
-    /** 다음 페이지 **/
-    private int nextPage;
-    
-	public AskDrBoardPagination() {
+	private static final long serialVersionUID = 8907297132539608213L;
+	private int currentPage;
+	private int listCount;
+	private int pageLimit;
+	private int maxPage;
+	private int startPage;
+	private int endPage;
+	private int boardLimit;
+	
+	public static AskDrBoardPagination getAskDrBoardPagination(int currentPage, int listCount) {
+		AskDrBoardPagination pagination = new AskDrBoardPagination();
+		pagination.setCurrentPage(currentPage);
+		pagination.setListCount(listCount);
+		
+		pagination.setPageLimit(5);
+		pagination.setBoardLimit(20);
+		pagination.setMaxPage(
+			(int)((double)listCount / pagination.getBoardLimit() + 0.95)
+		);
+		pagination.setStartPage(
+			((int)((double)pagination.getCurrentPage() / pagination.getPageLimit() + 0.8) - 1) * pagination.getPageLimit() + 1
+		);
+		pagination.setEndPage(
+			pagination.getStartPage() + pagination.getPageLimit() - 1
+		);
+		
+		if(pagination.getMaxPage() < pagination.getEndPage()) {
+			pagination.setEndPage(pagination.getMaxPage());
+		}
+		return pagination;
 	}
 	
-	public AskDrBoardPagination(int pageSize, int rangeSize, int curPage, int curRange, int listCnt, int pageCnt,
-			int rangeCnt, int startPage, int endPage, int startIndex, int prevPage, int nextPage) {
-		this.pageSize = pageSize;
-		this.rangeSize = rangeSize;
-		this.curPage = curPage;
-		this.curRange = curRange;
-		this.listCnt = listCnt;
-		this.pageCnt = pageCnt;
-		this.rangeCnt = rangeCnt;
+	public AskDrBoardPagination() {
+	}
+	public AskDrBoardPagination(int currentPage, int listCount, int pageLimit, int maxPage, int startPage, int endPage,
+			int boardLimit) {
+		this.currentPage = currentPage;
+		this.listCount = listCount;
+		this.pageLimit = pageLimit;
+		this.maxPage = maxPage;
 		this.startPage = startPage;
 		this.endPage = endPage;
-		this.startIndex = startIndex;
-		this.prevPage = prevPage;
-		this.nextPage = nextPage;
+		this.boardLimit = boardLimit;
 	}
-
-	public int getPageSize() {
-		return pageSize;
+	public int getCurrentPage() {
+		return currentPage;
 	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
 	}
-
-	public int getRangeSize() {
-		return rangeSize;
+	public int getListCount() {
+		return listCount;
 	}
-
-	public void setRangeSize(int rangeSize) {
-		this.rangeSize = rangeSize;
+	public void setListCount(int listCount) {
+		this.listCount = listCount;
 	}
-
-	public int getCurPage() {
-		return curPage;
+	public int getPageLimit() {
+		return pageLimit;
 	}
-
-	public void setCurPage(int curPage) {
-		this.curPage = curPage;
+	public void setPageLimit(int pageLimit) {
+		this.pageLimit = pageLimit;
 	}
-
-	public int getCurRange() {
-		return curRange;
+	public int getMaxPage() {
+		return maxPage;
 	}
-
-	public void setCurRange(int curRange) {
-		this.curRange = curRange;
+	public void setMaxPage(int maxPage) {
+		this.maxPage = maxPage;
 	}
-
-	public int getListCnt() {
-		return listCnt;
-	}
-
-	public void setListCnt(int listCnt) {
-		this.listCnt = listCnt;
-	}
-
-	public int getPageCnt() {
-		return pageCnt;
-	}
-
-	public void setPageCnt(int pageCnt) {
-		this.pageCnt = pageCnt;
-	}
-
-	public int getRangeCnt() {
-		return rangeCnt;
-	}
-
-	public void setRangeCnt(int rangeCnt) {
-		this.rangeCnt = rangeCnt;
-	}
-
 	public int getStartPage() {
 		return startPage;
 	}
-
 	public void setStartPage(int startPage) {
 		this.startPage = startPage;
 	}
-
 	public int getEndPage() {
 		return endPage;
 	}
-
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
-
-	public int getStartIndex() {
-		return startIndex;
+	public int getBoardLimit() {
+		return boardLimit;
 	}
-
-	public void setStartIndex(int startIndex) {
-		this.startIndex = startIndex;
+	public void setBoardLimit(int boardLimit) {
+		this.boardLimit = boardLimit;
 	}
-
-	public int getPrevPage() {
-		return prevPage;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
-
-	public void setPrevPage(int prevPage) {
-		this.prevPage = prevPage;
-	}
-
-	public int getNextPage() {
-		return nextPage;
-	}
-
-	public void setNextPage(int nextPage) {
-		this.nextPage = nextPage;
-	}
-
 	@Override
 	public String toString() {
-		return "askDrBoardPagination [pageSize=" + pageSize + ", rangeSize=" + rangeSize + ", curPage=" + curPage
-				+ ", curRange=" + curRange + ", listCnt=" + listCnt + ", pageCnt=" + pageCnt + ", rangeCnt=" + rangeCnt
-				+ ", startPage=" + startPage + ", endPage=" + endPage + ", startIndex=" + startIndex + ", prevPage="
-				+ prevPage + ", nextPage=" + nextPage + "]";
+		return "AskDrBoardPagination [currentPage=" + currentPage + ", listCount=" + listCount + ", pageLimit="
+				+ pageLimit + ", maxPage=" + maxPage + ", startPage=" + startPage + ", endPage=" + endPage
+				+ ", boardLimit=" + boardLimit + "]";
 	}
-	
 	
 }

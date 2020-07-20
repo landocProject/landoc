@@ -1,6 +1,7 @@
 package com.kh.landocProject.askDr.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -30,30 +31,34 @@ public class MainAskDrController {
 	
 //	카테고리별 의사에게 물어봐 list 뽑아오기 -범석
 	@RequestMapping(value="askDrBoard.do", method=RequestMethod.GET)
-	public ModelAndView selectAskDrBoard(@RequestParam String category,
-																@RequestParam int currentPage) throws Exception{
-		ModelAndView mv = new ModelAndView("askDr/askDrBoard");
-		
+	public ModelAndView selectAskDrBoard(ModelAndView mv,
+																@RequestParam String category,
+																@RequestParam int pageNo) throws Exception{
+		mv.setViewName("askDr/askDrBoard");
+		int currentPage = pageNo;
 		int categoryNo = Integer.valueOf(category);
 		
 		askDrCategoryMap.setCategoryMap();
 		String subject = askDrCategoryMap.getCategoryMap().get(categoryNo);
 		
-		ArrayList<AskDrBoard> list = (ArrayList<AskDrBoard>)askDrServiceImpl.selectAskDrBoard(categoryNo);
-		
-		
 		int listCount = askDrServiceImpl.selectAskDrBoardCount(categoryNo);
-//		AskDrBoardPagination pagenation = new AskDrBoardPagination(listCount, currentPage);		에러 해결해주기
-		
+		AskDrBoardPagination page = AskDrBoardPagination.getAskDrBoardPagination(currentPage, listCount);
+		ArrayList<AskDrBoard> list = (ArrayList<AskDrBoard>)askDrServiceImpl.selectAskDrBoard(categoryNo, page);
 		
 		mv.addObject("askDrBoardList", list);
 		mv.addObject("subject", subject);
+		mv.addObject("page", page);
+		mv.addObject("categoryNo", categoryNo);
 		return mv;
 	}
 	
+//	의사에게 물어봐 게시글 상세보기 -범석
 	@RequestMapping(value="askDrDetail.do", method=RequestMethod.GET)
-	public String askDrDetail() {
-		return "askDr/askDrDetail";
+	public ModelAndView askDrDetail(ModelAndView mv,
+										@RequestParam int bNo) throws Exception {
+		mv.setViewName("askdr/askDrDetail");
+		
+		return mv;
 	}
 
 	@RequestMapping(value="askDrInsert.do", method=RequestMethod.GET)

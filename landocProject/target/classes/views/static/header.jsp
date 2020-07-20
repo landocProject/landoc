@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!-- Header section -->
 	<header class="header-section clearfix">
-		<a href="index.html" class="site-logo">
+		<a href="home.do" class="site-logo">
 			<img src="<%=request.getContextPath()%>/resources/img/mainlogo.png" alt="" style="width: 100px; height: 100px;">
 		</a>
 		<ul class="main-menu">
