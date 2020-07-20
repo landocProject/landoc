@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.landocProject.cmypage.model.dao.cMypageDao;
 import com.kh.landocProject.cmypage.model.vo.LikeHp;
+import com.kh.landocProject.cmypage.model.vo.OrderList;
 import com.kh.landocProject.cmypage.model.vo.PdReview;
 
 @Service("cmService")
@@ -29,8 +30,14 @@ public class cMypageServiceImpl implements cMypageService {
 
 	@Override
 	public ArrayList<PdReview> selectPdReviewList(String cNo) {
-		// TODO Auto-generated method stub
+	
 		return cmDao.selectPdReviewList(cNo);
+	}
+
+	@Override
+	public ArrayList<OrderList> selectOrderList(String cNo) {
+		
+		return cmDao.selectOrderList(cNo);
 	}
 
 	

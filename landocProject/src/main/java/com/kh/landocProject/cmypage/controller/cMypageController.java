@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kh.landocProject.cmypage.model.Exception.cMypageException;
 import com.kh.landocProject.cmypage.model.service.cMypageService;
 import com.kh.landocProject.cmypage.model.vo.LikeHp;
+import com.kh.landocProject.cmypage.model.vo.OrderList;
 import com.kh.landocProject.cmypage.model.vo.PdReview;
 import com.kh.landocProject.member.model.vo.Client;
 
@@ -55,6 +56,20 @@ public class cMypageController {
 			mv.setViewName("mypage/mypagePdReview");
 		}else {
 			throw new cMypageException("상품리뷰리스트 조회 실패!");
+		}
+		
+		return mv;
+	}
+	
+	@RequestMapping(value="myOrderList.do")
+	public ModelAndView myOrderList(ModelAndView mv,HttpSession session) {
+		Client loginClient = (Client)session.getAttribute("loginClient");
+		String cNo =loginClient.getcNo();
+		ArrayList<OrderList> list = cmService.selectOrderList(cNo);
+	
+		if(list!=null) {
+			mv.addObject("orderList",list);
+			mv.setViewName("mypage/mypageOrderList");
 		}
 		
 		return mv;

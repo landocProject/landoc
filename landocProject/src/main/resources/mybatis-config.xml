@@ -11,6 +11,7 @@
       <typeAlias type="com.kh.landocProject.askDr.model.vo.AskDrBoard" alias="AskDrBoard"/>
       <typeAlias type="com.kh.landocProject.cmypage.model.vo.LikeHp" alias="LikeHp"/>
       <typeAlias type="com.kh.landocProject.cmypage.model.vo.PdReview" alias="PdReview"/>
+      <typeAlias type="com.kh.landocProject.cmypage.model.vo.OrderList" alias="OrderList"/>
    </typeAliases>
 
    <mappers>
