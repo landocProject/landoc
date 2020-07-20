@@ -8,17 +8,25 @@ public class AskDrBoard implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -5916975588710992341L;
-	private int bNo;
+	private int rNo;					//rowNo
+	private int bNo;					//boardNo
 	private String bTitle;
 	private String nickname;
 	private Date submitDate;
 	public AskDrBoard() {
 	}
-	public AskDrBoard(int bNo, String bTitle, String nickname, Date submitDate) {
+	public AskDrBoard(int rNo, int bNo, String bTitle, String nickname, Date submitDate) {
+		this.rNo = rNo;
 		this.bNo = bNo;
 		this.bTitle = bTitle;
 		this.nickname = nickname;
 		this.submitDate = submitDate;
+	}
+	public int getrNo() {
+		return rNo;
+	}
+	public void setrNo(int rNo) {
+		this.rNo = rNo;
 	}
 	public int getbNo() {
 		return bNo;
@@ -44,10 +52,12 @@ public class AskDrBoard implements Serializable{
 	public void setSubmitDate(Date submitDate) {
 		this.submitDate = submitDate;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public String toString() {
-		return "AskDrBoard [bNo=" + bNo + ", bTitle=" + bTitle + ", nickname=" + nickname + ", submitDate=" + submitDate
-				+ "]";
+		return "AskDrBoard [rNo=" + rNo + ", bNo=" + bNo + ", bTitle=" + bTitle + ", nickname=" + nickname
+				+ ", submitDate=" + submitDate + "]";
 	}
-	
 }

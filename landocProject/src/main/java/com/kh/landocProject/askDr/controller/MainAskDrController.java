@@ -31,10 +31,10 @@ public class MainAskDrController {
 	
 //	카테고리별 의사에게 물어봐 list 뽑아오기 -범석
 	@RequestMapping(value="askDrBoard.do", method=RequestMethod.GET)
-	public ModelAndView selectAskDrBoard(@RequestParam String category,
+	public ModelAndView selectAskDrBoard(ModelAndView mv,
+																@RequestParam String category,
 																@RequestParam int pageNo) throws Exception{
-		ModelAndView mv = new ModelAndView("askDr/askDrBoard");
-		
+		mv.setViewName("askDr/askDrBoard");
 		int currentPage = pageNo;
 		int categoryNo = Integer.valueOf(category);
 		
@@ -49,16 +49,16 @@ public class MainAskDrController {
 		mv.addObject("subject", subject);
 		mv.addObject("page", page);
 		mv.addObject("categoryNo", categoryNo);
-
-//		조원분들께 예시를 들어줄것.
-		System.out.println("***MainAskDrController Test line 53***");
-		System.out.println("page = " + page);
 		return mv;
 	}
 	
+//	의사에게 물어봐 게시글 상세보기 -범석
 	@RequestMapping(value="askDrDetail.do", method=RequestMethod.GET)
-	public String askDrDetail() {
-		return "askDr/askDrDetail";
+	public ModelAndView askDrDetail(ModelAndView mv,
+										@RequestParam int bNo) throws Exception {
+		mv.setViewName("askdr/askDrDetail");
+		
+		return mv;
 	}
 
 	@RequestMapping(value="askDrInsert.do", method=RequestMethod.GET)

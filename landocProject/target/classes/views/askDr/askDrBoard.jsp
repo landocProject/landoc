@@ -96,7 +96,7 @@
 				<div class="col-lg-2 col-sm-2">
 					<button type="button" class="btn btn-block btn-sm btn-primary"
 						style="background-color: #0071ce;"
-						onclick="location.href='askDr.html'">목록으로</button>
+						onclick="location.href='askDr.do'">목록으로</button>
 				</div>
 				<div class="col-lg-1 col-sm-1"></div>
 			</div>
@@ -114,22 +114,27 @@
 							</tr>
 						</thead>
 						<tbody>
+						
+						<c:if test="${empty askDrBoardList}" >
+							<tr>
+								<td colspan='5' style="text-align: center;">게시글이 없습니다.</td>
+							</tr>
+						</c:if>
+						<c:if test="${!empty askDrBoardList}" >
 							<c:forEach items="${askDrBoardList}" var="item">
-								<c:if test="${empty item}">
-									<tr>
-										<td colspan='4'>게시글이 없습니다.</td>
-									</tr>
-								</c:if>
-								<c:if test="${!empty item}">
-									<tr>
-										<td>${item.bNo }</td>
-										<td>${item.bTitle }</td>
-										<td>${item.nickname }</td>
-										<td>${item.submitDate }</td>
-										<td>채택대기</td>
-									</tr>
-								</c:if>
+							<tr class="goAskDrDetail">
+								<input type="hidden" value="${item.bNo }" />
+								<td>${item.rNo }</td>
+								<td>		<!-- 제목을 누르면 해당 게시글로 가게끔 할것 -->
+									${item.bTitle }
+								</td>
+								<td>${item.nickname }</td>
+								<td>${item.submitDate }</td>
+								<td>채택대기</td>
+							</tr>
 							</c:forEach>
+						</c:if>
+						
 						</tbody>
 					</table>
 				</div>
@@ -189,6 +194,11 @@
 		</div>
 	</section>
 
+	<!-- 
+		askDrBoardDetail.jsp 해야한다
+		해당 게시글 클릭시 디테일 페이지로 이동하게끔 설정
+	 -->
+
 	<!-- Footer section -->
 	<%@ include file="../static/footer.jsp"%>
 	<!-- Footer section end -->
@@ -202,5 +212,13 @@
 		src="<%=request.getContextPath()%>/resources/js/owl.carousel.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/mixitup.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+	<script>
+		$(function(){
+			$(".goAskDrDetail").on("click", function(){
+				var bNo = $(this).children("input[type=hidden]").val();
+				location.href="askDrDetail.do?bNo=" + bNo;
+			});
+		});
+	</script>
 </body>
 </html>
