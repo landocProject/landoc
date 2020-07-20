@@ -114,6 +114,7 @@
 							</tr>
 						</thead>
 						<tbody>
+						
 						<c:if test="${empty askDrBoardList}" >
 							<tr>
 								<td colspan='5' style="text-align: center;">게시글이 없습니다.</td>
@@ -121,9 +122,12 @@
 						</c:if>
 						<c:if test="${!empty askDrBoardList}" >
 							<c:forEach items="${askDrBoardList}" var="item">
-							<tr>
-								<td>${item.bNo }</td>
-								<td>${item.bTitle }</td>
+							<tr class="goAskDrDetail">
+								<input type="hidden" value="${item.bNo }" />
+								<td>${item.rNo }</td>
+								<td>		<!-- 제목을 누르면 해당 게시글로 가게끔 할것 -->
+									${item.bTitle }
+								</td>
 								<td>${item.nickname }</td>
 								<td>${item.submitDate }</td>
 								<td>채택대기</td>
@@ -131,24 +135,6 @@
 							</c:forEach>
 						</c:if>
 						
-						<!-- 
-						<c:forEach items="${askDrBoardList}" var="item">
-							<c:if test="${empty item}">
-								<tr>
-									<td colspan='4'>게시글이 없습니다.</td>
-								</tr>
-							</c:if>
-							<c:if test="${!empty item}">
-								<tr>
-									<td>${item.bNo }</td>
-									<td>${item.bTitle }</td>
-									<td>${item.nickname }</td>
-									<td>${item.submitDate }</td>
-									<td>채택대기</td>
-								</tr>
-							</c:if>
-						</c:forEach>
-						-->
 						</tbody>
 					</table>
 				</div>
@@ -208,6 +194,11 @@
 		</div>
 	</section>
 
+	<!-- 
+		askDrBoardDetail.jsp 해야한다
+		해당 게시글 클릭시 디테일 페이지로 이동하게끔 설정
+	 -->
+
 	<!-- Footer section -->
 	<%@ include file="../static/footer.jsp"%>
 	<!-- Footer section end -->
@@ -221,5 +212,13 @@
 		src="<%=request.getContextPath()%>/resources/js/owl.carousel.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/mixitup.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+	<script>
+		$(function(){
+			$(".goAskDrDetail").on("click", function(){
+				var bNo = $(this).children("input[type=hidden]").val();
+				location.href="askDrDetail.do?bNo=" + bNo;
+			});
+		});
+	</script>
 </body>
 </html>

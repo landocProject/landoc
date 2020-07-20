@@ -3,28 +3,30 @@
 <mapper namespace="askDr">
 
 	<resultMap type="AskDrBoard" id="AskDrBoardList">
-		<id property="bNo" column="RN"/>
+		<id property="rNo" column="RN"/>
+		<result property="bNo" column="AD_NO" />
 		<result property="bTitle" column="AD_TITLE" />
 		<result property="nickname" column="C_NICKNAME" />
 		<result property="submitDate" column="AD_SUBMITDATE" />
 	</resultMap>
 
+
 <!-- resultMap, Query 경계 -->
 
-
-	<select id="selectAskDrBoard" parameterType="hashMap" resultMap="AskDrBoardList">
+	<select id="selectAskDrBoard" parameterType="_int" resultMap="AskDrBoardList">
 		<![CDATA[
 			SELECT * FROM
-			(SELECT ROWNUM AS RN, AD_TITLE, C_NICKNAME, AD_SUBMITDATE
+			(SELECT ROWNUM AS RN, AD_NO, AD_TITLE, C_NICKNAME, AD_SUBMITDATE
 			FROM 
 			(SELECT 
+			    AD.AD_NO,
 			    AD.AD_TITLE,
 			    C.C_NICKNAME,
 			    AD.AD_SUBMITDATE
 			FROM ASKDR AD
 			    JOIN CLIENT C ON (AD.C_NO = C.C_NO)
 			WHERE HP_CATE_CODE = #{categoryNo}
-			ORDER BY 3 DESC))
+			ORDER BY 4 DESC))
 		]]>
 	</select>
 
