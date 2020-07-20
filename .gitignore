@@ -37,9 +37,13 @@ target/
 /*.project
 .settings/
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*.springBeans
 MANIFEST.MF
 pom.properties
+>>>>>>> refs/remotes/origin/master
+=======
+/*.springBeans
 >>>>>>> refs/remotes/origin/master
 =======
 /*.springBeans

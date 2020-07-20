@@ -28,7 +28,7 @@ import com.kh.landocProject.member.model.service.MainMemberService;
 import com.kh.landocProject.member.model.vo.Client;
 import com.kh.landocProject.member.model.vo.DrClient;
 
-@SessionAttributes("loginUser")
+@SessionAttributes({"loginClient", "loginDrClient"})
 @Controller
 public class MainMemberController {
 	
