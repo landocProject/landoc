@@ -1,7 +1,6 @@
 package com.kh.landocProject.askDr.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -62,22 +61,26 @@ public class MainAskDrController {
 		
 		String subject = askDrCategoryMap.getCategoryMap().get(category);
 		AskDrBoard askDrBoardDetail = askDrServiceImpl.selectAskDrBoardDeatil(category, bNo);
-		if(askDrBoardDetail.getGender().equals("M")) {
-			askDrBoardDetail.setGender("남");
-		}
-		else {
-			askDrBoardDetail.setGender("여");
-		}
+		changeGender(askDrBoardDetail);
 		
-//		댓글도 가져와야함
 		
 		mv.addObject("askDrBoardDetail", askDrBoardDetail);
-//		mv.addObject();		이게 댓글가져올거
 		mv.addObject("subject", subject);
 		mv.addObject("categoryNo", category);
+//		댓글도 가져와야함
+//		mv.addObject();		이게 댓글가져올거
 		return mv;
 	}
 
+	public void changeGender(AskDrBoard settingDetail) {
+		if(settingDetail.getGender().equals("M")) {
+			settingDetail.setGender("남");
+		}
+		else {
+			settingDetail.setGender("여");
+		}
+	}
+	
 	@RequestMapping(value="askDrInsert.do", method=RequestMethod.GET)
 	public String askDrInsert() {
 		return "askDr/askDrInsert";
