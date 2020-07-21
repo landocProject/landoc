@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 public class AskDrCategoryMap implements Serializable{
 
 	/**
-	 * 
+	 * 					이건 DB에서 불러오는게 맞다 추후 리팩토링때 지워보자
 	 */
 	private static final long serialVersionUID = -2044794718243393727L;
 	private static HashMap<Integer, String> categoryMap = new HashMap<Integer, String>();
 
 	public AskDrCategoryMap() {
-	
+		this.setCategoryMap();
 	}
 	
 	public AskDrCategoryMap(HashMap<Integer, String> categoryMap) {

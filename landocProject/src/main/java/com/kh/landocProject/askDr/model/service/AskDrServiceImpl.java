@@ -27,4 +27,9 @@ public class AskDrServiceImpl implements AskDrService {
 	public ArrayList<AskDrBoard> selectAskDrBoard(int categoryNo, AskDrBoardPagination page) throws Exception {
 		return askDrDAO.selectAskDrBoard(categoryNo, page);
 	}
+
+	@Override
+	public AskDrBoard selectAskDrBoardDeatil(int category, int bNo) {
+		return askDrDAO.selectAskDrBoardDetail(category, bNo);
+	}
 }

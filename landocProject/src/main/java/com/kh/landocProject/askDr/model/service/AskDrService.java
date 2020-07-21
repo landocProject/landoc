@@ -12,5 +12,7 @@ public interface AskDrService {
 	int selectAskDrBoardCount(int categoryNo) throws Exception;
 
 	ArrayList<AskDrBoard> selectAskDrBoard(int categoryNo, AskDrBoardPagination page) throws Exception;
+
+	AskDrBoard selectAskDrBoardDeatil(int category, int bNo);
 	
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>		<!-- 헤더에 이거 추가해줌 오류 생기면 말하기 -범석 -->
 <!-- Header section -->
 	<header class="header-section clearfix">
 		<a href="home.do" class="site-logo">
@@ -7,7 +8,7 @@
 		</a>
 		<ul class="main-menu">
 			<li><a href="#">병원찾기</a></li>
-			<li><a href="#">리뷰쓰기</a></li>
+			<li><a href="hpReviewInsert.do">리뷰쓰기</a></li>
 			<li><a href="askDr.do">의사에게 물어봐</a></li>
 			<li><a href="productIndex.do">의사추천 영양제</a></li>
 

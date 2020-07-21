@@ -32,6 +32,7 @@ public class cMypageController {
 	
 	@RequestMapping(value="clientMypage.do", method=RequestMethod.GET)
 	public String login() {
+		
 		return "mypage/myPageWork";
 	}
 	
