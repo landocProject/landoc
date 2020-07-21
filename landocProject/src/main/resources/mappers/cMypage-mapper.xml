@@ -40,10 +40,12 @@
 		<result property="oCode" column="O_CODE"/>
 		<result property="oName" column="O_NAME"/>
 		<result property="discountPrice" column="DISCOUNT_PRICE"/>
+		<result property="originPrice" column="ORIGIN_PRICE"/>
 		<result property="cName" column="C_NAME"/>
 		<result property="cPostCode" column="C_POSTCODE"/>
 		<result property="cAddress" column="C_ADDRESS"/>
 		<result property="cPhone" column="C_PHONE"/>
+		<result property="countMultiple" column="COUNTMULTIPLE"/>
 	</resultMap>
 	
 	<select id="likeHpList" parameterType="string" resultMap="LikeHpListMap">
@@ -87,14 +89,15 @@
 	
 	<select id="orderDetail" parameterType="OrderList" resultMap="orderListMap">
 		SELECT PA.ORDER_NO,PA.ORDER_DATE,TO_CHAR(PA.AMOUNT_PRICE,'999,999,999') AS AMOUNT_PRICE,PA.PAYMENT_WAY,PA.USE_POINT,PA.C_NO,OP.PD_NO,OP.OP_COUNT,
-		PD.PD_NAME,OS.O_CODE,OS.O_NAME, TO_CHAR(ORIGIN_PRICE-SELL_PRICE+PA.USE_POINT,'999,999,999') AS DISCOUNT_PRICE,C.C_NAME,C.C_POSTCODE,C.C_ADDRESS,C.C_PHONE
+		PD.PD_NAME,OS.O_CODE,OS.O_NAME, TO_CHAR(ORIGIN_PRICE-SELL_PRICE+PA.USE_POINT,'999,999,999') AS DISCOUNT_PRICE,TO_CHAR(PD.ORIGIN_PRICE,'999,999,999') AS ORIGIN_PRICE, C.C_NAME,C.C_POSTCODE,C.C_ADDRESS,C.C_PHONE
+		,TO_CHAR(ORIGIN_PRICE*OP.OP_COUNT,'999,999,999') AS COUNTMULTIPLE
 		FROM PAYMENT PA
 		JOIN ORDERPRODUCT OP ON(PA.ORDER_NO=OP.ORDER_NO)
 		JOIN PRODUCT PD ON(PD.PD_NO=OP.PD_NO)
 		JOIN ORDERMG OM ON(OM.ORDER_NO=PA.ORDER_NO)
 		JOIN ORDER_STATE OS ON(OM.O_CODE=OS.O_CODE)
 		JOIN CLIENT C ON(OM.C_NO=C.C_NO)
-		WHERE PA.C_NO =#{cNo} AND PA.ORDER_NO=#{orderNo}
+		WHERE PA.C_NO =#{cNo} AND OM.ORDER_NO=#{orderNo}
 		ORDER BY PA.ORDER_DATE DESC
 	</select>
 </mapper>

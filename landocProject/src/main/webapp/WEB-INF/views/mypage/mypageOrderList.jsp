@@ -41,7 +41,10 @@
     .modal-content{width: 1200px;}	
     #posit{position: relative;}
     .period_btn{font-size:14px; width: 58px; background-color: darkgray; color: whitesmoke;}
+    .first{border-right: solid lightgray 1px; }
+    .orderer{background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; width: 120px;}
    </style>
+   
 </head>
 
 <body>
@@ -73,7 +76,7 @@
                            
                                     <thead>
                                         <tr style="background-color: #f8f8f8;color: #9b9b9b; text-align: center;">
-                                            <th class="first" style="width: 200px;" >상품번호
+                                            <th style="width: 200px;" >상품번호
                                                 (주문번호)</th>
                                             <th>상품명</th>
                                             <th style="width: 250px;">상품금액
@@ -87,7 +90,7 @@
                                     
                                      
                                         <tr>
-                                            <td class="first" rowspan="2" style="border-right: solid lightgray 1px;" id="PdNo">  
+                                            <td class="first" rowspan="2" style="border-right: solid lightgray 1px;">  
                                                 B483299657
                                                 <span class="order-number" id="OrderNo">(1777031860)</span>
                                                
@@ -95,22 +98,22 @@
                                             <td style="border-right: solid lightgray 1px;">
                                                 <a href="#" id="aPdName">비타민 C</a>
                                             </td>
-                                            <td class="price" rowspan="2" style="border-right: solid lightgray 1px;">
+                                            <td class="first" rowspan="2" style="border-right: solid lightgray 1px;">
                                                 <strong class="num" id="price">36,740</strong>원
                                                
                                                     (<strong class="num">1</strong>개)
                                               
                                             </td>
-                                            <td class="price" rowspan="2" style="border-right: solid lightgray 1px;">
+                                            <td class="first" rowspan="2" style="border-right: solid lightgray 1px;">
                                                 <strong>-3,307</strong>원
                                             </td>
                                                                                         
                                             
-                                            <td class="status" rowspan="2">
+                                            <td class="first" rowspan="2">
                                                 <strong class="status-msg">배송완료<br></strong>
                                             </td>
                                         </tr>
-                                        <tr class="product-order-option"><td><div>36,740원</div></td></tr>
+                                        <tr class="first" ><td><div>36,740원</div></td></tr>
                                         
                                     
                                     </tbody>
@@ -124,20 +127,20 @@
                                             <img src="https://pics.auction.co.kr/myauction/2012/tit_shipping_addr_info.gif" alt="배송지정보" title="">
                                         </h3>
                                         
-                                        <table class="table  border-bottom" style="width: 550px;">
+                                        <table class="table  border-bottom" style="width: 550px;" id="clientInfo">
                                          
                                             <tbody>
-                                            <tr class="first">
-                                                <th scope="row" class="first" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; width: 120px;">받으시는 분</th>
+                                            <tr >
+                                                <th scope="row" class="orderer" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; width: 120px;">받으시는 분</th>
                                                 <td colspan="0">김소현</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row" class="first" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; width: 120px;">연락처</th>
+                                                <th scope="row" class="orderer" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; width: 120px;">연락처</th>
                                                 <td colspan="0">010-9750-2902</td>
                                             </tr>
                                          
                                             <tr>
-                                                <th scope="row" class="first" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; width: 120px;">주소</th>
+                                                <th scope="row" class="orderer" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; width: 120px;">주소</th>
                                                 <td colspan="0">
                                                     [04947]<br>
                                                     서울특별시 광진구 영화사로9가길 33-5 (해성빌라) 401호<br>
@@ -159,13 +162,13 @@
                                             
                                         </h3>
                                         <div class="order-detail-expandable">
-                                            <table class="table  border-bottom"  id="payInfoTbl" style="width: 550px;">
+                                            <table class="table  border-bottom"  id="payInfoTbl" style="width: 550px;" id="payInfo">
                                                
                                          
-                                                <tbody>
+                                                <tbody id="payInfoBody">
                                                     
-                                                    <tr class="first">
-                                                    <th scope="row" class="first" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; width: 130px;">최종 결제금액</th>
+                                                    <tr>
+                                                    <th scope="row" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; width: 130px;">최종 결제금액</th>
                                                     <td class="price final-price" style="text-align: right;">
                                                         <strong>35,190</strong>원		
                                                     
@@ -173,22 +176,22 @@
                                                 </tr>
                                                 
                                                 <tr class="sub sub-first sub-last">
-                                                    <th scope="row" class="first" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; ">결제수단</th>
+                                                    <th scope="row"  style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; ">결제수단</th>
                                                     <td class="price" style="text-align: right;"><strong>신용카드</strong></td>
                                                 </tr>
                                                 
                                                 <tr class="sep">
-                                                    <th scope="row" class="first" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; ">상품금액</th>
+                                                    <th scope="row" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; ">상품금액</th>
                                                     <td class="price" style="text-align: right;"><strong>36,740</strong>원</td>
                                                 </tr>
                                              
                                                
-                                               
-                                                    <th scope="row" class="first" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; ">총할인금액</th>
+                                             	<tr>
+                                                    <th scope="row"  style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; ">총할인금액</th>
                                                     <td class="price" style="text-align: right;"><strong>-3,307</strong>원</td>
                                                 </tr>
                                                 <tr class="hidden">
-                                                    <th scope="row" class="first" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; ">사용포인트</th>
+                                                    <th scope="row" style="background-color: #f8f8f8;color: #9b9b9b; text-align: center; border-right: solid lightgray 1px; ">사용포인트</th>
                                                     <td class="price" style="text-align: right;"><strong>0</strong>원</td>
                                                 </tr>
                           
@@ -377,10 +380,115 @@
 						$tableBody = $("#orderInfo tbody");
 						$tableBody.html("");
 				
-						alert(data.orderNo);
+						
+					
+						
+						var $tr;
+						var $orderNo;
+						var $pdName;
+						var $priceAndCount;
+						var $discoundPrice;
+						var $oState;
+					
+							$tr = $("<tr>");
+							$orderNo = $("<td rowspan='2' class='first'>").text(data.pdNo+"("+data.orderNo+")");
+							$pdName = $("<td class='first'>").text(data.pdName);
+							$priceAndCount = $("<td rowspan='2' class='first'>").text(data.countMultiple+"원("+data.opCount+")개");
+							$discountPrice = $("<td rowspan='2' class='first' >").text(data.discountPrice+"원");
+							$oState = $("<td rowspan='2'>").text(data.oName);
+							
+							$tr.append($orderNo);
+							$tr.append($pdName);
+							$tr.append($priceAndCount);
+							$tr.append($discountPrice);
+							$tr.append($oState);
+							$tableBody.append($tr);
+						
+						var $tr2;
+						var $price2;
+							
+							$tr2=$("<tr>");
+							$price2=$("<td>").text(data.originPrice+"원");
+							$tr2.append($price2);
+							$tableBody.append($tr2);
+						
+						$tableBody2 =$("#clientInfo tbody");
+						$tableBody2.html("");
+						
+						var $orderer;
+						var $phone;
+						var $address;
+						var $tr3;
+						var $tr4;
+						var $tr5;
 						
 						
+						$tr3 = $("<tr>");
+						$tr4 = $("<tr>");
+						$tr5 = $("<tr>");
+						$th1 = $("<th>").text("받으시는분").addClass("orderer");
+						$orderer=$("<td>").text(data.cName);
+						$th2 = $("<th>").text("연락처").addClass("orderer");
+						$phone=$("<td>").text(data.cPhone);
+						$th3 = $("<th>").text("주소").addClass("orderer");
+						$address=$("<td>").text("["+data.cPostCode+"]"+data.cAddress);
 						
+						$tr3.append($th1);
+						$tr3.append($orderer);
+						$tableBody2.append($tr3);
+						
+						$tr4.append($th2);
+						$tr4.append($phone);
+						$tableBody2.append($tr4);
+							
+						$tr5.append($th3);
+						$tr5.append($address);
+						$tableBody2.append($tr5);
+						
+						$tableBody3 =$("#payInfoBody");
+						$tableBody3.html("");
+						var $resultPrice;
+						var $paymentWay;
+						var $productPrice;
+						var $amountDisCount;
+						var $usePoint;
+						
+						var $tr6=$("<tr>");
+						var $tr7=$("<tr>");
+						var $tr8=$("<tr>");
+						var $tr9=$("<tr>");
+						var $tr10=$("<tr>");
+						
+						var $th4=$("<th>").text("최종결제금액").addClass("orderer");
+						$resultPrice=$("<td style='text-align: right;'>").text(data.amountPrice+"원");
+						var $th5 = $("<th>").text("결제수단").addClass("orderer");
+						$paymentWay=$("<td style='text-align: right;'>").text(data.paymentWay);
+						var $th6 = $("<th>").text("상품금액").addClass("orderer");
+						$productPrice=$("<td style='text-align: right;'>").text(data.originPrice +"원");
+						var $th7 = $("<th>").text("총할인금액").addClass("orderer");
+						$amountDisCount=$("<td style='text-align: right;'>").text("-"+data.discountPrice);
+						var $th8 = $("<th>").text("사용포인트").addClass("orderer");
+						$usePoint=$("<td style='text-align: right;'>").text(data.usePoint);
+						
+						$tr6.append($th4);
+						$tr6.append($resultPrice);
+						$tableBody3.append($tr6);
+						
+						$tr7.append($th5);
+						$tr7.append($paymentWay);
+						$tableBody3.append($tr7);
+							
+						$tr8.append($th6);
+						$tr8.append($productPrice);
+						$tableBody3.append($tr8);
+						
+						$tr9.append($th7);
+						$tr9.append($amountDisCount);
+						$tableBody3.append($tr9);
+						
+						$tr10.append($th8);
+						$tr10.append($usePoint);
+						$tableBody3.append($tr10);
 		              
 			         },
 			     	error:function(request, status, errorData){

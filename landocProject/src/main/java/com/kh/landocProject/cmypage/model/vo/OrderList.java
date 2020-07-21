@@ -10,7 +10,7 @@ public class OrderList implements Serializable{
 	private static final long serialVersionUID = -8680240868675734917L;
 	private int orderNo;
 	private Date orderDate;
-	private String amountPrice;
+	private String amountPrice;		//총 결제금액
 	private String paymentWay;
 	private int usePoint;
 	private String cNo;
@@ -20,12 +20,13 @@ public class OrderList implements Serializable{
 	private String tumbnail;
 	private int oCode;
 	private String oName;
-	private String discountPrice;
+	private String discountPrice;	// 원가-판매가+포인트(총할인금액)
+	private String originPrice;	
 	private String cName;
 	private int cPostCode;
 	private String cAddress;
 	private String cPhone;
-	
+	private String countMultiple;	// 수량 * 원가
 	
 	public OrderList() {
 		super();
@@ -47,11 +48,10 @@ public class OrderList implements Serializable{
 	}
 
 
-	
 
 	public OrderList(int orderNo, Date orderDate, String amountPrice, String paymentWay, int usePoint, String cNo,
 			int pdNo, int opCount, String pdName, String tumbnail, int oCode, String oName, String discountPrice,
-			String cName, int cPostCode, String cAddress, String cPhone) {
+			String originPrice, String cName, int cPostCode, String cAddress, String cPhone, String countMultiple) {
 		super();
 		this.orderNo = orderNo;
 		this.orderDate = orderDate;
@@ -66,10 +66,12 @@ public class OrderList implements Serializable{
 		this.oCode = oCode;
 		this.oName = oName;
 		this.discountPrice = discountPrice;
+		this.originPrice = originPrice;
 		this.cName = cName;
 		this.cPostCode = cPostCode;
 		this.cAddress = cAddress;
 		this.cPhone = cPhone;
+		this.countMultiple = countMultiple;
 	}
 
 
@@ -230,6 +232,18 @@ public class OrderList implements Serializable{
 
 
 
+	public String getOriginPrice() {
+		return originPrice;
+	}
+
+
+
+	public void setOriginPrice(String originPrice) {
+		this.originPrice = originPrice;
+	}
+
+
+
 	public String getcName() {
 		return cName;
 	}
@@ -278,6 +292,18 @@ public class OrderList implements Serializable{
 
 
 
+	public String getCountMultiple() {
+		return countMultiple;
+	}
+
+
+
+	public void setCountMultiple(String countMultiple) {
+		this.countMultiple = countMultiple;
+	}
+
+
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -289,10 +315,14 @@ public class OrderList implements Serializable{
 		return "OrderList [orderNo=" + orderNo + ", orderDate=" + orderDate + ", amountPrice=" + amountPrice
 				+ ", paymentWay=" + paymentWay + ", usePoint=" + usePoint + ", cNo=" + cNo + ", pdNo=" + pdNo
 				+ ", opCount=" + opCount + ", pdName=" + pdName + ", tumbnail=" + tumbnail + ", oCode=" + oCode
-				+ ", oName=" + oName + ", discountPrice=" + discountPrice + ", cName=" + cName + ", cPostCode="
-				+ cPostCode + ", cAddress=" + cAddress + ", cPhone=" + cPhone + "]";
+				+ ", oName=" + oName + ", discountPrice=" + discountPrice + ", originPrice=" + originPrice + ", cName="
+				+ cName + ", cPostCode=" + cPostCode + ", cAddress=" + cAddress + ", cPhone=" + cPhone
+				+ ", countMultiple=" + countMultiple + "]";
 	}
 
+
+
+	
 
 
 	
