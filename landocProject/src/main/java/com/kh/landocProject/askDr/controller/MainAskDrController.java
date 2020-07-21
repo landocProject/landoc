@@ -1,7 +1,6 @@
 package com.kh.landocProject.askDr.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -44,7 +43,6 @@ public class MainAskDrController {
 		AskDrBoardPagination page = AskDrBoardPagination.getAskDrBoardPagination(currentPage, listCount);
 		ArrayList<AskDrBoard> list = (ArrayList<AskDrBoard>)askDrServiceImpl.selectAskDrBoard(categoryNo, page);
 		
-		mv.addObject("boardStatus", 1);
 		mv.addObject("askDrBoardList", list);
 		mv.addObject("subject", subject);
 		mv.addObject("page", page);
@@ -84,36 +82,18 @@ public class MainAskDrController {
 	}
 	
 	@RequestMapping(value="askDrBoardSearch.do", method=RequestMethod.GET)
-	public ModelAndView askDrBoardSearch(ModelAndView mv,
-																@RequestParam int searchBoardOption,
+	public void askDrBoardSearch(ModelAndView mv,
+																@RequestParam String searchBoardOption,
 																@RequestParam String searchBoardContent,
-																@RequestParam int category,
+																@RequestParam String category,
 																@RequestParam int pageNo) {
 		mv.setViewName("askDr/askDrBoard");
-		
-		String subject = askDrCategoryMap.getCategoryMap().get(category);
-		
-		HashMap<String, Object> parameterMap = new HashMap<String, Object>();
-		parameterMap.put("category", category);
-		parameterMap.put("searchBoardOption", searchBoardOption);
-		searchBoardContent = searchBoardContent.replaceAll("\\p{Z}","");	//모든 공백 제거
-		parameterMap.put("searchBoardContent", searchBoardContent);
-		int listCount = askDrServiceImpl.selectAskDrBoardSearchCount(parameterMap);
-
-		int currentPage = pageNo;
-		AskDrBoardPagination page = AskDrBoardPagination.getAskDrBoardPagination(currentPage, listCount);
-		ArrayList<AskDrBoard> searchList = (ArrayList<AskDrBoard>)askDrServiceImpl.
-				selectAskDrBoardSearch(parameterMap, page);
-		
-		
-		mv.addObject("boardStatus", 2);
-		mv.addObject("askDrBoardSearchList", searchList);
-		mv.addObject("subject", subject);
-		mv.addObject("page", page);
-		mv.addObject("searchBoardContent", searchBoardContent);
-		mv.addObject("searchBoardOption", searchBoardOption);
-		mv.addObject("categoryNo", category);
-		return mv;
+/*
+		0 : 제목, 1 : 내용, 2 : 작성자
+		검색할 경우 category랑 pageNo처리 하는 방식 생각해보기
+		category랑 pageNo 파라미터 넘어와야한다.
+*/		
+//		return mv;
 	}
 	
 	@RequestMapping(value="askDrInsert.do", method=RequestMethod.GET)

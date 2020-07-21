@@ -68,50 +68,6 @@
 		]]>
 	</select>
 	
-	<select id="selectAskDrBoardSearchCount" parameterType="hashMap" resultType="_int">
-		<!-- category, searchBoardOption, searchBoardCategory -->
-		SELECT COUNT(*)
-		FROM ASKDR
-		<if test="searchBoardOption != null and searchBoardOption == 0"> 
-		WHERE AD_TITLE LIKE '%' || #{searchBoardContent} || '%'
-		</if> 
-		<if test="searchBoardOption != null and searchBoardOption == 1"> 
-		WHERE AD_SYMPTOM LIKE '%' || #{searchBoardContent} || '%'
-		</if>
-		<if test="searchBoardOption != null and searchBoardOption == 2"> 
-			JOIN CLIENT C ON (ASKDR.C_NO = C.C_NO)
-		WHERE C.C_NICKNAME LIKE '%' || #{searchBoardContent} || '%'
-		</if>
-			AND HP_CATE_CODE = #{category}
-	</select>
-	
-	<select id="selectAskDrBoardSearch" parameterType="hashMap" resultMap="AskDrBoardList">
-		SELECT RN, AD_NO, AD_TITLE, C_NICKNAME, AD_SUBMITDATE FROM
-		    (SELECT ROWNUM AS RN, AD_NO, AD_TITLE, C_NICKNAME, AD_SUBMITDATE, AD_SYMPTOM
-		    FROM 
-		        (SELECT 
-		            AD.AD_NO,
-		            AD.AD_TITLE,
-		            C.C_NICKNAME,
-		            AD.AD_SUBMITDATE,
-		            AD.AD_SYMPTOM
-		        FROM ASKDR AD
-		            JOIN CLIENT C ON (AD.C_NO = C.C_NO)
-		        WHERE HP_CATE_CODE = #{category}
-		        ORDER BY 4 DESC
-		        )
-		<if test="searchBoardOption != null and searchBoardOption == 0"> 
-			WHERE AD_TITLE LIKE '%' || #{searchBoardContent} || '%'
-		</if>
-		<if test="searchBoardOption != null and searchBoardOption == 1"> 
-			WHERE AD_SYMPTOM LIKE '%' || #{searchBoardContent} || '%'
-		</if>
-		<if test="searchBoardOption != null and searchBoardOption == 2"> 
-			WHERE C_NICKNAME LIKE '%' || #{searchBoardContent} || '%'
-		</if>
-		    )
-	</select>
-	
 </mapper>
 
 
