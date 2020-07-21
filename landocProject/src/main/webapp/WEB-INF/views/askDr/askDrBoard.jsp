@@ -82,9 +82,8 @@
 									style="background-color: #0071ce;">검색</button>
 							</div>
 							<div class="col-lg-1 col-sm-1">
-								<button type="button" class="btn btn-block btn-sm btn-primary"
-									style="background-color: #0071ce;"
-									onclick="location.href='insertAskDoctor.html'">글쓰기</button>
+								<button type="button" class="btn btn-block btn-sm btn-primary askDrInsertForm"
+									style="background-color: #0071ce;">글쓰기</button>
 							</div>
 							<div class="col-lg-1 col-sm-1"></div>
 						</div>
@@ -226,9 +225,8 @@
 									style="background-color: #0071ce;">검색</button>
 							</div>
 							<div class="col-lg-1 col-sm-1">
-								<button type="button" class="btn btn-block btn-sm btn-primary"
-									style="background-color: #0071ce;"
-									onclick="location.href='insertAskDoctor.html'">글쓰기</button>
+								<button type="button" class="btn btn-block btn-sm btn-primary askDrInsertForm"
+									style="background-color: #0071ce;">글쓰기</button>
 							</div>
 							<div class="col-lg-1 col-sm-1"></div>
 						</div>
@@ -385,6 +383,23 @@
 				alert("게시글은 작성자만 조회할 수 있습니다.");
 			}
 		});//end of goBoardDetail
+		
+		
+		$(".askDrInsertForm").on("click", function(){
+			var client = "${loginClient}";
+			
+			if(client === ""){
+				if(confirm("일반회원만 글 작성이 가능합니다. 로그인하시겠습니까?")){
+					location.href="loginView.do";
+				}
+				else{
+					return false;
+				}
+			}
+			else{
+				location.href="askDrInsertForm.do?category=${categoryNo}";
+			}
+		});//end of askDrBoardInsert
 		
 	});//end of jquery $(function)
 	</script>

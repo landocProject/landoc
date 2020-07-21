@@ -22,6 +22,10 @@
 		<result property="symptoms" column="AD_SYMPTOM" />
 	</resultMap>
 
+	<resultMap type="AskDrBoard" id="AskDrBoardInsert">
+		
+	</resultMap>
+
 <!-- resultMap, Query 경계 -->
 
 	<select id="selectAskDrBoard" parameterType="_int" resultMap="AskDrBoardList">

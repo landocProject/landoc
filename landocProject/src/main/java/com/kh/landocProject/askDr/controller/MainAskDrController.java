@@ -9,12 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.landocProject.askDr.model.service.AskDrService;
 import com.kh.landocProject.askDr.model.vo.AskDrBoard;
 import com.kh.landocProject.askDr.model.vo.AskDrBoardPagination;
 import com.kh.landocProject.askDr.model.vo.AskDrCategoryMap;
+import com.kh.landocProject.member.model.vo.Client;
 
 @Controller
 public class MainAskDrController {
@@ -61,8 +63,8 @@ public class MainAskDrController {
 
 		String subject = askDrCategoryMap.getCategoryMap().get(category);
 		AskDrBoard askDrBoardDetail = askDrServiceImpl.selectAskDrBoardDeatil(category, bNo);
-		changeGender(askDrBoardDetail);
-
+//		changeGender(askDrBoardDetail);
+		askDrBoardDetail.setGender(changeGender(askDrBoardDetail.getGender()));
 		mv.addObject("askDrBoardDetail", askDrBoardDetail);
 		mv.addObject("subject", subject);
 		mv.addObject("categoryNo", category);
@@ -71,11 +73,12 @@ public class MainAskDrController {
 		return mv;
 	}
 
-	public void changeGender(AskDrBoard settingDetail) {
-		if (settingDetail.getGender().equals("M")) {
-			settingDetail.setGender("남");
-		} else {
-			settingDetail.setGender("여");
+	public String changeGender(String gender) {
+		if (gender.equals("M")) {
+			return "남";
+		} 
+		else {
+			return "여";
 		}
 	}
 
@@ -92,7 +95,7 @@ public class MainAskDrController {
 		HashMap<String, Object> parameterMap = new HashMap<String, Object>();
 		parameterMap.put("category", category);
 		parameterMap.put("searchBoardOption", searchBoardOption);
-		searchBoardContent = searchBoardContent.replaceAll("\\p{Z}", ""); // 모든 공백 제거
+		searchBoardContent = deleteBlank(searchBoardContent);
 		parameterMap.put("searchBoardContent", searchBoardContent);
 		int listCount = askDrServiceImpl.selectAskDrBoardSearchCount(parameterMap);
 
@@ -110,12 +113,35 @@ public class MainAskDrController {
 		mv.addObject("categoryNo", category);
 		return mv;
 	}
-
-	@RequestMapping(value = "askDrInsert.do", method = RequestMethod.GET)
-	public String askDrInsert() {
-		return "askDr/askDrInsert";
+	
+	public String deleteBlank(String context) {
+		return context.replaceAll("\\p{Z}", "");
+	}
+	
+//	게시글 insert부분, 나중에 꼭 게시글 작성완료창을 만들어서 꾸며볼테야!
+	@RequestMapping(value = "askDrInsertForm.do", method = RequestMethod.GET)
+	public ModelAndView askDrInsertForm(ModelAndView mv,
+															@RequestParam int category) {
+		mv.setViewName("askDr/askDrInsert");
+		mv.addObject("categoryNo", category);
+		return mv;
 	}
 
+	@RequestMapping(value = "askDrInsert.do", method = RequestMethod.POST)
+	public void askDrInsert(ModelAndView mv,
+										AskDrBoard askDrBoard,
+										@SessionAttribute("loginClient") Client client) {
+//		mv.setViewName(viewName);
+		//세션값 받기, gender처리, categoryCode
+		askDrBoard.setCno(client.getcNo());
+		
+		System.out.println("MainAskDrController Test line 131");
+		System.out.println(askDrBoard);
+		
+//		return ;
+	}
+	
+	
 	@RequestMapping(value = "askDrSearch.do", method = RequestMethod.GET)
 	public String askDrSearch() {
 		return "askDr/askDrSearch";
