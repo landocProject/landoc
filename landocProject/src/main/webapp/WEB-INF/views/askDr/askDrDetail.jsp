@@ -5,7 +5,7 @@
 <html lang="ko">
 
 <head>
-	<title>의사에게 물어봐 - 게시글 작성</title>
+	<title>의사에게 물어봐 - 상세게시글</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="SolMusic HTML Template">
 	<meta name="keywords" content="music, html">
@@ -45,8 +45,10 @@
 		<div class="container">
 			<div class="form-group form-inline">
 				<label class="col-lg-5">	<!--control-label-->
-					&nbsp;&nbsp;<a href="#">의사에게 물어봐 > </a>&nbsp;&nbsp;
-					<a href="#">가정의학과</a> 
+					&nbsp;&nbsp;
+					<a href="askDr.do">의사에게 물어봐 > </a>
+					&nbsp;&nbsp;
+					<a href="javascript:history.back();">${subject }</a> 
 				</label>
 			</div>
 
