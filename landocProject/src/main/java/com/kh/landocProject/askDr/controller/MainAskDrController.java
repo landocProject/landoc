@@ -81,6 +81,21 @@ public class MainAskDrController {
 		}
 	}
 	
+	@RequestMapping(value="askDrBoardSearch.do", method=RequestMethod.GET)
+	public void askDrBoardSearch(ModelAndView mv,
+																@RequestParam String searchBoardOption,
+																@RequestParam String searchBoardContent,
+																@RequestParam String category,
+																@RequestParam int pageNo) {
+		mv.setViewName("askDr/askDrBoard");
+/*
+		0 : 제목, 1 : 내용, 2 : 작성자
+		검색할 경우 category랑 pageNo처리 하는 방식 생각해보기
+		category랑 pageNo 파라미터 넘어와야한다.
+*/		
+//		return mv;
+	}
+	
 	@RequestMapping(value="askDrInsert.do", method=RequestMethod.GET)
 	public String askDrInsert() {
 		return "askDr/askDrInsert";

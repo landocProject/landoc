@@ -58,21 +58,20 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-12">
-					<form>
+					<form id="askDrSearchForm?" action="askDrBoardSearch.do" method="get">
 						<div class="form-row">
 							<div class="col-lg-1 col-sm-1"></div>
 							<div class="col-lg-3 col-sm-3">
-								<!-- mb-2 mb-md-0-->
-								<select class="form-control form-control-sm "
+								<select name="searchBoardOption"
+									class="form-control form-control-sm"
 									style="width: 100%;">
-									<option value="0">----------</option>
-									<option value="1">제목</option>
-									<option value="2">내용</option>
+									<option value="0">제목</option>
+									<option value="1">내용</option>
+									<option value="2">작성자</option>
 								</select>
 							</div>
 							<div class="col-lg-5 col-sm-5">
-								<!-- mb-2 mb-md-0-->
-								<input type="text" class="form-control form-control-sm">
+								<input name="searchBoardContent" type="text" class="form-control form-control-sm">
 							</div>
 							<div class="col-lg-1 col-sm-1">
 								<button type="submit" class="btn btn-block btn-sm btn-primary"
@@ -209,25 +208,12 @@
 	<script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 	<script>
 	$(function(){
-		/* 
-		<c:if test="${!empty loginClient && empty loginDrClient}">
-			console.log("${client.nickName}");
-		</c:if>
-		<c:if test="${empty loginClient && !empty loginDrClient}">
-			console.log("${drClient.userName}");
-		</c:if>
-		<c:if test="${empty loginClient && empty loginDrClient}">
-			console.log("없따!!");
-		</c:if> 
-		*/
+		// 글 작성자 및 의사만 해당 게시글의 상세부분을 조회할 수 있다. -범석
 		$(".goAskDrDetail").on("click", function(){
 			var bNo = $(this).children("input[type=hidden]").val();
 			var bWriter = $(this).children(".nickname").text();
 			var clientNickname = "${loginClient.nickName}";
 			var drClient = "${loginDrClient}";
-			
-			console.log(clientNickname);
-			console.log(drClient);
 			
 			if( clientNickname === bWriter || drClient !== "" ){		//작성자 및 전체의사일 경우에만 해당 게시글 조회 가능
 				location.href="askDrDetail.do?category=" + ${categoryNo } + "&bNo=" + bNo;
@@ -243,8 +229,16 @@
 					return false;
 				}
 			}
-		});
-	});
+		});//end of goBoardDetail
+		
+	});//end of jquery $(function)
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
