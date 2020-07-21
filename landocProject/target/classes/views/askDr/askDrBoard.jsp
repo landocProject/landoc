@@ -128,7 +128,7 @@
 								<td>		<!-- 제목을 누르면 해당 게시글로 가게끔 할것 -->
 									${item.bTitle }
 								</td>
-								<td>${item.nickname }</td>
+								<td class="nickname">${item.nickname }</td>
 								<td>${item.submitDate }</td>
 								<td>채택대기</td>
 							</tr>
@@ -194,11 +194,6 @@
 		</div>
 	</section>
 
-	<!-- 
-		askDrBoardDetail.jsp 해야한다
-		해당 게시글 클릭시 디테일 페이지로 이동하게끔 설정
-	 -->
-
 	<!-- Footer section -->
 	<%@ include file="../static/footer.jsp"%>
 	<!-- Footer section end -->
@@ -213,12 +208,43 @@
 	<script src="<%=request.getContextPath()%>/resources/js/mixitup.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/main.js"></script>
 	<script>
-		$(function(){
-			$(".goAskDrDetail").on("click", function(){
-				var bNo = $(this).children("input[type=hidden]").val();
+	$(function(){
+		/* 
+		<c:if test="${!empty loginClient && empty loginDrClient}">
+			console.log("${client.nickName}");
+		</c:if>
+		<c:if test="${empty loginClient && !empty loginDrClient}">
+			console.log("${drClient.userName}");
+		</c:if>
+		<c:if test="${empty loginClient && empty loginDrClient}">
+			console.log("없따!!");
+		</c:if> 
+		*/
+		$(".goAskDrDetail").on("click", function(){
+			var bNo = $(this).children("input[type=hidden]").val();
+			var bWriter = $(this).children(".nickname").text();
+			var clientNickname = "${loginClient.nickName}";
+			var drClient = "${loginDrClient}";
+			
+			console.log(clientNickname);
+			console.log(drClient);
+			
+			if( clientNickname === bWriter || drClient !== "" ){		//작성자 및 전체의사일 경우에만 해당 게시글 조회 가능
 				location.href="askDrDetail.do?category=" + ${categoryNo } + "&bNo=" + bNo;
-			});
+			}
+			else if( clientNickname !== bWriter ){
+				alert("게시글은 작성자만 조회할 수 있습니다.");
+			}
+			else{
+				if(confirm("해당 게시글은 작성자 및 의사회원만 조회할 수 있습니다. 로그인하시겠습니까?")){
+					location.href="loginView.do";	
+				}
+				else{
+					return false;
+				}
+			}
 		});
+	});
 	</script>
 </body>
 </html>
