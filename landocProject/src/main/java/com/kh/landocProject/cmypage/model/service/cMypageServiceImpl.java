@@ -40,6 +40,12 @@ public class cMypageServiceImpl implements cMypageService {
 		return cmDao.selectOrderList(cNo);
 	}
 
+	@Override
+	public OrderList selectOrderDetail(OrderList order) {
+		
+		return cmDao.selectOrderDetail(order);
+	}
+
 	
 
 }

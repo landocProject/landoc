@@ -1,15 +1,21 @@
 package com.kh.landocProject.cmypage.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
 import com.kh.landocProject.cmypage.model.Exception.cMypageException;
 import com.kh.landocProject.cmypage.model.service.cMypageService;
 import com.kh.landocProject.cmypage.model.vo.LikeHp;
@@ -66,12 +72,27 @@ public class cMypageController {
 		Client loginClient = (Client)session.getAttribute("loginClient");
 		String cNo =loginClient.getcNo();
 		ArrayList<OrderList> list = cmService.selectOrderList(cNo);
-	
+		
 		if(list!=null) {
 			mv.addObject("orderList",list);
 			mv.setViewName("mypage/mypageOrderList");
 		}
 		
 		return mv;
+	}
+	
+	@RequestMapping(value="cmOrderDetail.do")
+	public void orderDetail(HttpSession session,HttpServletResponse response,OrderList order,@RequestParam(value="orderNo")int orderNo) throws JsonIOException, IOException {
+		Client loginClient = (Client)session.getAttribute("loginClient");
+		String cNo =loginClient.getcNo();
+		order.setcNo(cNo);
+		order.setOrderNo(orderNo);
+		OrderList detail = cmService.selectOrderDetail(order);
+	
+		response.setContentType("application/json;charset=utf-8");
+		
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-mm-dd").create();
+		gson.toJson(detail,response.getWriter());
+		
 	}
 }

@@ -16,6 +16,8 @@ public interface cMypageService {
 
 	ArrayList<OrderList> selectOrderList(String cNo);
 
+	OrderList selectOrderDetail(OrderList order);
+
 
 
 }

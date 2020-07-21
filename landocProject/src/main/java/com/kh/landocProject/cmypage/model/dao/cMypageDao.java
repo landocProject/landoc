@@ -36,5 +36,10 @@ public class cMypageDao {
 		return (ArrayList)sqlSessionTemplate.selectList("cMypage.orderList",cNo);
 	}
 
+	public OrderList selectOrderDetail(OrderList order) {
+		
+		return sqlSessionTemplate.selectOne("cMypage.orderDetail", order);
+	}
+
 
 }

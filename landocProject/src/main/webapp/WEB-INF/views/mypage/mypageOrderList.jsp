@@ -33,7 +33,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
    <![endif]-->
-   
+   <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
    <style>
     .modal { text-align: center;}
     @media screen and (min-width: 768px) { .modal:before {vertical-align: middle; content: " "; height: 100%; }}
@@ -69,7 +69,7 @@
                         <div class="modal-body p-4">
                            <div class="pl-3 pt-2 ">
                             <div class="contview">
-                                <table  class="table w-100 border-bottom" style="width: 1120px;">
+                                <table  class="table w-100 border-bottom" style="width: 1120px;" id="orderInfo">
                            
                                     <thead>
                                         <tr style="background-color: #f8f8f8;color: #9b9b9b; text-align: center;">
@@ -83,20 +83,20 @@
                                         </tr>
                                     </thead>
                                     <tbody >
-                                        
+                        
                                     
                                      
                                         <tr>
-                                            <td class="first" rowspan="2" style="border-right: solid lightgray 1px;">  
+                                            <td class="first" rowspan="2" style="border-right: solid lightgray 1px;" id="PdNo">  
                                                 B483299657
-                                                <span class="order-number">(1777031860)</span>
+                                                <span class="order-number" id="OrderNo">(1777031860)</span>
                                                
                                             </td>
                                             <td style="border-right: solid lightgray 1px;">
-                                                <a href="#">비타민 C</a>
+                                                <a href="#" id="aPdName">비타민 C</a>
                                             </td>
                                             <td class="price" rowspan="2" style="border-right: solid lightgray 1px;">
-                                                <strong class="num">36,740</strong>원
+                                                <strong class="num" id="price">36,740</strong>원
                                                
                                                     (<strong class="num">1</strong>개)
                                               
@@ -284,11 +284,12 @@
                                     </div>
                                    
                                     <div class="detail-link">
-                                        <a href="#;" class="link" data-toggle="modal" data-target="#ordermodal">주문상세보기</a>
+                                        <a href="#" onclick="orderDetail(${o.orderNo});" class="link" data-toggle="modal" data-target="#ordermodal">주문상세보기</a>
                                         
                                     </div>
-
-                              
+                                  
+                                    
+                               
                                 </td>
                                 <td class="product" style="border-right: solid 1px; border-color: lightgray; vertical-align:middle;">
                                     <div class="product-block">
@@ -360,8 +361,38 @@
                 </ul>
                 </nav>
    
+  	
 
     <!--pagination end-->
+    
+      <script>
+			function orderDetail(b){
+			                 
+				var orderNo=b;
+				$.ajax({
+					url:"cmOrderDetail.do",
+					data:{orderNo:orderNo},
+					dataType:"json",
+					success:function(data){
+						$tableBody = $("#orderInfo tbody");
+						$tableBody.html("");
+				
+						alert(data.orderNo);
+						
+						
+						
+		              
+			         },
+			     	error:function(request, status, errorData){
+	                     alert("error code: " + request.status + "\n"
+	                           +"message: " + request.responseText
+	                           +"error: " + errorData);
+	                  }    
+					
+				})
+			}
+	 </script>
+                              
    
 
    <%@ include file="../static/footer.jsp" %>
