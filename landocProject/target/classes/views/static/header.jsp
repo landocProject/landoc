@@ -8,7 +8,7 @@
 		</a>
 		<ul class="main-menu">
 			<li><a href="#">병원찾기</a></li>
-			<li><a href="#">리뷰쓰기</a></li>
+			<li><a href="hpReviewInsert.do">리뷰쓰기</a></li>
 			<li><a href="askDr.do">의사에게 물어봐</a></li>
 			<li><a href="productIndex.do">의사추천 영양제</a></li>
 

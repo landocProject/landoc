@@ -1,5 +1,6 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sat Jul 18 23:33:46 KST 2020
+#Sun Jul 19 23:22:15 KST 2020
 mail-1.4.7.pom>central=
+mail-1.4.7-javadoc.jar>central=
 mail-1.4.7-sources.jar>central=
 mail-1.4.7.jar>central=
