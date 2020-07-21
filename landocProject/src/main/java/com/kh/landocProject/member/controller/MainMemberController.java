@@ -298,12 +298,15 @@ public class MainMemberController {
 			
 			int result = mService.joinDrClient(d);
 			
+			
+			
 			if(result > 0) {
 				ModelAndView mv = new ModelAndView();		//ModelAndView로 보낼 페이지를 지정하고, 보낼 값을 지정한다.
 				mv.setViewName("/drClient/joinDr2");     //뷰의이름
 	            mv.addObject("dice", dice);
-	            mv.addObject("joinDrClient", result);
-	            
+	            mv.addObject("email", tomail);
+
+	           
 	            response_email.setContentType("text/html; charset=UTF-8");
 	            PrintWriter out_equals = response_email.getWriter();
 	            out_equals.println("<script>alert('인증번호가 일치하였습니다. 인증번호 입력창으로 이동합니다.');</script>");
@@ -315,21 +318,30 @@ public class MainMemberController {
 			}
 			
 		}
+		
 		// 의사 회원가입2(인증번호 입력)_진교
 		@RequestMapping(value="joinDrClient2.do")
-		public ModelAndView loginDrClient2(String message, @RequestParam String dice,
+		public ModelAndView loginDrClient2(DrClient d, String message, @RequestParam String dice, @RequestParam String email,
 											HttpServletResponse response_equals) throws IOException{
 			System.out.println("mainMemberController.java test line 317");
 //			System.out.println("마지막 : message : " + message);
 //			System.out.println("마지막 : dice : " + dice);
+//			System.out.println("email : " + email);
+			
+			// 의사 번호를 찾기위함
+			DrClient joinDrClient2 = mService.joinDrClient2(d);
+			
+//			System.out.println(joinDrClient2);
 			
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("drClient/joinDr3");
 			mv.addObject("message", message);
+			mv.addObject("joinDrClient2", joinDrClient2);
 			
 			if(message.equals(dice)) {
 				mv.setViewName("drClient/joinDr3");
 				mv.addObject("e_mail", message);
+				mv.addObject("joinDrClient2", joinDrClient2);
 				
 				response_equals.setContentType("text/html; charset=UTF-8");
 				PrintWriter out_equals = response_equals.getWriter();
@@ -353,5 +365,132 @@ public class MainMemberController {
 			return mv;
 		}
 		
+		@RequestMapping("joinDrClient3.do")
+		public String insertFile1(HttpServletRequest request, DrhpPhoto dhp, DrClient d,
+				@RequestParam("drNo") String drNo, @RequestParam("hpNo") String hpNo,
+				@RequestParam(value="uploadFile1", required=false) MultipartFile file1,
+				@RequestParam(value="uploadFile2", required=false) MultipartFile file2,
+				@RequestParam(value="uploadFile3", required=false) MultipartFile file3) {
+	
+			System.out.println("drNo : " + drNo);
+			System.out.println("hpNo : " + hpNo);
+			System.out.println("file1 : " + file1);
+			System.out.println("file2 : " + file2);
+			System.out.println("file3 : " + file3);
+			
+			
+			
+			if(!file1.getOriginalFilename().equals("")) {
+				String renameFileName1 = saveFile(file1, request);
+				
+				System.out.println("오리진 파일1 : " + file1.getOriginalFilename());
+				System.out.println("renameFileName1 : " + renameFileName1);
+				System.out.println();
+				
+				dhp.setDrhpOrigin(file1.getOriginalFilename());
+				
+				dhp.setDrhpRename(renameFileName1);
+				
+				
+				
+				
+			}
+			int result1 = mService.insertFile1(dhp);
+			
+		
+			if(result1>0) {
+				if(!file2.getOriginalFilename().equals("")) {
+					String renameFileName2 = saveFile(file2, request);
+					
+					System.out.println("오리진 파일2 : " + file2.getOriginalFilename());
+					
+					dhp.setDrhpOrigin(file2.getOriginalFilename());
+					
+					dhp.setDrhpRename(renameFileName2);
+					
+				}
+				
+				int result2 = mService.insertFile2(dhp);
+				
+				if(result2 > 0) {
+					if(!file3.getOriginalFilename().equals("")) {
+						String renameFileName3 = saveFile(file3, request);
+						
+						System.out.println("오리진 파일3 : " + file3.getOriginalFilename());
+						
+						dhp.setDrhpOrigin(file3.getOriginalFilename());
+						
+						dhp.setDrhpRename(renameFileName3);
+					}
+					
+					int result3 = mService.insertFile3(dhp);
+					
+					if(result3 > 0) {
+						// 의사회원 파일제출 여부
+//						int result = mService.drFileUpdate(d);(보류)
+						return "drClient/joinDr4";
+					}else {
+						throw new MainMemberException("게시글 등록 실패!");
+					}
+					
+				}else {
+					throw new MainMemberException("게시글 등록 실패!");
+				}
+				
+			}else {
+				throw new MainMemberException("게시글 등록 실패!");
+			}
+		}
+		
+		public String saveFile(MultipartFile file, HttpServletRequest request) {
+			String root = request.getSession().getServletContext().getRealPath("resources");
+			
+			String savePath = root + "\\drUploadFiles";
+			
+			File folder = new File(savePath);
+			
+			if(!folder.exists()){
+				folder.mkdirs();
+			}
+			
+			// 난수 생성
+			StringBuffer temp = new StringBuffer();
+			Random rnd = new Random();
+			for(int i = 0; i < 5; i++) {
+				int rIndex = rnd.nextInt(3);
+	            switch (rIndex) {
+	            case 0:
+	                // a-z
+	                temp.append((char) ((int) (rnd.nextInt(26)) + 97));
+	                break;
+	            case 1:
+	                // A-Z
+	                temp.append((char) ((int) (rnd.nextInt(26)) + 65));
+	                break;
+	            case 2:
+	                // 0-9
+	                temp.append((rnd.nextInt(10)));
+	                break;
+				}
+			} // 난수 생성_end
+			
+			String dice = temp.toString();
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+			String originFileName = file.getOriginalFilename();
+			String renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis()))+dice
+							+ "." + originFileName.substring(originFileName.lastIndexOf(".")+1);
+			
+			String filePath = folder + "\\" + renameFileName;
+			
+			try {
+				file.transferTo(new File(filePath));
+			} catch (Exception e) {
+				System.out.println("파일 제출 에러 : " + e.getMessage());
+			}
+			return renameFileName;
+		}
+		
+				
 		
 }

@@ -54,10 +54,30 @@ public class MainMemberServiceImpl implements MainMemberService{
 		
 		return mDao.joinDrClient(d);
 	}
+	// 의사 회원가입_의사 번호 찾기
+	@Override
+	public DrClient joinDrClient2(DrClient d) {
+		
+		return mDao.joinDrClient2(d);
+	}
 
+	@Override
+	public int insertFile1(DrhpPhoto dhp) {
+		
+		return mDao.insertFile1(dhp);
+	}
 
+	@Override
+	public int insertFile2(DrhpPhoto dhp) {
 	
+		return mDao.insertFile2(dhp);
+	}
 
+	@Override
+	public int insertFile3(DrhpPhoto dhp) {
+
+		return mDao.insertFile3(dhp);
+	}
 
 	
 }

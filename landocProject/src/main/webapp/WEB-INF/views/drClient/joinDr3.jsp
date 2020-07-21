@@ -52,7 +52,7 @@
 	<div class="limiter" id="login">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="joinDrClient3.do?drNo=${joinDrClient.drNo }" method="post">
+				<form class="login100-form validate-form" action="joinDrClient3.do?drNo=${joinDrClient2.drNo }&hpNo=${joinDrClient2.hpNo}" method="post" enctype="multipart/form-data">
 					<span class="login100-form-title p-b-48" >
 						<div class="logoDiv"> 
 							<img src="<%=request.getContextPath()%>/resources/login_image/KakaoTalk_20200702_150917241.png" class="logo">
@@ -84,19 +84,19 @@
 
 					<div>
 						<label class="file1">재직 증명서 또는 사업자 등록증</label>
-						<input class="fileBtn" type="file" id="input_img1" name="uploadFile">
+						<input class="fileBtn" type="file" id="input_img1" name="uploadFile1">
 						<div class="fileBox">
 							<img class="fileImg" id="img1"/>
 						</div>
 
 						<label class="file2">신분증</label>
-						<input type="file" id="input_img2" name="uploadFile">
+						<input type="file" id="input_img2" name="uploadFile2">
 						<div class="fileBox">
 							<img class="fileImg" id="img2"/>
 						</div>
 
 						<label class="file2">의사 면허증</label>
-						<input type="file" id="input_img3" name="uploadFile">
+						<input type="file" id="input_img3" name="uploadFile3">
 						<div class="fileBox">
 							<img class="fileImg" id="img3"/>
 						</div>
@@ -105,7 +105,7 @@
 					<div class="container-login100-form-btn" style="padding-top: 50px;">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button type="button" class="login100-form-btn">
+							<button class="login100-form-btn">
 								서류 제출
 							</button>
 						</div>
@@ -147,7 +147,7 @@
 </body>
 
 <script>
-		// 이미지 미리 보여주기 start
+		/*  // 이미지 미리 보여주기 start
 		$(function() {
             $("#input_img1").on('change', function(){
                 readURL1(this);
@@ -194,7 +194,7 @@
               reader.readAsDataURL(input.files[0]);
             }
         }
-		// 이미지 미리보여주기 end
+		// 이미지 미리보여주기 end */
 		
 		
 	</script>

@@ -97,5 +97,27 @@
 		VALUES('D'||SEQ_DR.NEXTVAL, #{hpNo}, #{hpCateCode}, #{userName}, #{userId}, #{userPwd}, #{email}, #{phone}, #{birth}, 0, 'Y', 'N', SYSDATE, NULL, 'N', 'Y', #{post}, #{address}, 0, 0)
 	</insert>
 	
+	<!-- 의사 회원가입2_회원 번호 찾기 -->
+	<select id="joinDrClient2" parameterType="DrClient" resultMap="DoctorResultSet">
+		SELECT *
+		FROM DRCLIENT
+		WHERE DR_EMAIL = #{email}
+	</select>
+	
+	<insert id="insertFile1" parameterType="DrhpPhoto">
+		INSERT INTO DRHPPHOTO
+		VALUES(SEQ_DHP.NEXTVAL, #{drhpOrigin}, #{drhpRename}, 'NULL', 1, #{drNo}, #{hpNo})
+	</insert>
+	
+	<insert id="insertFile2" parameterType="DrhpPhoto">
+		INSERT INTO DRHPPHOTO
+		VALUES(SEQ_DHP.NEXTVAL, #{drhpOrigin}, #{drhpRename}, 'NULL', 2, #{drNo}, #{hpNo})
+	</insert>
+	
+	<insert id="insertFile3" parameterType="DrhpPhoto">
+		INSERT INTO DRHPPHOTO
+		VALUES(SEQ_DHP.NEXTVAL, #{drhpOrigin}, #{drhpRename}, 'NULL', 3, #{drNo}, #{hpNo})
+	</insert>
+	
 	
 </mapper>
