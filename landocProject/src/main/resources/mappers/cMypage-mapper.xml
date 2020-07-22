@@ -46,6 +46,7 @@
 		<result property="cAddress" column="C_ADDRESS"/>
 		<result property="cPhone" column="C_PHONE"/>
 		<result property="countMultiple" column="COUNTMULTIPLE"/>
+		
 	</resultMap>
 	
 	<select id="likeHpList" parameterType="string" resultMap="LikeHpListMap">
@@ -100,4 +101,35 @@
 		WHERE PA.C_NO =#{cNo} AND OM.ORDER_NO=#{orderNo}
 		ORDER BY PA.ORDER_DATE DESC
 	</select>
+	
+	<select id="orderListDateSearch" parameterType="OrderList" resultMap="orderListMap">
+		SELECT PA.ORDER_NO,PA.ORDER_DATE,TO_CHAR(PA.AMOUNT_PRICE,'999,999,999') AS AMOUNT_PRICE,PA.C_NO,OP.PD_NO,PD.PD_NAME,
+		PD.THUMBNAIL,OS.O_CODE,OS.O_NAME
+		FROM PAYMENT PA
+		JOIN ORDERPRODUCT OP ON(PA.ORDER_NO=OP.ORDER_NO)
+		JOIN PRODUCT PD ON(PD.PD_NO=OP.PD_NO)
+		JOIN ORDERMG OM ON(OM.ORDER_NO=PA.ORDER_NO)
+		JOIN ORDER_STATE OS ON(OM.O_CODE=OS.O_CODE)
+		WHERE PA.C_NO =#{cNo} 
+		<if test ='date=="today"'>AND TRUNC(SYSDATE) - ORDER_DATE =0</if> 
+		<if test ='date=="weeks"'>AND 7>=TRUNC(SYSDATE)-ORDER_DATE </if> 
+		<if test ='date=="onemonth"'>AND 30>=TRUNC(SYSDATE) - ORDER_DATE </if> 
+		<if test ='date=="threemonth"'>AND 90>= TRUNC(SYSDATE) - ORDER_DATE </if> 
+		<if test ='date=="sixmonth"'>AND 180>= TRUNC(SYSDATE) - ORDER_DATE </if> 
+		ORDER BY PA.ORDER_DATE DESC
+	</select>
+	
+	<select id="orderListDateSearch2" parameterType="OrderList" resultMap="orderListMap">
+		SELECT PA.ORDER_NO,PA.ORDER_DATE,TO_CHAR(PA.AMOUNT_PRICE,'999,999,999') AS AMOUNT_PRICE,PA.C_NO,OP.PD_NO,PD.PD_NAME,
+		PD.THUMBNAIL,OS.O_CODE,OS.O_NAME
+		FROM PAYMENT PA
+		JOIN ORDERPRODUCT OP ON(PA.ORDER_NO=OP.ORDER_NO)
+		JOIN PRODUCT PD ON(PD.PD_NO=OP.PD_NO)
+		JOIN ORDERMG OM ON(OM.ORDER_NO=PA.ORDER_NO)
+		JOIN ORDER_STATE OS ON(OM.O_CODE=OS.O_CODE)
+		WHERE PA.C_NO =#{cNo}
+		AND ORDER_DATE BETWEEN #{calendarDate1} AND #{calendarDate2}
+		ORDER BY PA.ORDER_DATE DESC
+	</select>
+	
 </mapper>

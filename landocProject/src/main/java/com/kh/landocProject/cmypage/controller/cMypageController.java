@@ -1,6 +1,7 @@
 package com.kh.landocProject.cmypage.controller;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletResponse;
@@ -96,4 +97,41 @@ public class cMypageController {
 		gson.toJson(detail,response.getWriter());
 		
 	}
+	
+	@RequestMapping(value="dateSearch.do")
+	public ModelAndView orderListDateSearch(HttpSession session,ModelAndView mv,@RequestParam(value="date") String date, OrderList order) throws cMypageException {
+		Client loginClient = (Client)session.getAttribute("loginClient");
+		String cNo =loginClient.getcNo();
+		order.setcNo(cNo);
+		order.setDate(date);
+		ArrayList<OrderList> list = cmService.orderListDateSearch(order);
+		if(list!=null) {
+			mv.addObject("orderList",list);
+
+			mv.setViewName("mypage/mypageOrderList");
+		}else {
+			throw new cMypageException("날짜검색 실패!");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value="dateSearch2.do")
+	public ModelAndView orderListDateSearch2(HttpSession session,ModelAndView mv,@RequestParam(value="startDate") Date startDate, @RequestParam(value="endDate") Date endDate, OrderList order) throws cMypageException{
+		Client loginClient = (Client)session.getAttribute("loginClient");
+		String cNo =loginClient.getcNo();
+		order.setcNo(cNo);
+		order.setCalendarDate1(startDate);
+		order.setCalendarDate2(endDate);
+		ArrayList<OrderList> list = cmService.orderListDateSearch2(order);
+		if(list!=null) {
+			mv.addObject("orderList",list);
+
+			mv.setViewName("mypage/mypageOrderList");
+		}else {
+			throw new cMypageException("날짜검색 실패!");
+		}
+		
+		return mv;
+	}
+	
 }

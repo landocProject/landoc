@@ -41,5 +41,16 @@ public class cMypageDao {
 		return sqlSessionTemplate.selectOne("cMypage.orderDetail", order);
 	}
 
+	public ArrayList<OrderList> orderListDateSearch(OrderList order) {
+	
+		return (ArrayList)sqlSessionTemplate.selectList("cMypage.orderListDateSearch",order);
+	}
+
+	public ArrayList<OrderList> orderListDateSearch2(OrderList order) {
+		
+		return (ArrayList)sqlSessionTemplate.selectList("cMypage.orderListDateSearch2",order);
+	}
+
+
 
 }

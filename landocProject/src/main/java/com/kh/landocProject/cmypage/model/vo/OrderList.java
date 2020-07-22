@@ -20,14 +20,17 @@ public class OrderList implements Serializable{
 	private String tumbnail;
 	private int oCode;
 	private String oName;
-	private String discountPrice;	// 원가-판매가+포인트(총할인금액)
+	private String discountPrice;	// 원가-판매가+사용포인트(총할인금액)
 	private String originPrice;	
 	private String cName;
 	private int cPostCode;
 	private String cAddress;
 	private String cPhone;
 	private String countMultiple;	// 수량 * 원가
+	private String date; 			// 날짜 검색용 변수
 	
+	private Date calendarDate1;		// 달력 검색위한 변수
+	private Date calendarDate2;		// 달력 검색위한 변수
 	public OrderList() {
 		super();
 	}
@@ -51,7 +54,8 @@ public class OrderList implements Serializable{
 
 	public OrderList(int orderNo, Date orderDate, String amountPrice, String paymentWay, int usePoint, String cNo,
 			int pdNo, int opCount, String pdName, String tumbnail, int oCode, String oName, String discountPrice,
-			String originPrice, String cName, int cPostCode, String cAddress, String cPhone, String countMultiple) {
+			String originPrice, String cName, int cPostCode, String cAddress, String cPhone, String countMultiple,
+			String date, Date calendarDate1, Date calendarDate2) {
 		super();
 		this.orderNo = orderNo;
 		this.orderDate = orderDate;
@@ -72,6 +76,9 @@ public class OrderList implements Serializable{
 		this.cAddress = cAddress;
 		this.cPhone = cPhone;
 		this.countMultiple = countMultiple;
+		this.date = date;
+		this.calendarDate1 = calendarDate1;
+		this.calendarDate2 = calendarDate2;
 	}
 
 
@@ -304,6 +311,42 @@ public class OrderList implements Serializable{
 
 
 
+	public String getDate() {
+		return date;
+	}
+
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+
+	public Date getCalendarDate1() {
+		return calendarDate1;
+	}
+
+
+
+	public void setCalendarDate1(Date calendarDate1) {
+		this.calendarDate1 = calendarDate1;
+	}
+
+
+
+	public Date getCalendarDate2() {
+		return calendarDate2;
+	}
+
+
+
+	public void setCalendarDate2(Date calendarDate2) {
+		this.calendarDate2 = calendarDate2;
+	}
+
+
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -317,10 +360,13 @@ public class OrderList implements Serializable{
 				+ ", opCount=" + opCount + ", pdName=" + pdName + ", tumbnail=" + tumbnail + ", oCode=" + oCode
 				+ ", oName=" + oName + ", discountPrice=" + discountPrice + ", originPrice=" + originPrice + ", cName="
 				+ cName + ", cPostCode=" + cPostCode + ", cAddress=" + cAddress + ", cPhone=" + cPhone
-				+ ", countMultiple=" + countMultiple + "]";
+				+ ", countMultiple=" + countMultiple + ", date=" + date + ", calendarDate1=" + calendarDate1
+				+ ", calendarDate2=" + calendarDate2 + "]";
 	}
 
 
+
+	
 
 	
 

@@ -46,6 +46,20 @@ public class cMypageServiceImpl implements cMypageService {
 		return cmDao.selectOrderDetail(order);
 	}
 
+	@Override
+	public ArrayList<OrderList> orderListDateSearch(OrderList order) {
+		
+		return cmDao.orderListDateSearch(order);
+	}
+
+	@Override
+	public ArrayList<OrderList> orderListDateSearch2(OrderList order) {
+		
+		return cmDao.orderListDateSearch2(order);
+	}
+
+	
+
 	
 
 }

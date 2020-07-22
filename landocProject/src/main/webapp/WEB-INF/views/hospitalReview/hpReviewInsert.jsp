@@ -488,6 +488,7 @@ body {
 
 								if($("#thumb-receipt").find('img')){
 										$("#remove").show();
+									
 									}
 							
 								}

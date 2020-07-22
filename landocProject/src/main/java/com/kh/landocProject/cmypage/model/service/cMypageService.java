@@ -18,6 +18,12 @@ public interface cMypageService {
 
 	OrderList selectOrderDetail(OrderList order);
 
+	ArrayList<OrderList> orderListDateSearch(OrderList order);
+
+	ArrayList<OrderList> orderListDateSearch2(OrderList order);
+
+
+
 
 
 }

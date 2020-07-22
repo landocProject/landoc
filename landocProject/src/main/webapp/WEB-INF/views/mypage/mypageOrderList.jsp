@@ -232,11 +232,26 @@
                     <!-- 기간별 조회 -->
                   
                         <div class="select-wrap" style="float: left; padding-top: 40px;padding-bottom: 10px;">
-                            <input type="submit" name="btnTerm1D" value="오늘" id="btnTerm1D"  class="btn btn-blackcontent w-10 p-1 period_btn" >
-                            <input type="submit" name="btnTerm1W" value="1주일" id="btnTerm1W" class="btn btn-blackcontent w-10 p-1 period_btn" >
-                            <input type="submit" name="btnTerm1M" value="1개월" id="btnTerm1M" class="btn btn-blackcontent w-10 p-1 period_btn" >
-                            <input type="submit" name="btnTerm3M" value="3개월" id="btnTerm3M" class="btn btn-blackcontent w-10 p-1 period_btn" >
-                            <input type="submit" name="btnTerm6M" value="6개월" id="btnTerm6M" class="btn btn-blackcontent w-10 p-1 period_btn" >
+                      		<c:url var="today" value="dateSearch.do">
+                      			<c:param name="date" value="today"/>
+                      		</c:url>
+                      		<c:url var="weeks" value="dateSearch.do">
+                      			<c:param name="date" value="weeks"/>
+                      		</c:url>
+                      		<c:url var="onemonth" value="dateSearch.do">
+                      			<c:param name="date" value="onemonth"/>
+                      		</c:url>
+                      		<c:url var="threemonth" value="dateSearch.do">
+                      			<c:param name="date" value="threemonth"/>
+                      		</c:url>
+                      		<c:url var="sixmonth" value="dateSearch.do">
+                      			<c:param name="date" value="sixmonth"/>
+                      		</c:url>
+                            <input type="button" onclick="location.href='${today}'" name="btnTerm1D" value="오늘" id="btnTerm1D"  class="btn btn-blackcontent w-10 p-1 period_btn" >
+                            <input type="button" onclick="location.href='${weeks}'"  name="btnTerm1W" value="1주일" id="btnTerm1W" class="btn btn-blackcontent w-10 p-1 period_btn" >
+                            <input type="button" onclick="location.href='${onemonth}'"  name="btnTerm1M" value="1개월" id="btnTerm1M" class="btn btn-blackcontent w-10 p-1 period_btn" >
+                            <input type="button" onclick="location.href='${threemonth}'"  name="btnTerm3M" value="3개월" id="btnTerm3M" class="btn btn-blackcontent w-10 p-1 period_btn" >
+                            <input type="button" onclick="location.href='${sixmonth}'"  name="btnTerm6M" value="6개월" id="btnTerm6M" class="btn btn-blackcontent w-10 p-1 period_btn" >
                         </div>
                   
                   
@@ -245,14 +260,16 @@
                  
                         <!-- 년/월/일 -->
                         <div class="select-wrap" style="float: right; padding-top: 40px;padding-bottom: 10px; height: 30px;">
-
-                            <input type="date" id="startDate" name="startDate">
+						  <form action="dateSearch2.do" method="post">
+                            <input type="date" id="startDate" name="startDate" required="required">
                             <span>~</span>
-                            <input type="date" id="endDate" name="endDate" >
-                            <input type="submit" name="btnTerm1D" value="조회" id="btnTerm1D"  class="btn btn-blackcontent w-10 p-1 period_btn" >
-                       
+                            <input type="date" id="endDate" name="endDate" required="required">
+                            <input type="submit" name="btnTerm1D" value="조회" id="selectDate"  class="btn btn-blackcontent w-10 p-1 period_btn" >
+                      	  </form>
                         </div>
-                   
+                   	<script>
+                   		$("#selectDate").
+                   	</script>
                     <!--기간 end-->
 
                 <!-- </div> -->
@@ -325,9 +342,15 @@
                                       <button type="button" id="edit_profile" class="btn btn-blackcontent w-10 p-1" style="font-size:13px; background-color: #0071ce; color: whitesmoke; float: left;">판매자에게 문의하기</button>
                                     </div>
                                     <div class="buttons" style="float: right;">
-                                        <button type="button" id="edit_profile" class="btn btn-blackcontent w-10 p-1" style="font-size:13px; background-color: #0071ce; color: whitesmoke">반품신청</button>
+                                    <c:if test="${o.oCode ge 1 && o.oCode le 3}">
+                                        <button type="button" id="edit_profile" class="btn btn-blackcontent w-10 p-1" style="font-size:13px; background-color: #0071ce; color: whitesmoke">주문취소</button>
+                                       
+                                    </c:if>
+                                     <c:if test="${o.oCode ge 4 && o.oCode le 5}">
+                                    	<button type="button" id="edit_profile" class="btn btn-blackcontent w-10 p-1" style="font-size:13px; background-color: #0071ce; color: whitesmoke">반품신청</button>
                                         <button type="button" id="edit_profile" class="btn btn-blackcontent w-10 p-1" style="font-size:13px; background-color: #0071ce; color: whitesmoke">교환신청</button>
                                         <button type="button" id="edit_profile" class="btn btn-blackcontent w-10 p-1" style="font-size:13px; background-color: #0071ce; color: whitesmoke">구매후기</button>
+                                     </c:if>
                                     </div>
                                 </td>
                             </tr>
