@@ -8,63 +8,20 @@
     <title>askDrDetail</title>
     <script src= 'http://code.jquery.com/jquery-latest.js'></script>
     <style>
-		 /*오른쪽 영역부분*/
-        #contentArea {
-            position: absolute;
-            left: 350px;
-            top: 20px;
-            width: 80%;
-            height: 100%;
-        }
-
-        #contentArea h2 {
-            text-align:center;
-            padding-bottom: 30px;
-        }
-
-
-        /*오른쪽 영역 table*/
-        .contentTb {
-            margin: 0 auto;
-            margin-top: 30px;
-            width: 100%;
-            text-align: center;
-            border: 2px solid #bbb;
-            border-collapse: collapse;
-        }
-
-        .contentTb tr {
-            line-height: 40px;
-        }
-
-        .contentTb th {
-            border-bottom: 2px solid #bbb;
-            border-right: 1px solid #bbb;
-        }
-
-        .contentTb td {
-            width: auto;
-            border: 1px solid #bbb;
-        }
-
-        .contentTb button {
-            height: 35px;
-            width: 45%;
-            border: 1px solid white;
-            background-color: #bbb;
-            border-radius: 5px;
-            color: black;
-            font-weight: 600;
-        }
-
-        .contentTb button:hover {
-            background-color: #007ee5;
-            color: white;
-        }
-
-
+		
+		/*오른쪽 영역부분*/
+        #contentArea{position: absolute; left: 300px; top: 20px; width: 78%; height: 100%;}
+        #contentArea h3{padding-bottom: 2%; text-align:center;}
         
 
+        /*오른쪽 영역 table*/
+        #contentTb{margin: 0 auto; margin-top: 2%; width: 100%; text-align:center; border: 2px solid #bbb; border-collapse: collapse;}
+        #contentTb tr{line-height: 40px;}
+        #contentTb th{border-bottom: 2px solid #bbb; border-right: 1px solid #bbb; font-size:13px;}
+        #contentTb td{width: auto; border: 1px solid #bbb; font-size:14px;}
+        #contentTb button{height: 35px; width: 55%; border: 1px solid white; background-color: #bbb; border-radius: 5px; color: black; font-weight: 600;}
+        #contentTb button:hover{background-color: #007ee5; color: white;}
+        
         /* td  */
         td>button {
             width: 300px;
@@ -88,7 +45,6 @@
         }
 
 
-
 	</style>
 
 </head>
@@ -98,7 +54,7 @@
 	
     <!--여기서 부터 왼쪽 영역 contentArea-->
     <div id="contentArea">
-        <h2>의사에게 물어봐 상세</h2>
+        <h3>의사에게 물어봐 상세</h3>
 
         <!--테이블 부분-->
         <table class="contentTb">

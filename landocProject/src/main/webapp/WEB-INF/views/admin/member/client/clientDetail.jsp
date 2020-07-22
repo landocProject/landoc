@@ -9,28 +9,23 @@
     <script src= 'http://code.jquery.com/jquery-latest.js'></script>
     <style>
 
-      /*오른쪽 영역부분*/
-        #contentArea{position: absolute; left: 370px; top: 20px; width: 80%; height: 100%;}
-        #contentArea h2{padding-bottom: 30px; text-align:center;}
+     /*오른쪽 영역부분*/
+        #contentArea{position: absolute; left: 300px; top: 20px; width: 78%; height: 100%;}
+        #contentArea h3{padding-bottom: 2%; text-align:center;}
         
 
-        /*오른쪽 영역 table*/
-        #contentTb{margin: 0 auto; margin-top: 30px; width: 70%; text-align:center; border: 2px solid #bbb; border-collapse: collapse;}
-        #contentTb tr{line-height: 65px;}
-        #contentTb th{border-bottom: 2px solid #bbb; border-right: 1px solid #bbb; font-size:18px;}
-        #contentTb td{width: auto; border: 1px solid #bbb; text-align: left; padding-left: 20px;}
-        #contentTb button{height: 35px; width: 35%; border: 1px solid white; background-color: #bbb; border-radius: 5px; color: black; font-weight: 600;}
+         /*오른쪽 영역 table*/
+        #contentTb{margin: 0 auto; margin-top: 2%; width: 80%; text-align:center; border: 2px solid #bbb; border-collapse: collapse;}
+        #contentTb tr{line-height: 40px;}
+        #contentTb th{border-bottom: 2px solid #bbb; border-right: 1px solid #bbb; font-size:13px;}
+        #contentTb td{width: auto; border: 1px solid #bbb; font-size:14px;}
+        #contentTb button{height: 35px; width: 55%; border: 1px solid white; background-color: #bbb; border-radius: 5px; color: black; font-weight: 600;}
         #contentTb button:hover{background-color: #007ee5; color: white;}
-		#contentTb input{width: 90%; height: 40px; border: none; font-size:20px;}
-		
-		#contentTb select{width:33%; height:40px; font-size:18px;}
-		#contentTb input[type=file]{height:50px;}
-		
+		#contentTb input{width:95%; border:none;}
 
-
-        /* 수정하기, 뒤로가기 버튼*/
+ 		/* 수정하기, 뒤로가기 버튼*/
         #btnArea{text-align: center; padding-top: 45px;}
-        #btnArea button{height: 50px; width: 17%; border: 1px solid white; background-color: #bbb; border-radius: 5px; color: black; font-weight: 600; font-size:20px;}
+        #btnArea button{height: 40px; width: 15%; border: 1px solid white; background-color: #bbb; border-radius: 5px; color: black; font-weight: 600; font-size:15px;}
         #btnArea button:hover{background-color: #007ee5; color: white;}
      
     </style>
@@ -41,7 +36,7 @@
     <!--여기서 부터 왼쪽 영역 contentArea-->
     <form action="#" method="post">
         <div id="contentArea">
-            <h2>회원 정보 수정</h2>
+            <h3>회원 정보 수정</h3>
 
 
             <!--테이블 부분-->

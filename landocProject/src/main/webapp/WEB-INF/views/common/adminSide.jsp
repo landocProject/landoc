@@ -11,14 +11,14 @@
       
         /*왼쪽 사이드 navi 부분*/
         body{padding:0; margin: 0;}
-        #sideBar{position: fixed; width: 300px; height: 100%; background-color: #bbb;}
+        #sideBar{position: fixed; width: 250px; height: 100%; background-color: #bbb;}
         #logoBox{text-align: center;}
-        #logoBox img{width: 150px; height: 150px; padding-top:15px;} 
-        #logoBox h2{text-align: center; margin: 0 auto; padding-top:30px;}
+        #logoBox img{width: 120px; height: 120px; padding-top:5px;} 
+        #logoBox h3{text-align: center; margin: 0 auto; padding-top:5px;}
 
         #sideBarTb{margin:0 auto; padding-top: 15px; width: 100%;}
         #sideBarTb td{text-align: center; padding:0;}
-        #sideBarTb button{border: none; width: 100%; font-size: 18px; font-weight: 800; padding: 25px; background-color: #bbb;}
+        #sideBarTb button{border: none; width: 100%; font-size: 15px; font-weight: 800; padding: 6%; background-color: #bbb;}
         #sideBarTb button:hover{background-color: white;}
         
         
@@ -31,7 +31,7 @@
 	 <div id="sideBar">
         <div id="logoBox">
             <img src="<%=request.getContextPath() %>/resources/images/logo.png">
-            <h2>ADMIN</h2>
+            <h3>ADMIN</h3>
         </div>
         <table id="sideBarTb">
             <!-- <tr><td><img src="../images/logo.png"></td></tr> -->
