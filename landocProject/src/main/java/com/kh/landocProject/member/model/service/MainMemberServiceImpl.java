@@ -80,5 +80,17 @@ public class MainMemberServiceImpl implements MainMemberService{
 		return mDao.insertFile3(dhp);
 	}
 
+	@Override
+	public Client searchPwdClient(Client c) {
+		
+		return mDao.searchPwdClient(c);
+	}
+
+	@Override
+	public DrClient searchPwdDoctor(DrClient d) {
+		
+		return mDao.searchPwdDoctor(d);
+	}
+
 	
 }

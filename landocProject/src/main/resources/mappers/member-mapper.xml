@@ -119,5 +119,18 @@
 		VALUES(SEQ_DHP.NEXTVAL, #{drhpOrigin}, #{drhpRename}, 'NULL', 3, #{drNo}, #{hpNo})
 	</insert>
 	
-	
+	<!-- 일반회원_비밀번호 찾기  -->
+	<select id="searchPwdClient" parameterType="Client" resultMap="ClientResultSet">
+		SELECT *
+		FROM CLIENT
+		WHERE C_ID = #{userId}
+		AND C_EMAIL = #{email}
+	</select>
+	<!-- 일반회원_비밀번호 찾기  -->
+	<select id="searchPwdDrClient" parameterType="DrClient" resultMap="DoctorResultSet">
+		SELECT *
+		FROM DRCLIENT
+		WHERE DR_ID = #{userId}
+		AND DR_EMAIL = #{email}
+	</select>
 </mapper>

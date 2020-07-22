@@ -65,6 +65,14 @@ public class MainMemberDao {
 
 		return sqlSessionTemplate.insert("memberMapper.insertFile3", dhp);
 	}
+	public Client searchPwdClient(Client c) {
+		
+		return sqlSessionTemplate.selectOne("memberMapper.searchPwdClient", c);
+	}
+	public DrClient searchPwdDoctor(DrClient d) {
+		
+		return sqlSessionTemplate.selectOne("memberMapper.searchPwdDoctor", d);
+	}
 
 	
 

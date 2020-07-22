@@ -73,21 +73,21 @@ public class MainMemberController {
 	public String searchPwd() {
 		return "member/searchPwd";
 	}
-
-	@RequestMapping(value="searchPwd2.do", method=RequestMethod.GET)
-	public String searchPwd2() {
-		return "member/searchPwd2";
-	}
-
-	@RequestMapping(value="searchPwd3.do", method=RequestMethod.GET)
-	public String searchPwd3() {
-		return "member/searchPwd3";
-	}
-
-	@RequestMapping(value="searchPwd4.do", method=RequestMethod.GET)
-	public String searchPwd4() {
-		return "member/searchPwd4";
-	}
+//
+//	@RequestMapping(value="searchPwd2.do", method=RequestMethod.GET)
+//	public String searchPwd2() {
+//		return "member/searchPwd2";
+//	}
+//
+//	@RequestMapping(value="searchPwd3.do", method=RequestMethod.GET)
+//	public String searchPwd3() {
+//		return "member/searchPwd3";
+//	}
+//
+//	@RequestMapping(value="searchPwd4.do", method=RequestMethod.GET)
+//	public String searchPwd4() {
+//		return "member/searchPwd4";
+//	}
 	
 	
 	// 암호화 처리 일반 회원가입_start_진교
@@ -167,10 +167,10 @@ public class MainMemberController {
 				if(ClientSearchId != null) {
 					model.addAttribute("ClientSearchId", ClientSearchId);
 					
-					response_equals.setContentType("text/html; charset=UTF-8");
-					PrintWriter out_equals = response_equals.getWriter();
-					out_equals.println("<script>alert('아이디는' + ClientSearchId.getUserId()); history.go(-1);</script>");
-					out_equals.flush();
+//					response_equals.setContentType("text/html; charset=UTF-8");
+//					PrintWriter out_equals = response_equals.getWriter();
+//					out_equals.println("<script>alert('아이디는' + ClientSearchId.getUserId()); history.go(-1);</script>");
+//					out_equals.flush();
 					
 					return "member/login";
 				}else {
@@ -477,6 +477,45 @@ public class MainMemberController {
 			return renameFileName;
 		}
 		// 의사 회원가입3(파일 제출)_end
+		
+		// 비밀번호 찾기_start_진교
+		@RequestMapping(value="searchPwd.do")
+		public String searchPwd(Client c, DrClient d, Model model, 
+								@RequestParam("check") String check,
+								HttpServletResponse response_equals) throws IOException{
+			
+//					System.out.println(check);
+			
+			if(check.equals("client")) {
+				Client ClientSearchPwd = mService.searchPwdClient(c);
+				
+//						System.out.println(ClientSearchPwd);
+				
+				if(ClientSearchPwd != null) {
+					model.addAttribute("ClientSearchPwd", ClientSearchPwd);
+					
+					return "member/searchPwd2";
+				}else {
+					model.addAttribute("msg", "일반회원 아이디 찾기 실패");
+					return "common/errorPage";
+				}
+			}else if(check.equals("drClient")) {
+				DrClient DrClientsearchPwd = mService.searchPwdDoctor(d);
+				
+//						System.out.println(DrClientsearchPwd);
+				
+				if(DrClientsearchPwd != null) {
+					model.addAttribute("DrClientsearchPwd", DrClientsearchPwd);
+					return "member/searchPwd";
+				}else {
+					model.addAttribute("msg", "의사회원 아이디 찾기 실패");
+					return "common/errorPage";
+				}
+			}
+			return "member/login";
+		
+		}
+		// 비밀번호 찾기_end_진교
 		
 				
 		

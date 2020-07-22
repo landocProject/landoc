@@ -26,6 +26,10 @@ public interface MainMemberService {
 
 	DrClient joinDrClient2(DrClient d);
 
+	Client searchPwdClient(Client c);
+
+	DrClient searchPwdDoctor(DrClient d);
+
 
 
 
