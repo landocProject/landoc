@@ -10,8 +10,10 @@
       <typeAlias type="com.kh.landocProject.member.model.vo.DrClient" alias="DrClient"/>
       <typeAlias type="com.kh.landocProject.askDr.model.vo.AskDrBoard" alias="AskDrBoard"/>
 	  <typeAlias type="com.kh.landocProject.hospitalReview.model.vo.SearchHp" alias="SearchHp"/>
+      <typeAlias type="com.kh.landocProject.hospitalReview.model.vo.HpReview" alias="HpReview"/>
       <typeAlias type="com.kh.landocProject.cmypage.model.vo.LikeHp" alias="LikeHp"/>
       <typeAlias type="com.kh.landocProject.cmypage.model.vo.PdReview" alias="PdReview"/>
+
 
    </typeAliases>
 

@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% 
+	String noLoginUser = (String)request.getParameter("noLoginUser");
+
+%>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -40,8 +46,8 @@
 </style>
 </head>
 <body>
-	
-	<div class="limiter" id="login">
+
+		<div class="limiter" id="login">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" action="memberLogin.do" method="post">
@@ -189,12 +195,25 @@
                 return unescape(cookieValue);
             }
             // 아이디 저장 코드 end
-      		var result = '${ClientSearchId}';
+      		/* var result = '${ClientSearchId}';
       		if(result != null){
       			alert($(ClientSearchId.userId));
-      		}
-           }
+      		} */
+       /*  }; */
    </script>
+   
+   <script>
+   		<%if(noLoginUser != null){%>
+   			alert("로그인이 필요한 서비스입니다.");
+   		
+   		<%}%>
+   </script>
+  
+   
+   		
+  
+   
+   
 </body>
 </html>
 

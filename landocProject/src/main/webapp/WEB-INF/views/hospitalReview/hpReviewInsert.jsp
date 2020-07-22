@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -24,11 +25,7 @@
 	<!-- Main Stylesheets -->
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/style.css"/>
 	
-	<!--star rating-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
+	
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -36,6 +33,10 @@
 
 
 	<script src= 'http://code.jquery.com/jquery-latest.js'></script>
+
+	<!--  <script src="https://kit.fontawesome.com/02aa01148e.js" crossorigin="anonymous"></script> -->
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <style>
 	.btn-file input[type=file] {
@@ -55,152 +56,154 @@
 	.starRating{width: 50%;}
 	
 
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-180 { font-size: 180px; }
 
 
 /*-------------------------------------------------------------*/
-body {
-  background-color: lightblue;
-}
-
-.rating {
-  text-align: center;
-  /* margin-top: 120px; */
-  position: relative;
-  width: 50%;
-  float: left;
-}
-
-.hidden {
-  opacity: 0;
-}
-
-.star {
-  display: inline-block;
-  margin: 5px;
-  font-size: 30px;
-  color: whitesmoke;
-  position: relative;
-}
-.star.animate {
-  -webkit-animation: stretch-bounce .5s ease-in-out;
-}
-.star.hidden {
-  opacity: 0;
-}
-
-.full:before {
-  font-family: fontAwesome;
-  display: inline-block;
-  content: "\f005";
-  position: relative;
-  float: right;
-  z-index: 2;
-}
-
-.half:before {
-  font-family: fontAwesome;
-  content: "\f089";
-  position: absolute;
-  float: left;
-  z-index: 3;
-}
-
-.star-colour {
-  color: #ffd700;
-}
-
-@-webkit-keyframes stretch-bounce {
-  0% {
-    -webkit-transform: scale(1);
-  }
-  25% {
-    -webkit-transform: scale(1.5);
-  }
-  50% {
-    -webkit-transform: scale(0.9);
-  }
-  75% {
-    -webkit-transform: scale(1.2);
-  }
-  100% {
-    -webkit-transform: scale(1);
-  }
-}
-.selected:before {
-  font-family: fontAwesome;
-  display: inline-block;
-  content: "\f005";
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transform: scale(1);
-  opacity: 1;
-  z-index: 1;
-}
-.selected.pulse:before {
-  -webkit-transform: scale(3);
-  opacity: 0;
-}
-.selected.is-animated:before {
-  transition: 1s ease-out;
-}
-
-.score {
-  font-family: arial;
-  font-size: 20px;
-  color: green;
-  margin-top: 20px;
-  margin-left: 50px;
-}
-
-.score-rating {
-  vertical-align: sup;
-  top: -5px;
-  position: relative;
-  font-size: 150%;
-}
-
-.total {
-  vertical-align: sub;
-  top: 0px;
-  position: relative;
-  font-size: 100%;
-}
-
-.average {
-  font-family: arial;
-  font-size: 20px;
-  color: indianred;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.average .score-average {
-  padding-top: 30px;
-}
-
-
-.clickedHpList{
-	backgroud-color:#7fbef2;
-}
-.listLine{
-		backgroud:#7fbef2;
-
-}
+	body {
+	  background-color: lightblue;
+	}
+	
+	.rating {
+	  text-align: center;
+	  /* margin-top: 120px; */
+	  position: relative;
+	  width: 50%;
+	  float: left;
+	}
+	
+	.hidden {
+	  opacity: 0;
+	}
+	
+	.star {
+	  display: inline-block;
+	  margin: 5px;
+	  font-size: 30px;
+	  color: whitesmoke;
+	  position: relative;
+	}
+	.star.animate {
+	  -webkit-animation: stretch-bounce .5s ease-in-out;
+	}
+	.star.hidden {
+	  opacity: 0;
+	}
+	
+	.full:before {
+	  font-family: fontAwesome;
+	  display: inline-block;
+	  content: "\f005";
+	  position: relative;
+	  float: right;
+	  z-index: 2;
+	}
+	
+	.half:before {
+	  font-family: fontAwesome;
+	  content: "\f089";
+	  position: absolute;
+	  float: left;
+	  z-index: 3;
+	}
+	
+	.star-colour {
+	  color: #ffd700;
+	}
+	
+	@-webkit-keyframes stretch-bounce {
+	  0% {
+	    -webkit-transform: scale(1);
+	  }
+	  25% {
+	    -webkit-transform: scale(1.5);
+	  }
+	  50% {
+	    -webkit-transform: scale(0.9);
+	  }
+	  75% {
+	    -webkit-transform: scale(1.2);
+	  }
+	  100% {
+	    -webkit-transform: scale(1);
+	  }
+	}
+	.selected:before {
+	  font-family: fontAwesome;
+	  display: inline-block;
+	  content: "\f005";
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  -webkit-transform: scale(1);
+	  opacity: 1;
+	  z-index: 1;
+	}
+	.selected.pulse:before {
+	  -webkit-transform: scale(3);
+	  opacity: 0;
+	}
+	.selected.is-animated:before {
+	  transition: 1s ease-out;
+	}
+	
+	.score {
+	  font-family: arial;
+	  font-size: 20px;
+	  color: green;
+	  margin-top: 10px;
+	  margin-left: 0px;
+	}
+	
+	.score-rating {
+	  vertical-align: sup;
+	  top: -5px;
+	  position: relative;
+	  font-size: 150%;
+	}
+	
+	.total {
+	  vertical-align: sub;
+	  top: 0px;
+	  position: relative;
+	  font-size: 100%;
+	}
+	
+	.average {
+	  font-family: arial;
+	  font-size: 20px;
+	  color: indianred;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  text-align: center;
+	}
+	.average .score-average {
+	  padding-top: 30px;
+	}
+	
+	/*--------------------------------------------------------------*/	
+	
+	
 
 
-/*--------------------------------------------------------------*/	
+
 </style>
 </head>
 <body>
+
+
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
 
-	  <%@ include file="../static/header.jsp" %>
+	<%@ include file="../static/header.jsp" %>
 		
 	
 	<link rel="stylesheet" type="text/css" href="https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/mdd_event/style.css">
@@ -253,18 +256,29 @@ body {
 						$tableBody = $("#searchHpNameTb");
 						$tableBody.html("");
 						var $tr;
+						var $hpNo;
 						var $hpName;
 						var $hpAddress;
 						var $hpPhone;
 						
 						if(data.length>0){	// 검색결과가 존재할 경우
 							for(var i in data){
-								$tr = $("<tr>").addClass("listLine");
-								$hpName = $("<td>").text(data[i].hpName);
-								$hpAddress = $("<td>").text(data[i].hpAddress);
-								$hpPhone = $("<td>").text(data[i].hpPHone);
+								$tr = $("<tr>");
+								$td = $("<td>");
+								$hpNo = $("<td>").text(data[i].hpNo);
+								$hpNoIn = $("<input type='hidden' value='"+$hpNo.text()+"'>").addClass("listHpNo");
+								/* console.log($hpNoIn.val()); */
+								$hpName = $("<td>").text(data[i].hpName).addClass("listLineName");
+								$hpNameIn = $("<input type='hidden' value='"+$hpName.text()+"'>").addClass("listLineNameIn");
 								
-								$tr.append($hpName);
+								$hpAddress = $("<td>").text(data[i].hpAddress).addClass("listLineAdd");
+								$hpPhone = $("<td>").text(data[i].hpPHone).addClass("listLine");
+								
+								$hpName.append($hpNameIn);
+								$hpNo.append($hpNoIn);
+								$td.append($hpName);
+								$tr.append($td);
+								
 								$tr.append($hpAddress);
 								$tr.append($hpPhone);
 								$tableBody.append($tr);
@@ -273,9 +287,12 @@ body {
 							
 						}else{
 							$tr = $("<tr>");
+							$td = $("<td>");
 							$hpName = $("<td>").text("등록된 병원이 없습니다.");
 							
-							$tr.append($hpName);
+							
+							$tr.appent($td);
+							$td.append($hpName);
 							$tableBody.apppend($tr);
 							
 						}
@@ -292,29 +309,24 @@ body {
 		});
 		
 		
-		// 검색된 병원리스트 선택
-		$("#searchHpNameTb tr").mouseenter(function(){
-				/* $(this).addClass("clickedHpList"); */
-			$(this).css({"background" : "black"});
-			
-			
-			
-			
-		});
-		
-		
-		$(".listLine td").click(function(){
-			$(this).css({"background" : "black"});
-		})
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	</script>
+	<script>
+	    $(document).on("click",".listLineName",function(){
+	    	$(".listLineName").parent().parent().css("background","white");
+	        $(this).parent().parent().css({"background":"#cce5f9", "cursor":"pointer"});
+	       /*  console.log("this: " + $(this).text()); */
+	        var hopiName = $(this).text();
+	       	var hpNo = $hpNoIn.val();
+		    /* console.log(hpNo); */
+	        
+	        $("#hospital-search-save-btn").click(function(){
+	       		$("#hospitalSearchModal").modal("hide");
+	       		$("#hospital_name").val(hopiName);
+	       		$("#hospital_id").val(hpNo);
+	        })
+	 	
+	    })
+	 	
 	</script>
 			 
 			  <div class="card border-0">
@@ -331,7 +343,7 @@ body {
 							<table id="searchHpNameTb">
 								<tr>
 									<td></td>
-									<td colspan="2"></td>
+									<td></td>
 								</tr>
 							</table>
 						</div>
@@ -348,9 +360,9 @@ body {
 	  </div>
 	</div>
 	
-	
+	<!--------------------------------------------------------------------------------------------------------------------------------------->
 	<!--form 태그 시작-->
-	<form id="register-submit-form" enctype="multipart/form-data">
+	<form id="register-submit-form" action="hpReInsert.do" method="post" enctype="multipart/form-data" onsubmit="return checkValidate();">
 		<input type="hidden" name="csrfmiddlewaretoken" value="7EYyK9n8kkbHp3Y3zYlR8e1LSwhuubipViDL0KoRy7LwZOtyK80JuVWhaIcpapZA">
 		
 		<div class="container-fluid mt-0 pt-5 pb-5" style="background-color: #e5f2fc;text-align: center">
@@ -367,7 +379,7 @@ body {
 				</div>
 				<div class="row">
 					<div class="col-sm-10 offset-sm-1 pt-5 pl-0" style="border-bottom: solid 2px #9b9b9b;">
-						<input type="hidden" id="hospital_id" name="hospital_id" value="">
+						<input type="hidden" id="hospital_id" name="hospital_id">
 						<input type="text" class="form-control border-0 pl-0" id="hospital_name" name="hospital_name" disabled="" placeholder="하단의 '병원 조회하기'버튼을 눌러 선택해주세요" style="background-color: transparent; font-size: 21px; font-weight: bold; color: #494949;">
 					</div>
 				</div>
@@ -465,21 +477,22 @@ body {
 						<!--파일 미리보기 -->
 						
 						
-							<span id="remove" style="display: none;">X</span>
+						<span id="remove" style="display: none;">X</span>
 					
 						<div class="file-preview" id="thumb-receipt">
+							<img id="preView" name="preView">
 						</div>
 						
 						<div class="clearfix"></div>
 						
-						<div tabindex="500" class="btn btn-blackcontent btn-block p-3 btn-file" style="background-color:#0071ce" id="test" >
+						<div tabindex="500" class="btn btn-blackcontent btn-block p-3 btn-file" style="background-color:#0071ce" id="test">
 						
 							<span style="font-size: 18px; color: white;">인증자료 첨부하기</span>
 							<input id="receipt_image" name="receipt_image" type="file" style="opacity: 0; " onchange="setThumbnail(event)">
 						</div>
 					
 						<script> 
-						function setThumbnail(event) { 
+						/* function setThumbnail(event) { 
 							var reader = new FileReader(); reader.onload = function(event) { 
 								var img = document.createElement("img"); img.setAttribute("src", event.target.result);
 								document.querySelector("div#thumb-receipt").appendChild(img); }; 
@@ -490,122 +503,142 @@ body {
 										$("#remove").show();
 									}
 							
-								}
+								}  */
 								
-								
+						// x누르면 파일 사라지는 함수
+						
+						
 						$(function(){
 							$("#remove").on("click",function(){
-								$("#thumb-receipt").html("");
+								$("#preView").removeAttr("src");
 								$(this).hide();
 								});
-						})
+							})
 
+						
+						// 미리보기 영역에 이미지 하나만 나오게 하는 함수
+						  function readUploadImage1(inputObject){
+					          if(inputObject.files && inputObject.files[0]){
+					             if(!(/image/i).test(inputObject.files[0].type)){
+					                alert("이미지 파일을 선택해 주세요");
+					                return false;
+					             }
+					             
+					             var reader = new FileReader();
+					             
+					             reader.onload = function(e){
+					                $("#preView").attr("src", e.target.result);
+					             }
+					             reader.readAsDataURL(inputObject.files[0]);
+					          }        
+					     }
+					               
+					     $("#receipt_image").change(function(){
+					    	 $("#remove").show();
+					        readUploadImage1(this);
+					     }) 
+						
 						</script>
 						</div>
                     </div>
                 </div>
 			</div>
 
+		<!-------------------------------------------------------------------------------------------------->
+		<script>
+		// 별점 관련 함수 
+		var starClicked = false;
 
+		$(function() {
 
-			
-			<script>
-			var starClicked = false;
+		  $('.star').click(function() {
 
-			$(function() {
+		    $(this).children('.selected').addClass('is-animated');
+		    $(this).children('.selected').addClass('pulse');
 
-			$('.star').click(function() {
+		    var target = this;
 
-				$(this).children('.selected').addClass('is-animated');
-				$(this).children('.selected').addClass('pulse');
+		    setTimeout(function() {
+		      $(target).children('.selected').removeClass('is-animated');
+		      $(target).children('.selected').removeClass('pulse');
+		    }, 1000);
 
-				var target = this;
+		    starClicked = true;
+		  })
 
-				setTimeout(function() {
-				$(target).children('.selected').removeClass('is-animated');
-				$(target).children('.selected').removeClass('pulse');
-				}, 1000);
+		  $('.half').click(function() {
+		    if (starClicked == true) {
+		      setHalfStarState(this)
+		    }
+		    $(this).closest('.rating').find('.js-score').text($(this).data('value'));
 
-				starClicked = true;
-			})
+		    $(this).closest('.rating').data('vote', $(this).data('value'));
+		    calculateAverage()
+		    console.log(parseInt($(this).data('value')));
 
-			$('.half').click(function() {
-				if (starClicked == true) {
-				setHalfStarState(this)
-				}
-				$(this).closest('.rating').find('.js-score').text($(this).data('value'));
+		  })
 
-				$(this).closest('.rating').data('vote', $(this).data('value'));
-				calculateAverage()
-				console.log(parseInt($(this).data('value')));
+		  $('.full').click(function() {
+		    if (starClicked == true) {
+		      setFullStarState(this)
+		    }
+		    $(this).closest('.rating').find('.js-score').text($(this).data('value'));
 
-			})
+		    $(this).find('js-average').text(parseInt($(this).data('value')));
 
-			$('.full').click(function() {
-				if (starClicked == true) {
-				setFullStarState(this)
-				}
-				$(this).closest('.rating').find('.js-score').text($(this).data('value'));
+		    $(this).closest('.rating').data('vote', $(this).data('value'));
+		    calculateAverage()
 
-				$(this).find('js-average').text(parseInt($(this).data('value')));
+		    console.log(parseInt($(this).data('value')));
+		  })
 
-				$(this).closest('.rating').data('vote', $(this).data('value'));
-				calculateAverage()
+		  $('.half').hover(function() {
+		    if (starClicked == false) {
+		      setHalfStarState(this)
+		    }
 
-				console.log(parseInt($(this).data('value')));
-			})
+		  })
 
-			$('.half').hover(function() {
-				if (starClicked == false) {
-				setHalfStarState(this)
-				}
+		  $('.full').hover(function() {
+		    if (starClicked == false) {
+		      setFullStarState(this)
+		    }
+		  })
 
-			})
+		})
 
-			$('.full').hover(function() {
-				if (starClicked == false) {
-				setFullStarState(this)
-				}
-			})
+		function updateStarState(target) {
+		  $(target).parent().prevAll().addClass('animate');
+		  $(target).parent().prevAll().children().addClass('star-colour');
 
-			})
+		  $(target).parent().nextAll().removeClass('animate');
+		  $(target).parent().nextAll().children().removeClass('star-colour');
+		}
 
-			function updateStarState(target) {
-			$(target).parent().prevAll().addClass('animate');
-			$(target).parent().prevAll().children().addClass('star-colour');
+		function setHalfStarState(target) {
+		  $(target).addClass('star-colour');
+		  $(target).siblings('.full').removeClass('star-colour');
+		  updateStarState(target)
+		}
 
-			$(target).parent().nextAll().removeClass('animate');
-			$(target).parent().nextAll().children().removeClass('star-colour');
-			}
+		function setFullStarState(target) {
+		  $(target).addClass('star-colour');
+		  $(target).parent().addClass('animate');
+		  $(target).siblings('.half').addClass('star-colour');
 
-			function setHalfStarState(target) {
-			$(target).addClass('star-colour');
-			$(target).siblings('.full').removeClass('star-colour');
-			updateStarState(target)
-			}
+		  updateStarState(target)
+		}
 
-			function setFullStarState(target) {
-			$(target).addClass('star-colour');
-			$(target).parent().addClass('animate');
-			$(target).siblings('.half').addClass('star-colour');
+		function calculateAverage() {
+		  var average = 0
 
-			updateStarState(target)
-			}
+		  $('.rating').each(function() {
+		    average += $(this).data('vote')
+		  })
 
-			function calculateAverage() {
-			var average = 0
-
-			$('.rating').each(function() {
-				average += $(this).data('vote')
-			})
-
-			$('.js-average').text((average/ $('.rating').length).toFixed(1))
-			}
-
-
-			</script>
-
-
+		  $('.js-average').text((average/ $('.rating').length).toFixed(1))
+		}
+		</script>
 
 			<!-------------------------------------------------------------------------------------------------->
 			<div class="summit-content-box mx-auto p-5 mt-4">
@@ -627,7 +660,7 @@ body {
 								  <div class="col-sm-11 pr-0">
 									  <div class="d-flex justify-content-between align-items-center">
 										  직원의 친절
-										  <div class="rating" data-vote="0">
+										  <div class="rating" data-vote="0" style="width:55%;">
 											
 											<div class="star hidden">
 											  <span class="full"data-value="0"></span>
@@ -674,13 +707,25 @@ body {
 											  
 											</div>
 											
-											<div class="score">
-												<span class="score-rating js-score">0</span>
+											<div class="score" style="float:right;">
+												<span class="score-rating js-score kind">0</span>
+												<input type="hidden" id="kindness" name="kindness">
 												<span>/</span>
 												<span class="total">5</span>
 											</div>
 										</div>
 										
+										<script>
+											$(function(){
+												$(".star").click(function(){
+													var kindness = $(".kind").text();
+													
+													console.log(kindness);
+													$("#kindness").val(kindness);
+												})
+											})
+										
+										</script>
 
 
 									  </div>
@@ -693,6 +738,77 @@ body {
 								  <div class="col-sm-11 pr-0">
 									  <div class="d-flex justify-content-between align-items-center">
 										  짧은 대기시간
+										  <div class="rating" data-vote="0" style="width:55%;">
+											
+											<div class="star hidden">
+											  <span class="full"data-value="0"></span>
+											  <span class="half"data-value="0"></span>
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="1"></span>
+											  <span class="half" data-value="0.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="2"></span>
+											  <span class="half" data-value="1.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="3"></span>
+											  <span class="half" data-value="2.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="4"></span>
+											  <span class="half" data-value="3.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="5"></span>
+											  <span class="half" data-value="4.5"></span>
+											  <span class="selected"></span>
+											  
+											</div>
+											
+											<div class="score" style="float:right;">
+												<span class="score-rating js-score waitingTm">0</span>
+												<input type="hidden" id="waitingTm" name="waitingTm">
+												<span>/</span>
+												<span class="total">5</span>
+											</div>
+										</div>
+										
+										<script>
+											$(function(){
+												$(".star").click(function(){
+													var waitingTm = $(".waitingTm").text();
+													
+													console.log(waitingTm);
+													$("#waitingTm").val(waitingTm);
+												})
+											})
+										
+										</script>
+										  
+										  
+										  
+										  
+										  
 										  
 									  </div>
 								  </div>
@@ -704,6 +820,72 @@ body {
 								  <div class="col-sm-11 pr-0">
 									  <div class="d-flex justify-content-between align-items-center">
 										  청결함
+										  <div class="rating" data-vote="0" style="width:55%;">
+											
+											<div class="star hidden">
+											  <span class="full"data-value="0"></span>
+											  <span class="half"data-value="0"></span>
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="1"></span>
+											  <span class="half" data-value="0.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="2"></span>
+											  <span class="half" data-value="1.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="3"></span>
+											  <span class="half" data-value="2.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="4"></span>
+											  <span class="half" data-value="3.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="5"></span>
+											  <span class="half" data-value="4.5"></span>
+											  <span class="selected"></span>
+											  
+											</div>
+											
+											<div class="score" style="float:right;">
+												<span class="score-rating js-score sanitary">0</span>
+												<input type="hidden" id="sanitary" name="sanitary">
+												<span>/</span>
+												<span class="total">5</span>
+											</div>
+										</div>
+										
+										<script>
+											$(function(){
+												$(".star").click(function(){
+													var sanitary = $(".sanitary").text();
+													
+													console.log(sanitary);
+													$("#sanitary").val(sanitary);
+												})
+											})
+										
+										</script>
 										  
 									  </div>
 								  </div>
@@ -716,6 +898,75 @@ body {
 									  <div class="d-flex justify-content-between align-items-center">
 										  치료에 대한 자세한 설명
 										  
+										  <div class="rating" data-vote="0" style="width:55%;">
+											
+											<div class="star hidden">
+											  <span class="full"data-value="0"></span>
+											  <span class="half"data-value="0"></span>
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="1"></span>
+											  <span class="half" data-value="0.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="2"></span>
+											  <span class="half" data-value="1.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="3"></span>
+											  <span class="half" data-value="2.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="4"></span>
+											  <span class="half" data-value="3.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="5"></span>
+											  <span class="half" data-value="4.5"></span>
+											  <span class="selected"></span>
+											  
+											</div>
+											
+											<div class="score" style="float:right;">
+												<span class="score-rating js-score explanation">0</span>
+												<input type="hidden" id="explanation" name="explanation">
+												<span>/</span>
+												<span class="total">5</span>
+											</div>
+										</div>
+										
+										<script>
+											$(function(){
+												$(".star").click(function(){
+													var explanation = $(".explanation").text();
+													
+													console.log(explanation);
+													$("#explanation").val(explanation);
+												})
+											})
+										
+										</script>
+										  
+										  
+										  
 									  </div>
 								  </div>
 								  <div class="col-sm-1 p-0 d-flex align-items-center caption" id="kv-caption-explain" style="color: #9b9b9b;"><span class="badge badge-default"></span></div>
@@ -726,6 +977,73 @@ body {
 								  <div class="col-sm-11 pr-0">
 									  <div class="d-flex justify-content-between align-items-center">
 										  적절한 금액
+										 <div class="rating" data-vote="0" style="width:55%;">
+											
+											<div class="star hidden">
+											  <span class="full"data-value="0"></span>
+											  <span class="half"data-value="0"></span>
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="1"></span>
+											  <span class="half" data-value="0.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="2"></span>
+											  <span class="half" data-value="1.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="3"></span>
+											  <span class="half" data-value="2.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="4"></span>
+											  <span class="half" data-value="3.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="5"></span>
+											  <span class="half" data-value="4.5"></span>
+											  <span class="selected"></span>
+											  
+											</div>
+											
+											<div class="score" style="float:right;">
+												<span class="score-rating js-score price">0</span>
+												<input type="hidden" id="price" name="price">
+												<span>/</span>
+												<span class="total">5</span>
+											</div>
+										</div>
+										
+										<script>
+											$(function(){
+												$(".star").click(function(){
+													var price = $(".price").text();
+													
+													console.log(price);
+													$("#price").val(price);
+												})
+											})
+										
+										</script>
+										 
 										 
 									  </div>
 								  </div>
@@ -737,6 +1055,74 @@ body {
 								  <div class="col-sm-11 pr-0">
 									  <div class="d-flex justify-content-between align-items-center">
 										  치료 후 결과
+										  
+										  <div class="rating" data-vote="0" style="width:55%;">
+											
+											<div class="star hidden">
+											  <span class="full"data-value="0"></span>
+											  <span class="half"data-value="0"></span>
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="1"></span>
+											  <span class="half" data-value="0.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="2"></span>
+											  <span class="half" data-value="1.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="3"></span>
+											  <span class="half" data-value="2.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="4"></span>
+											  <span class="half" data-value="3.5"></span>
+											  <span class="selected"></span>
+										  
+											</div>
+										  
+											<div class="star">
+										  
+											  <span class="full" data-value="5"></span>
+											  <span class="half" data-value="4.5"></span>
+											  <span class="selected"></span>
+											  
+											</div>
+											
+											<div class="score" style="float:right;">
+												<span class="score-rating js-score result">0</span>
+												<input type="hidden" id="result" name="result">
+												<span>/</span>
+												<span class="total">5</span>
+											</div>
+										</div>
+										
+										<script>
+											$(function(){
+												$(".star").click(function(){
+													var result = $(".result").text();
+													
+													console.log(result);
+													$("#result").val(result);
+												})
+											})
+										
+										</script>
+										 
 										  
 									  </div>
 								  </div>
@@ -801,7 +1187,6 @@ body {
 				</div>
 			</div>
 	
-			
 	
 			<div class="summit-content-box mx-auto p-5 mt-4">
 				<div class="row mb-4">
@@ -816,14 +1201,14 @@ body {
 				<div class="row">
 					<div class="col-sm-10 offset-sm-1">
 						<div class="card-group border-0">
-							<div class="card border-0 d-flex justify-content-center">
-								<img src="https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/goodface.svg" class="img-fluid" alt="Responsive image" id="goodface">
+							<div class="card border-0 d-flex justify-content-center smile">
+								<label for="good_suggest_input"><span class="material-icons md-180">sentiment_satisfied_alt</span></label>
 								<div class="card-body">
 									<input type="radio" name="suggest" value="true" id="good_suggest_input">
 								</div>
 							</div>
-							<div class="card border-left-0 border-top-0 border-bottom-0 d-flex justify-content-center">
-								<img src="https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/wrongface.svg" class="img-fluid" alt="Responsive image" id="wrongface">
+							<div class="card border-left-0 border-top-0 border-bottom-0 d-flex justify-content-center sad">
+								<label for="wrong_suggest_input"><span class="material-icons md-180">sentiment_dissatisfied</span></label>
 								<div class="card-body">
 									<input type="radio" name="suggest" value="false" id="wrong_suggest_input">
 								</div>
@@ -832,7 +1217,25 @@ body {
 	
 					</div>
 				</div>
-
+				
+				<script>
+					$(function(){
+						$(".smile").click(function(){
+							$(this).css({"color" : "#007ee5"});
+							$(".sad").css({"color" : "black"});
+						})
+					});
+					
+					$(function(){
+						$(".sad").click(function(){
+							$(this).css({"color" : "#007ee5"});
+							$(".smile").css({"color" : "black"});
+						})
+					})
+				
+				
+				</script>
+				
 			</div>
 
 			<div class="row mt-5 mb-5 pt-3">
@@ -851,392 +1254,61 @@ body {
 	
 	
 	<script>
-	
-	function openNextPage(url){
-		var past_url = $.QueryString.past_url;
-		if (past_url){
-			ga('send', 'pageview', '/complex_review/from_doctor_page/');
-			window.location.href = decodeURIComponent($.QueryString.past_url);
-		} else {
-			var xhr = new XMLHttpRequest();
-			// 다음 위치가 정상적인 상태인지 확인 후 진행
-			xhr.onreadystatechange = function() {
-				if(xhr.readyState == 4 && xhr.status == 200) {
-					window.location.href = url;
-				}
-				if(xhr.status == 403) {
-					// do whatever
-				}
+		function checkValidate(){
+			
+			var comment = $("#comment").val();
+			var reg= /^[가-힣ㄱ-ㅎa-zA-Z0-9]{200,10000000}$/;
+			
+			
+			if($("#hospital_name").val()==""){
+				alert("병원을 선택해주세요.");
+				return false;
+			}else if($("#receipt_image").val()==""){
+				alert("인증자료를 업로드해주세요.");
+				return false;
+				
+			}else if($("#kindness").val()==0){
+				alert("직원의 친절 별점을 입력해주세요.");
+				return false;
+				
+			}else if($("#waitingTm").val()==0){
+				alert("짧은 대기시간 별점을 입력해주세요.");
+				return false;
+				
+			}else if($("#sanitary").val()==0){
+				alert("청결함 별점을 입력해주세요.");
+				return false;
+				
+			}else if($("#explanation").val()==0){
+				alert("치료에 대한 자세한 설명 별점을 입력해주세요.");
+				return false;
+				
+			}else if($("#price").val()==0){
+				alert("적절한 금액 별점을 입력해주세요.");
+				return false;
+				
+			}else if($("#result").val()==0){
+				alert("치료 후 결과 별점을 입력해주세요.");
+				return false;
+			}else if(!reg.test(comment)){
+				alert("200자 이상의 병원 리뷰를 작성해주세요.");
+				return false;
+			}else if(!$("#good_suggest_input").prop("checked") && !$("#wrong_suggest_input").prop("checked")){
+				alert("좋아요 여부를 선택해주세요.");
+				return false;
+				
 			}
-			xhr.open('head',url);
-			xhr.send();
+			
+			return true;
+			
+			
 		}
-	}
-	// sentry error reporting for ajax error
-	$(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
-		Sentry.setExtra("type", ajaxSettings.type)
-		Sentry.setExtra("url", ajaxSettings.url)
-		Sentry.setExtra("data", ajaxSettings.data)
-		Sentry.setExtra("status", jqXHR.status)
-		Sentry.setExtra("error", thrownError || jqXHR.statusText)
-		Sentry.setExtra("response.substring(0, 300)", jqXHR.responseText.substring(0, 300))
-		Sentry.captureMessage(thrownError || jqXHR.statusText, 'fatal');
-	});
 	
-	$(document).ready(function(){
-		// 실수로 모두닥, 리뷰이벤트 하기 버튼 클릭하여 초기화되는 문제를 위해
-		// 링크 비활성화 하기.
-		
-		
-		// 여기부분! img태그의 표정 색칠하기
-		// suggest필드의 표정색칠하기
-		$(function() {
-			$('#wrong_suggest_input').click(function(){
-				$('#goodface').attr('src','https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/goodface.svg');
-				$('#wrongface').attr('src','https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/wrongface_color.svg');
-			})
-			$('#good_suggest_input').click(function(){
-				$('#goodface').attr('src','https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/goodface_color.svg');
-				$('#wrongface').attr('src','https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/wrongface.svg');
-			})
-		// 사진을 눌러도 된다.
-			$('#goodface').click(function(){
-				$('#goodface').attr('src','https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/goodface_color.svg');
-				$('#wrongface').attr('src','https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/wrongface.svg');
-				$('#wrong_suggest_input').prop('checked', false);
-				$('#good_suggest_input').prop('checked', true);
-			})
-			$('#wrongface').click(function(){
-				$('#wrongface').attr('src','https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/wrongface_color.svg');
-				$('#goodface').attr('src','https://d23zwvh2kbhdec.cloudfront.net/static_20_07_08/img/mdd_event/goodface.svg');
-				$('#good_suggest_input').prop('checked', false);
-				$('#wrong_suggest_input').prop('checked', true);
-			})
-	
-		});
-	
-		
-		// 리뷰 제출하기.
-		$(document).ready(function() {
-			$('#receipt_image').fileinput({
-				browseClass: "btn btn-blackcontent btn-block p-3",
-				browseLabel: "인증자료 첨부하기",
-				language: 'kr',
-				uploadAsync: false,
-				initialPreviewFileType: 'image',
-				showUpload: false,
-				showCaption: false,
-				showRemove: false,
-				dropZoneEnabled: false,
-				fileActionSettings: {
-					showUpload: false,
-					showZoom: true,
-					showDrag: false
-				},
-			});
-			$('#cei_hospital').fileinput({
-				browseClass: "btn btn-outline-secondary btn-block p-3",
-				language: 'kr',
-				browseLabel: "병원사진 찾기",
-				uploadUrl: "/",
-				uploadAsync: false,
-				showUpload: false,
-				showCaption: false,
-				showRemove: false,
-				fileActionSettings: {
-					showUpload: false,
-					showZoom: true,
-					showDrag: false
-				},
-				dropZoneEnabled: false,
-				minFileCount: 2,
-				maxFileCount: 5,
-				overwriteInitial: false,
-			});
-			$('#cei_treatment').fileinput({
-				browseClass: "btn btn-outline-secondary btn-block p-3",
-				language: 'kr',
-				browseLabel: "치료사진 찾기",
-				uploadUrl: "/",
-				uploadAsync: false,
-				showUpload: false,
-				showCaption: false,
-				showRemove: false,
-				fileActionSettings: {
-					showUpload: false,
-					showZoom: true,
-					showDrag: false
-				},
-				dropZoneEnabled: false,
-				minFileCount: 0,
-				maxFileCount: 5,
-				overwriteInitial: false,
-				initialPreviewAsData: false,
-				initialPreviewFileType: 'image',
-			});
-			// 회원이 영수증 증빙자료를 선택할 때.
-			$('#receipt_image').on('change', function() {
-				var files = $('#receipt_image')[0].files;
-				var file = files[0];
-				if(!file){
-					return alert("이미지 파일을 고르지 않았습니다!");
-				}
-				$('#receipt_image_url').val(file.name);
-			});
-	
-			// bootstrap star rating.
-			$('#score_service_kindness').rating({
-				min: 0,
-				max: 10,
-				step: 1,
-				theme: 'krajee-fas',
-				clearButton: '',
-				starCaptions: {1: '1/10점', 2: '2/10점', 3: '3/10점', 4: '4/10점', 5: '5/10점', 6: '6/10점', 7: '7/10점', 8: '8/10점', 9: '9/10점', 10: '10/10점'},
-				starCaptionClasses: function(val) {
-					return 'badge badge-default';
-				},
-				captionElement: "#kv-caption-kindness",
-				clearCaption: ''
-			});
-			$('#score_service_clarity').rating({
-				min: 0,
-				max: 10,
-				step: 1,
-				theme: 'krajee-fas',
-				clearButton: '',
-				starCaptions: {1: '1/10점', 2: '2/10점', 3: '3/10점', 4: '4/10점', 5: '5/10점', 6: '6/10점', 7: '7/10점', 8: '8/10점', 9: '9/10점', 10: '10/10점'},
-				starCaptionClasses: function(val) {
-					return 'badge badge-default';
-				},
-				captionElement: "#kv-caption-clarity",
-				clearCaption: ''
-			});
-			$('#score_service_waiting').rating({
-				min: 0,
-				max: 10,
-				step: 1,
-				theme: 'krajee-fas',
-				clearButton: '',
-				starCaptions: {1: '1/10점', 2: '2/10점', 3: '3/10점', 4: '4/10점', 5: '5/10점', 6: '6/10점', 7: '7/10점', 8: '8/10점', 9: '9/10점', 10: '10/10점'},
-				starCaptionClasses: function(val) {
-					return 'badge badge-default';
-				},
-				captionElement: "#kv-caption-waiting",
-				clearCaption: ''
-			});
-			$('#score_treatment_cost').rating({
-				min: 0,
-				max: 10,
-				step: 1,
-				theme: 'krajee-fas',
-				clearButton: '',
-				starCaptions: {1: '1/10점', 2: '2/10점', 3: '3/10점', 4: '4/10점', 5: '5/10점', 6: '6/10점', 7: '7/10점', 8: '8/10점', 9: '9/10점', 10: '10/10점'},
-				starCaptionClasses: function(val) {
-					return 'badge badge-default';
-				},
-				captionElement: "#kv-caption-cost",
-				clearCaption: ''
-			});
-			$('#score_treatment_explain').rating({
-				min: 0,
-				max: 10,
-				step: 1,
-				theme: 'krajee-fas',
-				clearButton: '',
-				starCaptions: {1: '1/10점', 2: '2/10점', 3: '3/10점', 4: '4/10점', 5: '5/10점', 6: '6/10점', 7: '7/10점', 8: '8/10점', 9: '9/10점', 10: '10/10점'},
-				starCaptionClasses: function(val) {
-					return 'badge badge-default';
-				},
-				captionElement: "#kv-caption-explain",
-				clearCaption: ''
-			});
-			$('#score_treatment_outcome').rating({
-				min: 0,
-				max: 10,
-				step: 1,
-				theme: 'krajee-fas',
-				clearButton: '',
-				starCaptions: {1: '1/10점', 2: '2/10점', 3: '3/10점', 4: '4/10점', 5: '5/10점', 6: '6/10점', 7: '7/10점', 8: '8/10점', 9: '9/10점', 10: '10/10점'},
-				starCaptionClasses: function(val) {
-					return 'badge badge-default';
-				},
-				captionElement: "#kv-caption-outcome",
-				clearCaption: ''
-			});
-	
-	
-			$('#register-submit-form').on('submit', function(e) {
-				e.preventDefault();
-				var files = $('#receipt_image')[0].files;
-				var file = files[0];
-				if(!file){
-					return alert("영수증 자료를 업로드하지 않으셨습니다!");
-				}
-				$('#wrap-loading-text1').text("작성하신 리뷰를 열심히 업로드 중입니다.")
-				$('#wrap-loading-text2').text("10초만 기다려주세요 :)")
-	
-				// 리뷰 제출 시작
-				$.ajax({
-					url: "/mdd_event/s3_direct_upload/?file_name=" + file.name + '&file_type=' + file.type,
-					type: 'GET',
-					cache: false,
-					success: function(data){
-						var response = data;
-						var postData = new FormData();
-						for(key in response.data.fields){
-							postData.append(key, response.data.fields[key]);
-						}
-						postData.append('file', file);
-						var receipt_image_new_name = response.receipt_image_new_name;
-						// upload image file
-						$.ajax({
-							url: response.data.url,
-							type: 'POST',
-							processData: false,
-							contentType: false,
-							data: postData,
-							success: function(data, textStatus, xhr) {
-								var formData2 = new FormData();
-								formData2.append('hospital_name', $('#hospital_name').val());
-								formData2.append('doctor_name', $('#doctor_name').val());
-								formData2.append('hospital_id', $('#hospital_id').val());
-								formData2.append('doctor_id', $('#doctor_id').val());
-								formData2.append('receipt_image_new_name', receipt_image_new_name);
-								formData2.append('original_image_name', $('#receipt_image_url').val());
-								formData2.append('score_service_kindness', $('#score_service_kindness').val());
-								formData2.append('score_service_waiting', $('#score_service_waiting').val());
-								formData2.append('score_service_clarity', $('#score_service_clarity').val());
-								formData2.append('score_treatment_explain', $('#score_treatment_explain').val());
-								formData2.append('score_treatment_cost', $('#score_treatment_cost').val());
-								formData2.append('score_treatment_outcome', $('#score_treatment_outcome').val());
-								formData2.append('comment', $('#comment').val());
-								formData2.append('treatment_essay', $('#treatment_essay').val());
-								formData2.append('price_essay', $('#price_essay').val());
-								// formData2.append('price_content', $('#price_content').val());
-								formData2.append('suggest', $('input:radio[name=suggest]:checked').val());
-								formData2.append('reference', $('#reference').val());
-								
-								formData2.append('is_public', $('#is_public').is(":checked"));
-	
-								var treatment_category_ids = new Array();
-								var prices = new Array();
-								var price_details = new Array();
-								$('.tc-price').each(function (index, item) {
-									prices.push($(item).val());
-									treatment_category_ids.push($(item).data("value"));
-								});
-								$('.price-detail').each(function (index, item) {
-									price_details.push($(item).val());
-								});
-								formData2.append('treatment_category_ids', JSON.stringify(treatment_category_ids));
-								formData2.append('prices', JSON.stringify(prices));
-								formData2.append('price_details', JSON.stringify(price_details));
-								// 리뷰정보 업데이트.
-								$.ajax({
-									url: "/mdd_event/ajax_review_submit/",
-									type: 'POST',
-									data: formData2,
-									cache : false,
-									contentType: false,
-									processData: false,
-									success: function(data) {
-										if(data.status === 'success'){
-											var files_cei_hospital = $('#cei_hospital').fileinput('getFileList');
-											var files_cei_treatment = $('#cei_treatment').fileinput('getFileList');
-											var files_cei = files_cei_hospital.concat(files_cei_treatment);
-											// 업로드된 병원, 치료사진이 없으면 5단계 페이지로 바로 넘어가기.
-											if (!files_cei) {
-												openNextPage("/mdd_event/get_5step/");
-											}
-											var requestData = [];
-											for (i=0; i < files_cei_hospital.length; i++){
-												var ele_file_i = {
-													file_type: files_cei_hospital[i].type,
-													original_image_name: files_cei_hospital[i].name,
-													category: 1,
-													rs_id: data.rs_id
-												};
-												requestData.push(ele_file_i);
-											}
-											for (k=0; k < files_cei_treatment.length; k++){
-												var ele_file_k = {
-													file_type: files_cei_treatment[k].type,
-													original_image_name: files_cei_treatment[k].name,
-													category: 2,
-													rs_id: data.rs_id
-												};
-												requestData.push(ele_file_k);
-											}
-											var formData3 = new FormData();
-											formData3.append('data', JSON.stringify(requestData));
-											$.ajax({
-												url: "/mdd_event/s3_direct_upload_cei/",
-												type: 'POST',
-												data: formData3,
-												cache : false,
-												contentType: false,
-												processData: false,
-												success: function(data){
-													var deferred = [];
-													for (j=0; j < data.length; j++){
-														var postData = new FormData();
-														for(key in data[j].presigned_post.fields){
-															postData.append(key, data[j].presigned_post.fields[key]);
-														}
-														postData.append('file', files_cei[j]);
-														deferred.push(
-															$.ajax({
-																url: data[j].presigned_post.url,
-																type: 'POST',
-																processData: false,
-																contentType: false,
-																data: postData,
-															})
-														);
-													}
-													
-													$.when.apply($, deferred).then(function() {
-														openNextPage("/mdd_event/get_5step/");
-													});
-												},
-												failure: function(err){}
-											});
-										} else if (data === 'fail') {
-											toastr['error']('리뷰 제출 실패하였습니다');
-										} else if (data === 'not_self_identified') {
-											window.location.replace('/mdd_event/');
-										} else {
-											// toastr['error']('리뷰 제출 실패하였습니다');
-											alert('리뷰 제출에 실패하였습니다. 하단에 표시된 에러내용을 확인 후 다시 제출해주세요!');
-											$('.errors-info-review-submit').html(data);
-										}
-									},
-									complete: function() {
-										$('.wrap-loading').addClass('display-none');
-									},
-									error: function(jqXHR, textStatus, errorThrown) {
-									}
-								});
-							},
-							complete: function() {
-							},
-							error: function(jqXHR, textStatus, errorThrown) {
-							}
-						});
-					},
-					complete: function() {
-					},
-					error: function(jqXHR, textStatus, errorThrown) {
-					}
-				});
-			});
-		
-	
-
 	</script>
 	
 	
-
+	
+	
 	 <%@ include file="../static/footer.jsp" %>
 	
 	<!--====== Javascripts & Jquery ======-->

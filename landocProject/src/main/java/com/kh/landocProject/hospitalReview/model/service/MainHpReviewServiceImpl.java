@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.landocProject.hospitalReview.model.dao.MainHpReviewDao;
+import com.kh.landocProject.hospitalReview.model.vo.HpReview;
 import com.kh.landocProject.hospitalReview.model.vo.SearchHp;
 
 @Service
@@ -19,6 +20,13 @@ public class MainHpReviewServiceImpl implements MainHpReviewService{
 		
 		
 		return MainHpReDao.selectList(hpName);
+	}
+
+	@Override
+	public int insertHpRe(HpReview hpRe) {
+		
+		System.out.println(MainHpReDao.insertHpRe(hpRe));
+		return MainHpReDao.insertHpRe(hpRe);
 	}
 	
 	

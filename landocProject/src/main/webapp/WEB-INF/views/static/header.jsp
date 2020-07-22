@@ -8,7 +8,19 @@
 		</a>
 		<ul class="main-menu">
 			<li><a href="#">병원찾기</a></li>
-			<li><a href="hpReviewInsert.do">리뷰쓰기</a></li>
+			
+			<!-- 로그인 유저가 없을 시 로그인 페이지로 이동 -->
+			<c:if test="${empty loginClient }">
+				<c:url var="loginPage" value="loginView.do">
+					<c:param name="noLoginUser" value="noLoginUser"/>
+				</c:url>
+				<li><a href="${loginPage }">리뷰쓰기</a></li>
+			</c:if>
+			
+			<c:if test="${!empty loginClient }">
+				<li><a href="hpReviewInsert.do">리뷰쓰기</a></li>
+			</c:if>
+			
 			<li><a href="askDr.do">의사에게 물어봐</a></li>
 			<li><a href="productIndex.do">의사추천 영양제</a></li>
 

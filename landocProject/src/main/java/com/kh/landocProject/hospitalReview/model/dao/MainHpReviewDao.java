@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kh.landocProject.hospitalReview.model.vo.HpReview;
 import com.kh.landocProject.hospitalReview.model.vo.SearchHp;
 
 @Repository
@@ -20,5 +21,11 @@ public class MainHpReviewDao {
 	public ArrayList<SearchHp> selectList(String hpName) {
 	
 		return (ArrayList)sqlSessionTemplate.selectList("MainHpReviewMapper.selectHpList",hpName);
+	}
+
+
+	public int insertHpRe(HpReview hpRe) {
+		
+		return sqlSessionTemplate.insert("MainHpReviewMapper.insertHpRe", hpRe);
 	}
 }
