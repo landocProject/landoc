@@ -1,5 +1,6 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Wed Jul 22 18:36:49 KST 2020
+#Wed Jul 22 23:03:56 KST 2020
 spring-security-web-5.3.2.RELEASE.jar>central=
 spring-security-web-5.3.2.RELEASE.pom>central=
+spring-security-web-5.3.2.RELEASE-javadoc.jar>central=
 spring-security-web-5.3.2.RELEASE-sources.jar>central=

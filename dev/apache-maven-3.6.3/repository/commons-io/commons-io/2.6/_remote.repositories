@@ -1,5 +1,6 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Wed Jul 22 18:36:55 KST 2020
+#Wed Jul 22 23:04:03 KST 2020
 commons-io-2.6.pom>central=
+commons-io-2.6-javadoc.jar>central=
 commons-io-2.6-sources.jar>central=
 commons-io-2.6.jar>central=
