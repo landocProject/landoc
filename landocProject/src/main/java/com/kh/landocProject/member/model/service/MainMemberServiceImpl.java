@@ -61,18 +61,19 @@ public class MainMemberServiceImpl implements MainMemberService{
 		return mDao.joinDrClient2(d);
 	}
 
+	// 파일제출(재직,사업자)
 	@Override
 	public int insertFile1(DrhpPhoto dhp) {
 		
 		return mDao.insertFile1(dhp);
 	}
-
+	// 파일제출(신분증)
 	@Override
 	public int insertFile2(DrhpPhoto dhp) {
 	
 		return mDao.insertFile2(dhp);
 	}
-
+	// 파일제출(의사면허증)
 	@Override
 	public int insertFile3(DrhpPhoto dhp) {
 

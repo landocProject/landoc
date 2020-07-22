@@ -100,7 +100,7 @@
 							회원이라구요?
 						</span>
 
-						<a class="txt2" href="login.html">
+						<a class="txt2" href="loginView.do">
 							로그인
 						</a>
 					</div>

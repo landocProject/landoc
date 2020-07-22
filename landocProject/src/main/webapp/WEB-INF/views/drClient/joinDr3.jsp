@@ -84,21 +84,21 @@
 
 					<div>
 						<label class="file1">재직 증명서 또는 사업자 등록증</label>
-						<input class="fileBtn" type="file" id="input_img1" name="uploadFile1">
+						<input class="fileBtn" type="file" id="uploadImage1" name="uploadFile1">
 						<div class="fileBox">
-							<img class="fileImg" id="img1"/>
+							<img class="fileImg" id="imagePreview1"/>
 						</div>
 
 						<label class="file2">신분증</label>
-						<input type="file" id="input_img2" name="uploadFile2">
+						<input type="file" id="uploadImage2" name="uploadFile2">
 						<div class="fileBox">
-							<img class="fileImg" id="img2"/>
+							<img class="fileImg" id="imagePreview2"/>
 						</div>
 
 						<label class="file2">의사 면허증</label>
-						<input type="file" id="input_img3" name="uploadFile3">
+						<input type="file" id="uploadImage3" name="uploadFile3">
 						<div class="fileBox">
-							<img class="fileImg" id="img3"/>
+							<img class="fileImg" id="imagePreview3"/>
 						</div>
 					</div>
 
@@ -116,7 +116,7 @@
 							회원이라구요?
 						</span>
 
-						<a class="txt2" href="login.do">
+						<a class="txt2" href="loginView.do">
 							로그인
 						</a>
 					</div>
@@ -195,7 +195,130 @@
             }
         }
 		// 이미지 미리보여주기 end */
-		
+		/*  function setThumbnail1(event) { 
+            var reader = new FileReader(); reader.onload = function(event) { 
+               var img = document.createElement("img"); img.setAttribute("src", event.target.result);
+               document.querySelector("div#thumb-receipt1").appendChild(img); }; 
+               reader.readAsDataURL(event.target.files[0]);
+            
+
+               if($("#thumb-receipt1").find('img')){
+                     $("#remove1").show();
+                     
+                     
+                 }
+            	
+               }
+		 function setThumbnail2(event) { 
+	            var reader = new FileReader(); reader.onload = function(event) { 
+	               var img = document.createElement("img"); img.setAttribute("src", event.target.result);
+	               document.querySelector("div#thumb-receipt2").appendChild(img); }; 
+	               reader.readAsDataURL(event.target.files[0]);
+	            
+
+	               if($("#thumb-receipt2").find('img')){
+	                     $("#remove2").show();
+	                    
+	                 }
+	            	
+	               }
+		 function setThumbnail3(event) { 
+	            var reader = new FileReader(); reader.onload = function(event) { 
+	               var img = document.createElement("img"); img.setAttribute("src", event.target.result);
+	               document.querySelector("div#thumb-receipt3").appendChild(img); }; 
+	               reader.readAsDataURL(event.target.files[0]);
+	            
+
+	               if($("#thumb-receipt3").find('img')){
+	                     $("#remove3").show();
+	                    
+	                 }
+	            	
+	               } */
+               
+               
+        /*  $(function(){
+            $("#remove1").on("click",function(){
+               $("#thumb-receipt1").html("");
+               $(this).hide();
+            })
+         })
+         $(function(){
+            $("#remove2").on("click",function(){
+               $("#thumb-receipt2").html("");
+               $(this).hide();
+            })
+         })
+         $(function(){
+            $("#remove3").on("click",function(){
+               $("#thumb-receipt3").html("");
+               $(this).hide();
+          
+            })
+         }) */
+         
+         
+         
+         
+         
+         
+         function readUploadImage1(inputObject){
+	          if(inputObject.files && inputObject.files[0]){
+	        	  if(!(/image/i).test(inputObject.files[0].type)){
+	        		  alert("이미지 파일을 선택해 주세요");
+	        		  return false;
+	        	  }
+	        	  
+	        	  var reader = new FileReader();
+	        	  
+	        	  reader.onload = function(e){
+	        		  $("#imagePreview1").attr("src", e.target.result);
+	        	  }
+	        	  reader.readAsDataURL(inputObject.files[0]);
+	          }  	   
+	     }
+	               
+	     $("#uploadImage1").change(function(){
+	    	 readUploadImage1(this);
+	     }) 
+	      function readUploadImage2(inputObject){
+	          if(inputObject.files && inputObject.files[0]){
+	        	  if(!(/image/i).test(inputObject.files[0].type)){
+	        		  alert("이미지 파일을 선택해 주세요");
+	        		  return false;
+	        	  }
+	        	  
+	        	  var reader = new FileReader();
+	        	  
+	        	  reader.onload = function(e){
+	        		  $("#imagePreview2").attr("src", e.target.result);
+	        	  }
+	        	  reader.readAsDataURL(inputObject.files[0]);
+	          }  	   
+	     }
+	               
+	     $("#uploadImage2").change(function(){
+	    	 readUploadImage2(this);
+	     })   
+	      function readUploadImage3(inputObject){
+	          if(inputObject.files && inputObject.files[0]){
+	        	  if(!(/image/i).test(inputObject.files[0].type)){
+	        		  alert("이미지 파일을 선택해 주세요");
+	        		  return false;
+	        	  }
+	        	  
+	        	  var reader = new FileReader();
+	        	  
+	        	  reader.onload = function(e){
+	        		  $("#imagePreview3").attr("src", e.target.result);
+	        	  }
+	        	  reader.readAsDataURL(inputObject.files[0]);
+	          }  	   
+	     }
+	               
+	     $("#uploadImage3").change(function(){
+	    	 readUploadImage3(this);
+	     })    
 		
 	</script>
 </html>

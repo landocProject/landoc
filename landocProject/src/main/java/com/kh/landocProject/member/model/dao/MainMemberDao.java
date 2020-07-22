@@ -19,27 +19,27 @@ public class MainMemberDao {
 //		System.out.println(c);
 		return sqlSessionTemplate.insert("memberMapper.joinClient", c);
 	}
-
+	// 일반회원 로그인
 	public Client loginClient(Client c) {
 	
 		return sqlSessionTemplate.selectOne("memberMapper.loginClient", c);
 	}
-
+	// 의사회원 로그인
 	public DrClient loginDoctor(DrClient d) {
 	
 		return sqlSessionTemplate.selectOne("memberMapper.loginDrClient", d);
 	}
-
+	// 일반회원 아이디 찾기
 	public Client searchClient(Client c) {
 
 		return sqlSessionTemplate.selectOne("memberMapper.searchIdClient", c);
 	}
-
+	// 의사회원 아이디 찾기
 	public DrClient searchDoctor(DrClient d) {
 
 		return sqlSessionTemplate.selectOne("memberMapper.searchIdDrClient", d);
 	}
-
+	// 의사 회원가입
 	public int joinDrClient(DrClient d) {
 		
 		return sqlSessionTemplate.insert("memberMapper.joinDrClient", d);
@@ -50,17 +50,17 @@ public class MainMemberDao {
 		
 		return sqlSessionTemplate.selectOne("memberMapper.joinDrClient2", d);
 	}
-	
+	// 파일제출(재직,사업자)
 	public int insertFile1(DrhpPhoto dhp) {
 		
 		return sqlSessionTemplate.insert("memberMapper.insertFile1", dhp);
 	}
-
+	// 파일제출(신분증)
 	public int insertFile2(DrhpPhoto dhp) {
 	
 		return sqlSessionTemplate.insert("memberMapper.insertFile2", dhp);
 	}
-
+	// 파일제출(의사면허증)
 	public int insertFile3(DrhpPhoto dhp) {
 
 		return sqlSessionTemplate.insert("memberMapper.insertFile3", dhp);

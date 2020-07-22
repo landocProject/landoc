@@ -64,21 +64,6 @@ public class MainMemberController {
 		return "drClient/joinDr";
 	}
 	
-//	@RequestMapping(value="joinDr2.do", method=RequestMethod.GET)
-//	public String joinDrClient2() {
-//		return "drClient/joinDr2";
-//	}
-	
-//	@RequestMapping(value="joinDr3.do", method=RequestMethod.GET)
-//	public String joinDrClient3() {
-//		return "drClient/joinDr3";
-//	}
-//	
-//	@RequestMapping(value="joinDr4.do", method=RequestMethod.GET)
-//	public String joinDrClient4() {
-//		return "drClient/joinDr4";
-//	}
-	
 	@RequestMapping(value="searchIdView.do", method=RequestMethod.GET)
 	public String searchId() {
 		return "member/searchId";
@@ -105,7 +90,7 @@ public class MainMemberController {
 	}
 	
 	
-	// 암호화 처리 일반 회원가입_진교
+	// 암호화 처리 일반 회원가입_start_진교
 		@RequestMapping(value="joinClient.do", method=RequestMethod.POST)
 		public String memberInsert(Client c, Model model,
 									@RequestParam("address1") String address1,
@@ -130,8 +115,9 @@ public class MainMemberController {
 				throw new MainMemberException("회원 가입 실패!");
 			}
 		}
+		// 암호화 처리 일반 회원가입_end_진교
 	
-		// 암호화 처리 로그인_진교
+		// 암호화 처리 로그인_start_진교
 		@RequestMapping(value="memberLogin.do", method=RequestMethod.POST)
 		public String memberLogin(Client c, DrClient d, Model model, @RequestParam("check") String check) {
 			
@@ -163,8 +149,9 @@ public class MainMemberController {
 			}
 			return "home";
 		}
+		// 암호화 처리 로그인_end_진교
 		
-		// 아이디 찾기_진교
+		// 아이디 찾기_start_진교
 		@RequestMapping(value="searchId.do")
 		public String searchId(Client c, DrClient d, Model model, 
 								@RequestParam("check") String check,
@@ -206,6 +193,7 @@ public class MainMemberController {
 			return "member/login";
 		
 		}
+		// 아이디 찾기_end_진교
 		
 		// 로그아웃_진교
 		@RequestMapping(value="logout.do")
@@ -215,7 +203,7 @@ public class MainMemberController {
 			return "home";
 		}
 		
-		// 의사 회원가입1(암호화 처리, 메일 인증)_진교
+		// 의사 회원가입1(암호화 처리, 메일 인증)_start_진교
 		@RequestMapping(value="joinDrClient.do", method=RequestMethod.POST)
 		public ModelAndView joinDrClient(DrClient d,
 										HttpServletRequest request,
@@ -318,8 +306,9 @@ public class MainMemberController {
 			}
 			
 		}
+		// 의사 회원가입1(암호화 처리, 메일 인증)_end
 		
-		// 의사 회원가입2(인증번호 입력)_진교
+		// 의사 회원가입2(인증번호 입력)_start_진교
 		@RequestMapping(value="joinDrClient2.do")
 		public ModelAndView loginDrClient2(DrClient d, String message, @RequestParam String dice, @RequestParam String email,
 											HttpServletResponse response_equals) throws IOException{
@@ -364,7 +353,9 @@ public class MainMemberController {
 			
 			return mv;
 		}
+		// 의사 회원가입2(인증번호 입력)_end
 		
+		// 의사 회원가입3(파일제출)_진교_start
 		@RequestMapping("joinDrClient3.do")
 		public String insertFile1(HttpServletRequest request, DrhpPhoto dhp, DrClient d,
 				@RequestParam("drNo") String drNo, @RequestParam("hpNo") String hpNo,
@@ -372,27 +363,24 @@ public class MainMemberController {
 				@RequestParam(value="uploadFile2", required=false) MultipartFile file2,
 				@RequestParam(value="uploadFile3", required=false) MultipartFile file3) {
 	
-			System.out.println("drNo : " + drNo);
-			System.out.println("hpNo : " + hpNo);
-			System.out.println("file1 : " + file1);
-			System.out.println("file2 : " + file2);
-			System.out.println("file3 : " + file3);
+//			System.out.println("drNo : " + drNo);
+//			System.out.println("hpNo : " + hpNo);
+//			System.out.println("file1 : " + file1);
+//			System.out.println("file2 : " + file2);
+//			System.out.println("file3 : " + file3);
 			
 			
 			
 			if(!file1.getOriginalFilename().equals("")) {
 				String renameFileName1 = saveFile(file1, request);
 				
-				System.out.println("오리진 파일1 : " + file1.getOriginalFilename());
-				System.out.println("renameFileName1 : " + renameFileName1);
-				System.out.println();
+//				System.out.println("오리진 파일1 : " + file1.getOriginalFilename());
+//				System.out.println("renameFileName1 : " + renameFileName1);
+//				System.out.println();
 				
 				dhp.setDrhpOrigin(file1.getOriginalFilename());
 				
 				dhp.setDrhpRename(renameFileName1);
-				
-				
-				
 				
 			}
 			int result1 = mService.insertFile1(dhp);
@@ -402,7 +390,7 @@ public class MainMemberController {
 				if(!file2.getOriginalFilename().equals("")) {
 					String renameFileName2 = saveFile(file2, request);
 					
-					System.out.println("오리진 파일2 : " + file2.getOriginalFilename());
+//					System.out.println("오리진 파일2 : " + file2.getOriginalFilename());
 					
 					dhp.setDrhpOrigin(file2.getOriginalFilename());
 					
@@ -416,7 +404,7 @@ public class MainMemberController {
 					if(!file3.getOriginalFilename().equals("")) {
 						String renameFileName3 = saveFile(file3, request);
 						
-						System.out.println("오리진 파일3 : " + file3.getOriginalFilename());
+//						System.out.println("오리진 파일3 : " + file3.getOriginalFilename());
 						
 						dhp.setDrhpOrigin(file3.getOriginalFilename());
 						
@@ -426,8 +414,6 @@ public class MainMemberController {
 					int result3 = mService.insertFile3(dhp);
 					
 					if(result3 > 0) {
-						// 의사회원 파일제출 여부
-//						int result = mService.drFileUpdate(d);(보류)
 						return "drClient/joinDr4";
 					}else {
 						throw new MainMemberException("게시글 등록 실패!");
@@ -453,7 +439,7 @@ public class MainMemberController {
 				folder.mkdirs();
 			}
 			
-			// 난수 생성
+			// 난수 생성(renameFileName이 겹쳐서)
 			StringBuffer temp = new StringBuffer();
 			Random rnd = new Random();
 			for(int i = 0; i < 5; i++) {
@@ -478,7 +464,7 @@ public class MainMemberController {
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 			String originFileName = file.getOriginalFilename();
-			String renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis()))+dice
+			String renameFileName = sdf.format(new java.sql.Date(System.currentTimeMillis())) + dice
 							+ "." + originFileName.substring(originFileName.lastIndexOf(".")+1);
 			
 			String filePath = folder + "\\" + renameFileName;
@@ -490,6 +476,7 @@ public class MainMemberController {
 			}
 			return renameFileName;
 		}
+		// 의사 회원가입3(파일 제출)_end
 		
 				
 		
