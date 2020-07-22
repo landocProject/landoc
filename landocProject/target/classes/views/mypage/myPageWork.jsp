@@ -129,7 +129,7 @@
 			
 			<div class="row mt-3" id="myOrderSub" style="display: none;" >
                 <div class="btn w-100 py-3 pl-5 text-left" id="" style="border: 2px solid #9b9b9b; font-size: 21px;">
-					<a href="myOrderList.html">주문목록</a><br>
+					<a href="myOrderList.do">주문목록</a><br>
 					<a href="#">주문취소/교환/반품 목록</a>
 				</div>
 			</div>

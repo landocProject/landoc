@@ -10,16 +10,15 @@
       <typeAlias type="com.kh.landocProject.member.model.vo.DrClient" alias="DrClient"/>
       <typeAlias type="com.kh.landocProject.member.model.vo.DrhpPhoto" alias="DrhpPhoto"/>
       <typeAlias type="com.kh.landocProject.askDr.model.vo.AskDrBoard" alias="AskDrBoard"/>
-	  <typeAlias type="com.kh.landocProject.hospitalReview.model.vo.SearchHp" alias="SearchHp"/>
+        <typeAlias type="com.kh.landocProject.hospitalReview.model.vo.SearchHp" alias="SearchHp"/>
       <typeAlias type="com.kh.landocProject.cmypage.model.vo.LikeHp" alias="LikeHp"/>
       <typeAlias type="com.kh.landocProject.cmypage.model.vo.PdReview" alias="PdReview"/>
-
+      <typeAlias type="com.kh.landocProject.cmypage.model.vo.OrderList" alias="OrderList"/>
    </typeAliases>
 
    <mappers>
   	 <mapper resource="/mappers/member-mapper.xml"/>
   	 <mapper resource="/mappers/askDr-mapper.xml"/>
-  	 <mapper resource="/mappers/mainHpReview-mapper.xml"/>
   	 <mapper resource="/mappers/cMypage-mapper.xml"/>
    </mappers>
 </configuration>
