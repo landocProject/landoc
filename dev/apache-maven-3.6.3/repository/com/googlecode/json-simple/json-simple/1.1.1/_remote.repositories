@@ -1,6 +1,5 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Wed Jul 22 23:04:05 KST 2020
+#Wed Jul 22 17:32:09 KST 2020
 json-simple-1.1.1.jar>central=
 json-simple-1.1.1-sources.jar>central=
 json-simple-1.1.1.pom>central=
-json-simple-1.1.1-javadoc.jar>central=
