@@ -49,6 +49,7 @@
                 <option>병원 번호</option>
                 <option>병원 이름</option>
                 <option>카테고리</option>
+                <option>회원 번호</option>
                 <option>승인 여부</option>
             </select>
             <input type="text">
@@ -59,50 +60,34 @@
         <!--테이블 부분-->
         <table id="contentTb">
             <tr>
-                <th class="firstLine">번호</th>
+            	<th class="firstLine">리뷰 번호</th>
                 <th class="firstLine">병원 번호</th>
                 <th class="firstLine">병원 이름</th>
-                <th class="firstLine">제목</th>
+                <th class="firstLine">회원 번호</th>
                 <th class="firstLine">아이디</th>
-                <th class="firstLine">닉네임</th>
                 <th class="firstLine">좋아요 여부</th>
-                <th class="firstLine">평균 별점</th>
+                <th class="firstLine">평균별점</th>
                 <th class="firstLine">작성 날짜</th>
-                <th class="firstLine">인증 여부</th>
+                <th class="firstLine">영수증 인증 여부</th>
                 <th class="firstLine">영수증 인증</th>
                 
             </tr>
             <tr>
-                <td>R01</td>
+            	<td>1</td>
                 <td>H01</td>
                 <td>bumseokHospital</td>
-                <td>이 병원 진짜 좋아여</td>
+                <td>C01</td>
                 <td>bumseok</td>
-                <td>코딩왕 고범석</td>
-                <td>좋아요</td>
-                <td>10</td>
-                <td>2020/07/06</td>
+                <td>Y</td>
+                <td>8.6</td>
+                <td>2020/07/23</td>
                 <td>Y</td>
                 <td>
                     <button onclick="hpReviewDetail();">인증</button>
                 </td>
             </tr>
            
-            <tr>
-                <td>R01</td>
-                <td>H01</td>
-                <td>bumseokHospital</td>
-                <td>이 병원 진짜 좋아여!</td>
-                <td>bumseok</td>
-                <td>코딩왕 고범석</td>
-                <td>좋아요</td>
-                <td>10</td>
-                <td>2020/07/06</td>
-                <td>Y</td>
-                <td>
-                    <button onclick="hpReviewDetail();">인증</button>
-                </td>
-            </tr>
+            
 
         </table>
 
