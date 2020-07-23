@@ -239,6 +239,14 @@
 		   <version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/classworlds/classworlds -->
+		<dependency>
+		    <groupId>classworlds</groupId>
+		    <artifactId>classworlds</artifactId>
+		    <version>1.1-alpha-2</version>
+		</dependency>
+		
+		
 	</dependencies>
     <build>
         <plugins>
